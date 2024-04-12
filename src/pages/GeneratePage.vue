@@ -1,11 +1,39 @@
-// app global css in SCSS form
-.q-page {
+<template>
+  <q-layout view="hHh Lpr lff">
+    <q-page-container>
+      <q-page class="generate-page q-pa-md">
+        <q-card class="profile">profile</q-card>
+        <q-card class="history">history</q-card>
+        <q-card class="cover">cover</q-card>
+        <q-card class="prompt">prompt</q-card>
+        <q-card class="upload">upload</q-card>
+        <q-card class="genre">genre</q-card>
+        <q-card class="output">output</q-card>
+        <q-card class="duration">duration</q-card>
+      </q-page>
+    </q-page-container>
+  </q-layout>
+</template>
+
+<script setup>
+defineOptions({
+  name: "GeneratePage",
+});
+</script>
+
+<style scoped lang="scss">
+.generate-page {
   width: 100%;
   height: 100%;
+
+  display: grid;
+  background-color: $primary;
+  grid-template-columns: repeat(23, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  gap: 5px;
+  grid-auto-rows: minmax(100px, auto);
 }
-.index {
-  display: flex;
-}
+/*
 .generate {
   display: grid;
   background-color: $primary;
@@ -94,3 +122,5 @@
   border-radius: 10px;
   margin: 10px;
 }
+*/
+</style>
