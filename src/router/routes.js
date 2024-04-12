@@ -19,6 +19,10 @@ const routes = [
     path: "/recognize",
     component: () => import("pages/RecognizePage.vue"),
   },
+  {
+    path: "/home",
+    component: () => import("pages/HomePage.vue"),
+  },
 ];
 
 export default routes;
