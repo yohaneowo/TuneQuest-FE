@@ -1,50 +1,43 @@
 <template>
   <div :class="$style.homepage">
-    <section :class="$style.ellipseParent">
+    <div :class="$style.ellipseParent">
       <div :class="$style.frameChild" />
       <div :class="$style.frameItem" />
       <div :class="$style.frameInner" />
-    </section>
-    <section :class="$style.homepageInner">
-      <div :class="$style.frameParent">
-        <div :class="$style.aRevolutionaryMusicToolParent">
-          <div :class="$style.aRevolutionaryMusic">
-            A Revolutionary Music Tool.
-          </div>
-          <div :class="$style.tunequestWrapper">
-            <div :class="$style.tunequest">TuneQuest</div>
+    </div>
+    <img
+      :class="$style.homepageChild"
+      alt=""
+      src="/src/assets/MusicGen-BGremove-ColorInvert_ReOrder.png"
+    />
+    <div :class="$style.frameParent">
+      <div :class="$style.aRevolutionaryMusicToolParent">
+        <div :class="$style.aRevolutionaryMusic">
+          A Revolutionary Music Tool.
+        </div>
+        <div :class="$style.tunequest">TuneQuest</div>
+      </div>
+      <div :class="$style.wrapper">
+        <div :class="$style.div">生成屬於您獨一無二的音樂。</div>
+      </div>
+      <div :class="$style.bottoms">
+        <div :class="$style.generateWrapper">
+          <div :class="$style.generate" @click="navigateToPage('/generate')">
+            生成 Generate
           </div>
         </div>
-        <div :class="$style.textFastWrapper">
-          <div :class="$style.textCenter">Our technology performing fast.</div>
+        <div :class="$style.searchWrapper">
+          <div :class="$style.generate" @click="navigateToPage('/search')">
+            查詢 Search
+          </div>
+        </div>
+        <div :class="$style.generateWrapper">
+          <div :class="$style.generate" @click="navigateToPage('/recognize')">
+            上傳 Upload
+          </div>
         </div>
       </div>
-    </section>
-    <section :class="$style.themePictureParent">
-      <img
-        :class="$style.themePicture"
-        loading="lazy"
-        alt=""
-        src="src/assets/themePicture.png"
-      />
-      <div :class="$style.frameGroup">
-        <button
-          :class="$style.generateWrapper"
-          @click="$router.push('/generate')"
-        >
-          <div :class="$style.generate">生成 Generate</div>
-        </button>
-        <button :class="$style.searchWrapper">
-          <div :class="$style.search">查詢 Search</div>
-        </button>
-        <button
-          :class="$style.uploadWrapper"
-          @click="$router.push('/recognize')"
-        >
-          <div :class="$style.upload">上傳 Upload</div>
-        </button>
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 <script>
@@ -52,58 +45,68 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "HomePage",
+  methods: {
+    navigateToPage(path) {
+      this.$router.push(path);
+    },
+  },
 });
 </script>
-
 <style module>
 .frameChild {
-  height: 462px;
-  flex: 1;
+  width: 464px;
   position: relative;
   border-radius: 50%;
-  background-color: rgba(133, 147, 232, 0.2);
+  background-color: #8593e8;
   filter: blur(200px);
-  min-width: 302px;
-  max-width: 100%;
+  height: 462px;
+  opacity: 0.2;
 }
 .frameItem {
-  height: 467px;
-  flex: 1;
+  width: 467px;
   position: relative;
   border-radius: 50%;
-  background-color: rgba(93, 110, 243, 0.2);
+  background-color: #5d6ef3;
   filter: blur(250px);
-  min-width: 304px;
-  max-width: 100%;
+  height: 467px;
+  opacity: 0.2;
 }
 .frameInner {
-  height: 446px;
   width: 446px;
   position: relative;
   border-radius: 50%;
-  background-color: rgba(252, 79, 246, 0.2);
+  background-color: #fc4ff6;
   filter: blur(200px);
-  max-width: 100%;
+  height: 446px;
+  opacity: 0.2;
 }
 .ellipseParent {
-  width: 1377px;
   margin: 0 !important;
   position: absolute;
-  bottom: -2px;
+  top: 652px;
   left: calc(50% - 688.5px);
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: flex-start;
-  row-gap: 20px;
-  max-width: 100%;
+  justify-content: space-between;
+  z-index: 0;
+}
+.homepageChild {
+  width: 92vw;
+  max-width: 1600px;
+  margin: 0 !important;
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  height: auto;
+  max-height: 95vh;
+  object-fit: cover;
+  z-index: 1;
 }
 .aRevolutionaryMusic {
-  height: 101px;
+  align-self: stretch;
   position: relative;
-  align-items: center;
-  justify-content: center;
+  text-align: left;
   letter-spacing: 0.02em;
   font-weight: 500;
   background: linear-gradient(
@@ -115,260 +118,111 @@ export default defineComponent({
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
 }
 .tunequest {
+  align-self: stretch;
   position: relative;
   letter-spacing: 0.02em;
   font-weight: 500;
-}
-.tunequestWrapper {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 0px var(--padding-3xl) 0px var(--padding-xl);
   text-align: left;
 }
 .aRevolutionaryMusicToolParent {
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) var(--padding-3xs) var(--padding-3xs) 60px;
+  font-size: var(--font-size-61xl);
 }
-.textCenter {
-  width: 723px;
+.div {
   position: relative;
   letter-spacing: 0.72px;
   line-height: 33px;
-  display: inline-block;
-  flex-shrink: 0;
-  max-width: 100%;
 }
-.textFastWrapper {
-  width: 989px;
+.wrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 0px var(--padding-xl);
-  box-sizing: border-box;
-  max-width: 100%;
-  font-size: var(--font-size-xl);
+  padding: var(--padding-8xs) 0px var(--padding-8xs) var(--padding-51xl);
+  text-align: left;
   font-family: var(--font-open-sans);
 }
-.frameParent {
-  width: 1008px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 15px;
-  max-width: 100%;
-}
-.homepageInner {
-  width: 1590px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  max-width: 100%;
-  flex-shrink: 0;
-  text-align: center;
-  font-size: var(--font-size-61xl);
-  color: var(--color-white);
-  font-family: var(--font-outfit);
-}
-.themePicture {
-  height: 619px;
-  flex: 1;
-  position: relative;
-  bottom: 0;
-  max-width: 100%;
-  overflow: hidden;
-  object-fit: cover;
-  z-index: 2;
-}
 .generate {
-  width: 134px;
   position: relative;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-space-grotesk);
-  color: var(--color-white);
-  text-align: center;
-  display: inline-block;
 }
 .generateWrapper {
-  cursor: pointer;
-  border: 2px solid var(--color-fuchsia-100);
-  padding: var(--padding-3xl) var(--padding-11xl);
-  background-color: var(--color-black);
-  width: 198px;
   border-radius: var(--br-81xl);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-fuchsia-100);
   box-sizing: border-box;
+  height: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-width: 129px;
-  white-space: nowrap;
-  z-index: 2;
+  padding: 0px var(--padding-13xl);
 }
 .generateWrapper:hover {
-  background-color: var(--color-darkslategray);
-  border: 2px solid var(--color-fuchsia-200);
-  box-sizing: border-box;
-}
-.search {
-  width: 113px;
-  position: relative;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-space-grotesk);
-  color: var(--color-white);
-  text-align: center;
-  display: inline-block;
-  min-width: 113px;
+  background-color: rgba(194, 146, 210); /* Change to the color you want */
+  transition: background-color 0.4s ease; /* Smooth transition */
 }
 .searchWrapper {
-  cursor: pointer;
-  border: 2px solid var(--color-white);
-  padding: var(--padding-3xl) var(--padding-11xl);
-  background-color: var(--color-black);
-  width: 177px;
   border-radius: var(--br-81xl);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-white);
   box-sizing: border-box;
+  height: 70px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  white-space: nowrap;
-  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  padding: 0px var(--padding-13xl);
 }
 .searchWrapper:hover {
-  background-color: var(--color-darkslategray);
-  border: 2px solid #e6e6e6;
-  box-sizing: border-box;
+  background-color: rgba(194, 146, 210); /* Change to the color you want */
+  transition: background-color 0.4s ease; /* Smooth transition */
 }
-.upload {
-  width: 113px;
-  position: relative;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-space-grotesk);
-  color: var(--color-white);
-  text-align: center;
-  display: inline-block;
-  min-width: 113px;
-}
-.uploadWrapper {
-  cursor: pointer;
-  border: 2px solid var(--color-fuchsia-100);
-  padding: var(--padding-3xl) var(--padding-11xl);
-  background-color: var(--color-black);
-  width: 177px;
-  border-radius: var(--br-81xl);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  z-index: 3;
-}
-.uploadWrapper:hover {
-  background-color: var(--color-darkslategray);
-  border: 2px solid var(--color-fuchsia-200);
-  box-sizing: border-box;
-}
-.frameGroup {
-  width: 586px;
-  margin: 0 !important;
-  position: absolute;
-  top: -9px;
-  left: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 17px;
-  max-width: 100%;
-  z-index: 3;
-}
-.themePictureParent {
+.bottoms {
   align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-mini) 0px var(--padding-mini) var(--padding-51xl);
+  gap: 10px;
+  font-family: var(--font-space-grotesk);
+  z-index: 999;
+}
+.frameParent {
+  width: auto;
+  margin: 0 !important;
+  position: absolute;
+  top: 248px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  position: relative;
-  max-width: 100%;
-  flex-shrink: 0;
+  padding: 30px;
+  box-sizing: border-box;
   z-index: 2;
 }
 .homepage {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   position: relative;
   background-color: var(--color-black);
+  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
-  padding: 256px 59px 545px;
-  box-sizing: border-box;
-  gap: 40px;
-  line-height: normal;
-  letter-spacing: normal;
-  z-index: 1;
-}
-
-@media screen and (max-width: 1225px) {
-  .homepage {
-    height: auto;
-  }
-}
-@media screen and (max-width: 1050px) {
-  .homepage {
-    padding-left: var(--padding-10xl);
-    padding-right: var(--padding-10xl);
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 750px) {
-  .aRevolutionaryMusic {
-    font-size: var(--font-size-21xl);
-  }
-
-  .tunequest {
-    font-size: var(--font-size-21xl);
-  }
-}
-@media screen and (max-width: 450px) {
-  .aRevolutionaryMusic {
-    font-size: var(--font-size-5xl);
-  }
-
-  .tunequest {
-    font-size: var(--font-size-5xl);
-  }
-
-  .ourTechnologyPerforming {
-    font-size: 16px;
-    line-height: 26px;
-  }
-
-  .homepage {
-    gap: 20px;
-  }
-}
-
-body {
-  margin: 0;
-  line-height: normal;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-outfit);
 }
 
 :root {
@@ -379,22 +233,19 @@ body {
 
   /* font sizes */
   --font-size-xl: 20px;
-  --font-size-61xl: 68px;
-  --font-size-5xl: 24px;
-  --font-size-21xl: 40px;
+  --font-size-61xl: 72px;
 
   /* Colors */
   --color-black: #000;
   --color-fuchsia-100: #ff3bff;
-  --color-fuchsia-200: #e621e6;
-  --color-darkslategray: #333;
   --color-white: #fff;
 
   /* Paddings */
-  --padding-10xl: 29px;
-  --padding-3xl: 22px;
-  --padding-11xl: 30px;
-  --padding-xl: 20px;
+  --padding-mini: 15px;
+  --padding-51xl: 70px;
+  --padding-13xl: 32px;
+  --padding-8xs: 5px;
+  --padding-3xs: 10px;
 
   /* Border radiuses */
   --br-81xl: 100px;
