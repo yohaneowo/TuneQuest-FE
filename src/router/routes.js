@@ -23,6 +23,10 @@ const routes = [
     path: "/home",
     component: () => import("pages/HomePage.vue"),
   },
+  {
+    path: "/search",
+    component: () => import("pages/SearchPage.vue"),
+  },
 ];
 
 export default routes;
