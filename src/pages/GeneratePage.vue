@@ -22,7 +22,7 @@
       <q-page class="generate-page q-pa-md">
         <q-card class="profile">profile</q-card>
         <q-card class="history">history</q-card>
-        <q-card class="cover">cover</q-card>
+        <box_Cover></box_Cover>
         <q-card class="prompt">prompt</q-card>
         <q-card class="upload">upload</q-card>
         <box_Genre></box_Genre>
@@ -36,6 +36,7 @@
 <script setup>
 import box_Genre from "src/components/box_Genre.vue";
 import box_Output from "src/components/box_Output.vue";
+import box_Cover from "src/components/box_Cover.vue";
 
 defineOptions({
   name: "GeneratePage",
