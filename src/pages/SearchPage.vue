@@ -1,3 +1,6 @@
+import AudioPlayer from 'vue3-audio-player' import
+'vue3-audio-player/dist/style.css'
+
 <template>
   <div :class="$style.desktop21Dark">
     <section :class="$style.frameParent">
@@ -6,28 +9,58 @@
           <div :class="$style.searchBar">
             <div :class="$style.searchBar1" />
             <q-input
+              :class="$style.customInput"
               v-model="text"
               :dense="dense"
-              style="color: white; font-size: var(--font-size-26xl)"
+            />
+            <q-btn-toggle
+              :class="$style.searchToggle"
+              v-model="model"
+              class="searchtoggle"
+              no-caps
+              rounded
+              unelevated
+              toggle-color="primary"
+              color="white"
+              text-color="primary"
+              size="20px"
+              :options="[
+                { label: '語意', value: 'one' },
+                { label: '關鍵字', value: 'two' },
+              ]"
             />
           </div>
         </div>
         <div :class="$style.resultBlock">
-          <div :class="$style.textSection">Text 1</div>
-          <div :class="$style.textSection">Text 2</div>
-          <div :class="$style.textSection">Text 3</div>
-          <div :class="$style.textSection">Text 4</div>
-          <div :class="$style.textSection">Text 5</div>
+          <div :class="$style.textSection">Result 1...</div>
+          <div :class="$style.textSection">Result 2...</div>
+          <div :class="$style.textSection">Result 3...</div>
+          <div :class="$style.textSection">Result 4...</div>
+          <div :class="$style.textSection">Result 5...</div>
         </div>
       </div>
-      <div :class="$style.descriptionText">Text 6</div>
-      <q-btn unelevated rounded color="primary" label="使用" />
-      <div :class="$style.musicCover" id="musicCover"></div>
+      <div :class="$style.musicCover" id="musicCover">
+        <q-uploader
+          align="center"
+          style="max-width: 300px"
+          url="http://localhost:4444/upload"
+          label="Restricted to Audio"
+          dark
+          accept=".wav, audio/*"
+          @rejected="onRejected"
+        />
+      </div>
     </section>
     <section :class="$style.promptBlock">
       <div :class="$style.promptBlockContainer">
-        <div :class="$style.descriptionText">Text 6</div>
-        <q-btn unelevated rounded color="primary" label="使用" />
+        <div :class="$style.descriptionText">Description...</div>
+        <q-btn
+          unelevated
+          rounded
+          color="primary"
+          label="使用"
+          :class="$style.promptButton"
+        />
       </div>
     </section>
   </div>
@@ -39,6 +72,7 @@ import { ref } from "vue";
 const text = ref("");
 const ph = ref("");
 const dense = ref(false);
+const model = ref("one");
 </script>
 
 <style module>
@@ -58,6 +92,30 @@ const dense = ref(false);
   display: none;
   mix-blend-mode: normal;
   z-index: 0;
+}
+.customInput {
+  width: 68%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  bottom: 5%;
+  color: white;
+  font-size: var(--font-size-26xl);
+}
+.searchToggle {
+  padding: 0 2.5% 0 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  max-width: 100%;
+  bottom: 0;
+  color: white;
+  font-size: var(--font-size-26xl);
 }
 .b {
   width: 47.97%;
@@ -82,7 +140,7 @@ const dense = ref(false);
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-mini) var(--padding-31xl-6);
+  padding: var(--padding-mini) 0 var(--padding-mini) var(--padding-31xl-6);
   position: relative;
   max-width: 100%;
 }
@@ -99,6 +157,7 @@ const dense = ref(false);
 }
 .resultBlock {
   align-self: stretch;
+  padding-top: 1%;
   height: 406px;
   position: relative;
   border-radius: var(--br-21xl);
@@ -109,10 +168,19 @@ const dense = ref(false);
 }
 .textSection {
   margin-left: 40px;
-  padding: 7px;
+  padding: 8px;
   color: #6b7c94;
   font-family: "Open Sans";
-  font-size: 48px;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+}
+.textSection:hover {
+  margin-left: 40px;
+  padding: 8px;
+  color: white;
+  font-family: "Open Sans";
+  font-size: 44px;
   font-style: normal;
   font-weight: 700;
 }
@@ -139,6 +207,12 @@ const dense = ref(false);
   align-items: center;
   max-width: 100%;
 }
+.promptButton {
+  width: 10%;
+  padding: 10px 20px; /* adjust as needed */
+  font-size: 28px; /* adjust as needed */
+  margin-right: 1vw;
+}
 .frameGroup {
   flex: 1;
   display: flex;
@@ -161,6 +235,16 @@ const dense = ref(false);
   border: 4px solid var(--color-lightslategray-100);
   box-sizing: border-box;
   min-width: 500px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uploadBotton {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  gap: var(--gap-mini);
   max-width: 100%;
 }
 .frameParent {
