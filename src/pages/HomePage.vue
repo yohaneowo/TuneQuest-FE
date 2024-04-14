@@ -92,18 +92,18 @@ export default defineComponent({
   z-index: 0;
 }
 .homepageChild {
-  width: 92vw;
-  max-width: 1600px;
-  margin: 0 !important;
-  position: absolute;
-  right: 0px;
-  bottom: 10px;
+  width: auto;
   height: auto;
-  max-height: 95vh;
-  object-fit: cover;
+  max-width: 90vw; /* viewport width */
+  max-height: 90vh; /* viewport height */
+  object-fit: contain;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
   z-index: 1;
 }
 .aRevolutionaryMusic {
+  width: auto;
   align-self: stretch;
   position: relative;
   text-align: left;
@@ -118,6 +118,7 @@ export default defineComponent({
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 5.125vw;
 }
 .tunequest {
   align-self: stretch;
@@ -125,15 +126,17 @@ export default defineComponent({
   letter-spacing: 0.02em;
   font-weight: 500;
   text-align: left;
+  font-size: 4.525vw;
 }
 .aRevolutionaryMusicToolParent {
+  width: auto;
   align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-3xs) var(--padding-3xs) var(--padding-3xs) 60px;
-  font-size: var(--font-size-61xl);
+  padding: var(--padding-3xs) var(--padding-3xs) var(--padding-3xs)
+    var(--padding-51xl);
 }
 .div {
   position: relative;
@@ -148,6 +151,7 @@ export default defineComponent({
   padding: var(--padding-8xs) 0px var(--padding-8xs) var(--padding-51xl);
   text-align: left;
   font-family: var(--font-open-sans);
+  font-size: 1.525vw;
 }
 .generate {
   position: relative;
@@ -185,21 +189,22 @@ export default defineComponent({
   transition: background-color 0.4s ease; /* Smooth transition */
 }
 .bottoms {
+  width: auto;
   align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--padding-mini) 0px var(--padding-mini) var(--padding-51xl);
+  padding: var(--padding-13xl) 0px var(--padding-13xl) var(--padding-51xl);
   gap: 10px;
   font-family: var(--font-space-grotesk);
   z-index: 999;
 }
 .frameParent {
-  width: auto;
+  width: 100%;
   margin: 0 !important;
-  position: absolute;
-  top: 248px;
+  position: relative;
+  top: 10%;
   left: 0px;
   display: flex;
   flex-direction: column;
