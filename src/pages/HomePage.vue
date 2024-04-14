@@ -42,8 +42,6 @@
 </template>
 
 <script setup>
-import { defineComponent } from "vue";
-
 const navigateToPage = (path) => {
   this.$router.push(path);
 };
