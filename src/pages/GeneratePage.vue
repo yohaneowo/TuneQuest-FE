@@ -1,5 +1,23 @@
 <template>
   <q-layout view="hHh Lpr lff">
+    <q-header elevated>
+      <q-toolbar>
+        <q-btn flat round dense icon="menu" class="q-mr-sm" />
+        <q-avatar>
+          <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+        </q-avatar>
+
+        <q-toolbar-title>TuneQuest</q-toolbar-title>
+
+        <q-btn flat round dense icon="whatshot" />
+        <q-tabs v-model="tab" align="right">
+          <q-tab name="logout" label="LogOut" />
+          <q-tab name="faq" label="FAQ" />
+          <q-tab name="report" label="Report" />
+        </q-tabs>
+      </q-toolbar>
+    </q-header>
+
     <q-page-container>
       <q-page class="generate-page q-pa-md">
         <q-card class="profile">profile</q-card>
@@ -7,8 +25,8 @@
         <q-card class="cover">cover</q-card>
         <q-card class="prompt">prompt</q-card>
         <q-card class="upload">upload</q-card>
-        <q-card class="genre">genre</q-card>
-        <q-card class="output">output</q-card>
+        <box_Genre></box_Genre>
+        <box_Output></box_Output>
         <q-card class="duration">duration</q-card>
       </q-page>
     </q-page-container>
@@ -16,6 +34,9 @@
 </template>
 
 <script setup>
+import box_Genre from "src/components/box_Genre.vue";
+import box_Output from "src/components/box_Output.vue";
+
 defineOptions({
   name: "GeneratePage",
 });

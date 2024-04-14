@@ -3,14 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap");
 
-.q-page {
-  width: 100%;
-  height: 100%;
-}
 .index {
   display: flex;
 }
-.generate {
+.generate-page {
   display: grid;
   background-color: $primary;
   grid-template-columns: repeat(23, 1fr);
