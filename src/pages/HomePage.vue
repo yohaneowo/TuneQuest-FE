@@ -95,7 +95,7 @@ export default defineComponent({
   width: auto;
   height: auto;
   max-width: 90vw; /* viewport width */
-  max-height: 90vh; /* viewport height */
+  max-height: 86vh; /* viewport height */
   object-fit: contain;
   position: absolute;
   right: 20px;

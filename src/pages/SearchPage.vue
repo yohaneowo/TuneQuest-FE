@@ -20,9 +20,14 @@
           <div :class="$style.textSection">Text 5</div>
         </div>
       </div>
-      <div :class="$style.musicCover" id="musicCover" />
+      <div :class="$style.musicCover" id="musicCover"></div>
     </section>
-    <section :class="$style.promptBlock" />
+    <section :class="$style.promptBlock">
+      <div :class="$style.promptBlockContainer">
+        <div :class="$style.descriptionText">Text 6</div>
+        <q-btn unelevated rounded color="primary" label="使用" />
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -115,6 +120,29 @@ export default defineComponent({
   font-style: normal;
   font-weight: 700;
 }
+.descriptionText {
+  height: 100%;
+  width: 85%;
+  margin: auto 40px;
+  padding: 7px;
+  color: white;
+  font-family: "Outfit";
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* align text vertically */
+  z-index: 1;
+}
+.promptBlockContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+}
 .frameGroup {
   flex: 1;
   display: flex;
@@ -172,7 +200,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 265px var(--padding-xl) 134px;
+  padding: 8vw var(--padding-xl) 4vw;
   box-sizing: border-box;
   gap: var(--gap-mini);
   line-height: normal;
