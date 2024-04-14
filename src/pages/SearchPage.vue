@@ -1,6 +1,3 @@
-import AudioPlayer from 'vue3-audio-player' import
-'vue3-audio-player/dist/style.css'
-
 <template>
   <div :class="$style.desktop21Dark">
     <section :class="$style.frameParent">
@@ -237,6 +234,7 @@ const model = ref("one");
   min-width: 500px;
   max-width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
