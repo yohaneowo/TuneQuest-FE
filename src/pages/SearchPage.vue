@@ -20,6 +20,8 @@
           <div :class="$style.textSection">Text 5</div>
         </div>
       </div>
+      <div :class="$style.descriptionText">Text 6</div>
+      <q-btn unelevated rounded color="primary" label="使用" />
       <div :class="$style.musicCover" id="musicCover"></div>
     </section>
     <section :class="$style.promptBlock">
@@ -30,19 +32,13 @@
     </section>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from "vue";
 
-export default defineComponent({
-  name: "SearchPage",
-  setup() {
-    return {
-      text: ref(""),
-      ph: ref(""),
-      dense: ref(false),
-    };
-  },
-});
+<script setup>
+import { ref } from "vue";
+
+const text = ref("");
+const ph = ref("");
+const dense = ref(false);
 </script>
 
 <style module>

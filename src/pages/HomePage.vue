@@ -40,18 +40,15 @@
     </div>
   </div>
 </template>
-<script>
+
+<script setup>
 import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "HomePage",
-  methods: {
-    navigateToPage(path) {
-      this.$router.push(path);
-    },
-  },
-});
+const navigateToPage = (path) => {
+  this.$router.push(path);
+};
 </script>
+
 <style module>
 .frameChild {
   width: 464px;
