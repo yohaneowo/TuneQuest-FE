@@ -20,7 +20,7 @@
               toggle-color="primary"
               color="white"
               text-color="primary"
-              size="20px"
+              size="1.375vw"
               :options="[
                 { label: '語意', value: 'one' },
                 { label: '關鍵字', value: 'two' },
@@ -38,6 +38,7 @@
       </div>
       <div :class="$style.musicCover" id="musicCover">
         <q-uploader
+          :class="$style.uploadBotton"
           align="center"
           style="max-width: 300px"
           url="http://localhost:4444/upload"
@@ -46,6 +47,7 @@
           accept=".wav, audio/*"
           @rejected="onRejected"
         />
+        <audioPlayer :class="$style.audioPlayer" />
       </div>
     </section>
     <section :class="$style.promptBlock">
@@ -64,7 +66,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { defineAsyncComponent, ref } from "vue";
+import audioPlayer from "src/components/audioPlayer.vue";
+
+// Using defineAsyncComponent to handle the dynamic import
+const MusicPlayer = defineAsyncComponent(() =>
+  import("components/audioPlayer").catch((error) => {
+    console.error("Failed to load MusicPlayer component", error);
+    // Optionally, return a fallback component or perform some error handling here
+  })
+);
+
+const isMusicPlayerLoaded = ref(false);
 
 const text = ref("");
 const ph = ref("");
@@ -91,7 +104,7 @@ const model = ref("one");
   z-index: 0;
 }
 .customInput {
-  width: 68%;
+  width: 60%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -240,26 +253,32 @@ const model = ref("one");
 }
 .uploadBotton {
   width: 100%;
-  height: 100%;
-  padding: 5%;
+  height: auto;
+  margin: 20% 20%;
   gap: var(--gap-mini);
   max-width: 100%;
 }
+.audioPlayer {
+  width: 98%;
+  height: auto;
+}
 .frameParent {
-  width: 1226px;
+  width: auto;
+  max-height: 60vh;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-start;
   gap: var(--gap-mini);
-  max-width: 100%;
+  max-width: 80%;
   text-align: left;
   font-size: var(--tunequest-fe-ui-1-desktop-headings-heading-3-size);
   color: var(--color-slategray-100);
   font-family: var(--tunequest-fe-ui-1-desktop-headings-heading-3);
 }
 .promptBlock {
-  width: 1233px;
+  width: 80%;
+  max-width: 100%;
   height: 110px;
   position: relative;
   border-radius: var(--spacing-xl);

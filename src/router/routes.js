@@ -27,6 +27,10 @@ const routes = [
     path: "/search",
     component: () => import("pages/SearchPage.vue"),
   },
+  {
+    path: "/player",
+    component: () => import("pages/audioPlayer.vue"),
+  },
 ];
 
 export default routes;
