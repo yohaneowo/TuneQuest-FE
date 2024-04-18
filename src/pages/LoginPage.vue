@@ -105,77 +105,54 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      emailRegex: /^[\w\.-]+@[\w\.-]+\.\w+$/,
-      passwordRegex: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/,
+<script setup>
+import { ref, computed } from "vue";
 
-      firstName: "",
-      lastName: "",
+const emailRegex = /^[\w\.-]+@[\w\.-]+\.\w+$/;
+const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
 
-      password: {
-        value: "",
-        error: false,
-      },
+const firstName = ref("");
+const lastName = ref("");
 
-      email: {
-        value: "",
-        error: false,
-      },
+const password = ref({
+  value: "",
+  error: false,
+});
 
-      signIn: true,
-    };
-  },
+const email = ref({
+  value: "",
+  error: false,
+});
 
-  methods: {
-    validateEmail(event) {
-      if (this.email.value == "") this.email.error = true;
-      else this.email.error = false;
-    },
+const signIn = ref(true);
 
-    validatePassword(event) {
-      if (this.password.value == "") this.password.error = true;
-      else this.password.error = false;
-    },
-  },
-
-  mounted() {
-    // this.$refs.email.focus();
-  },
-
-  computed: {
-    validFirstName() {
-      return this.firstName.length > 0;
-    },
-
-    validLastName() {
-      return this.lastName.length > 0;
-    },
-
-    emailValid() {
-      return this.emailRegex.test(this.email.value);
-    },
-
-    passwordValid() {
-      return this.password.value.length > 0;
-    },
-
-    loginValid() {
-      return this.emailValid && this.passwordValid;
-    },
-
-    registerValid() {
-      return (
-        this.emailValid &&
-        this.passwordValid &&
-        this.validFirstName &&
-        this.validLastName
-      );
-    },
-  },
+const validateEmail = () => {
+  if (email.value.value == "") email.value.error = true;
+  else email.value.error = false;
 };
+
+const validatePassword = () => {
+  if (password.value.value == "") password.value.error = true;
+  else password.value.error = false;
+};
+
+const validFirstName = computed(() => firstName.value.length > 0);
+
+const validLastName = computed(() => lastName.value.length > 0);
+
+const emailValid = computed(() => emailRegex.test(email.value.value));
+
+const passwordValid = computed(() => password.value.value.length > 0);
+
+const loginValid = computed(() => emailValid.value && passwordValid.value);
+
+const registerValid = computed(
+  () =>
+    emailValid.value &&
+    passwordValid.value &&
+    validFirstName.value &&
+    validLastName.value
+);
 </script>
 
 <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
