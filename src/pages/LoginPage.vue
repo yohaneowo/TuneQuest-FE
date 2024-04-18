@@ -223,6 +223,10 @@ input[type="password"] {
 }
 
 #app {
+  display: flex;
+  justify-content: center; /* align horizontally in the center */
+  align-items: center; /* align vertically in the center */
+  height: 100vh; /* take up the full viewport height */
 }
 
 .logo {
