@@ -16,7 +16,7 @@
             <q-route-tab to="/generate" label="生成" />
             <q-route-tab to="/search" label="搜尋" />
             <q-route-tab to="/recognize" label="上傳" />
-            <q-route-tab to="/page3" label="登入" />
+            <q-route-tab to="/login" label="登入" />
           </q-tabs>
         </div>
       </q-toolbar>
@@ -97,7 +97,7 @@ function toggleLeftDrawer() {
     </q-drawer>
   -->
 
-<style scoped>
+<style>
 .page-container {
   padding-top: 20px; /* 調整頂部間隙 */
   padding-left: 20px; /* 調整左邊欄間隙 */

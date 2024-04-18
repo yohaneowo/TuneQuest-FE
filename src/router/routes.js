@@ -31,6 +31,10 @@ const routes = [
     path: "/player",
     component: () => import("pages/audioPlayer.vue"),
   },
+  {
+    path: "/login",
+    component: () => import("pages/LoginPage.vue"),
+  },
 ];
 
 export default routes;
