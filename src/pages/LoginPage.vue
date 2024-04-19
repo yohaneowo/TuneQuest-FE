@@ -15,6 +15,7 @@
           <q-route-tab to="/generate" label="生成" />
           <q-route-tab to="/search" label="搜尋" />
           <q-route-tab to="/recognize" label="上傳" />
+          <q-route-tab to="/searchhelper" label="題詞小幫手" />
           <q-route-tab to="/login" label="登入" />
         </q-tabs>
       </q-toolbar>

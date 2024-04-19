@@ -1,0 +1,117 @@
+<template>
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
+      <q-toolbar>
+        <q-toolbar-title align="left">
+          <router-link to="/">
+            <q-avatar
+              ><img
+                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+            /></q-avatar>
+          </router-link>
+          TuneQuest
+        </q-toolbar-title>
+        <q-tabs align="right">
+          <q-route-tab to="/generate" label="生成" />
+          <q-route-tab to="/search" label="搜尋" />
+          <q-route-tab to="/recognize" label="上傳" />
+          <q-route-tab to="/searchhelper" label="題詞小幫手" />
+          <q-route-tab to="/login" label="登入" />
+        </q-tabs>
+      </q-toolbar>
+    </q-header>
+    <div class="search-helper">
+      <div class="search-container">
+        <div class="search-block">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="輸入你想要的提示詞"
+          />
+          <div class="buttons-container">
+            <button class="search-button">清除</button>
+            <button class="search-button">搜尋</button>
+          </div>
+        </div>
+
+        <div class="search-block">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="您的提示詞建議將顯示在這裡"
+          />
+          <button class="search-button">使用</button>
+        </div>
+      </div>
+    </div>
+  </q-layout>
+</template>
+
+<style>
+.search-helper {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2f3741;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #a9b5c6;
+  padding: 20px 20px 15px 20px;
+  margin: 0 10px;
+}
+
+.search-input {
+  width: 37.5vw;
+  height: 40vh;
+  border-radius: 10px;
+  background-color: #ebf3ff;
+  border: 1px solid #ccc;
+  padding: 25px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.search-button {
+  width: 150px;
+  height: 50px;
+  border-radius: 32px;
+  background-color: #566375;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  width: 150px;
+  height: 50px;
+  border-radius: 32px;
+  background-color: #667b99;
+  transition: background-color 0.2s ease; /* Smooth transition */
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+</style>

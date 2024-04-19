@@ -4,7 +4,7 @@
       <q-toolbar>
         <div class="flex-container">
           <q-toolbar-title align="left">
-            <router-link to="/home" class="no-underline">
+            <router-link to="/" class="no-underline">
               <q-avatar
                 ><img
                   src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
@@ -17,6 +17,7 @@
             <q-route-tab to="/generate" label="生成" />
             <q-route-tab to="/search" label="搜尋" />
             <q-route-tab to="/recognize" label="上傳" />
+            <q-route-tab to="/searchhelper" label="題詞小幫手" />
             <q-route-tab to="/login" label="登入" />
           </q-tabs>
         </div>

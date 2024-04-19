@@ -2,23 +2,22 @@
   <q-layout view="hHh lpR fFf">
     <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <div class="flex-container">
-          <q-toolbar-title align="left">
-            <router-link to="/home">
-              <q-avatar
-                ><img
-                  src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
-              /></q-avatar>
-            </router-link>
-            TuneQuest
-          </q-toolbar-title>
-          <q-tabs align="right">
-            <q-route-tab to="/generate" label="生成" />
-            <q-route-tab to="/search" label="搜尋" />
-            <q-route-tab to="/recognize" label="上傳" />
-            <q-route-tab to="/login" label="登入" />
-          </q-tabs>
-        </div>
+        <q-toolbar-title align="left">
+          <router-link to="/">
+            <q-avatar
+              ><img
+                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+            /></q-avatar>
+          </router-link>
+          TuneQuest
+        </q-toolbar-title>
+        <q-tabs align="right">
+          <q-route-tab to="/generate" label="生成" />
+          <q-route-tab to="/search" label="搜尋" />
+          <q-route-tab to="/recognize" label="上傳" />
+          <q-route-tab to="/searchhelper" label="題詞小幫手" />
+          <q-route-tab to="/login" label="登入" />
+        </q-tabs>
       </q-toolbar>
     </q-header>
     <div :class="$style.desktop21Dark">
@@ -89,6 +88,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  name: "SearchPage",
+});
+
 import { defineAsyncComponent, ref } from "vue";
 import audioPlayer from "src/components/audioPlayer.vue";
 

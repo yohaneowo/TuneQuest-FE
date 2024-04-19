@@ -3,7 +3,7 @@
     <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-toolbar-title align="left">
-          <router-link to="/home">
+          <router-link to="/">
             <q-avatar
               ><img
                 src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"

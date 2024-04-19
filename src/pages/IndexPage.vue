@@ -164,12 +164,12 @@ const navigateToPage = (path) => {
   background-color: var(--color-black);
   border: 2px solid var(--color-fuchsia-100);
   box-sizing: border-box;
-  height: 70px;
+  height: 65px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px var(--padding-13xl);
+  padding: 0px 24px;
 }
 .generateWrapper:hover {
   background-color: rgba(194, 146, 210); /* Change to the color you want */
@@ -180,12 +180,12 @@ const navigateToPage = (path) => {
   background-color: var(--color-black);
   border: 2px solid var(--color-white);
   box-sizing: border-box;
-  height: 70px;
+  height: 65px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px var(--padding-13xl);
+  padding: 0px 24px;
 }
 .searchWrapper:hover {
   background-color: rgba(194, 146, 210); /* Change to the color you want */
@@ -207,7 +207,7 @@ const navigateToPage = (path) => {
   width: 100%;
   margin: 0 !important;
   position: relative;
-  top: 10%;
+  top: 5%;
   left: 0px;
   display: flex;
   flex-direction: column;
@@ -221,7 +221,7 @@ const navigateToPage = (path) => {
   width: 100%;
   position: relative;
   background-color: var(--color-black);
-  height: 100vh;
+  height: calc(100vh - 50px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
