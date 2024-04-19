@@ -76,7 +76,7 @@ credit.value = 10;
   grid-column: 5 / span 6;
   padding: 1.25rem 0 1.25rem 1.25rem;
   grid-template-columns: auto 1fr;
-  transform: scale(1.5);
+  //transform: scale(1.5);
 }
 
 .item .q-item__section {

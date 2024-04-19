@@ -1,20 +1,25 @@
 <template>
-  <q-layout view="hHh Lpr lff">
-    <q-header elevated>
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <q-btn flat round dense icon="menu" class="q-mr-sm" />
-        <q-avatar>
-          <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-        </q-avatar>
-
-        <q-toolbar-title>TuneQuest</q-toolbar-title>
-
-        <q-btn flat round dense icon="whatshot" />
-        <q-tabs v-model="tab" align="right">
-          <q-tab name="logout" label="LogOut" />
-          <q-tab name="faq" label="FAQ" />
-          <q-tab name="report" label="Report" />
-        </q-tabs>
+        <div class="flex-container">
+          <q-toolbar-title align="left">
+            <router-link to="/home" class="no-underline">
+              <q-avatar
+                ><img
+                  src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+                />
+              </q-avatar>
+              TuneQuest
+            </router-link>
+          </q-toolbar-title>
+          <q-tabs align="right">
+            <q-route-tab to="/generate" label="生成" />
+            <q-route-tab to="/search" label="搜尋" />
+            <q-route-tab to="/recognize" label="上傳" />
+            <q-route-tab to="/login" label="登入" />
+          </q-tabs>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -49,13 +54,17 @@ defineOptions({
 </script>
 
 <style lang="scss">
+.no-underline {
+  color: inherit; /* 保留文字顏色 */
+  text-decoration: none; /* 移除下劃線 */
+}
 .generate-page {
   width: 100%;
   height: 100%;
   display: grid;
   background-color: $primary;
-  grid-template-columns: repeat(23, 1fr);
-  grid-template-rows: repeat(11, 1fr);
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(12, 1fr);
   gap: 5px;
   grid-auto-rows: minmax(100px, auto);
 }
@@ -65,8 +74,8 @@ defineOptions({
   align-items: center;
   align-content: flex-start;
   justify-content: flex-start;
-  grid-column: 2/7;
-  grid-row: 2/5;
+  grid-column: 3/8;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -75,8 +84,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 2/7;
-  grid-row: 5/11;
+  grid-column: 3/8;
+  grid-row: 4/10;
   border-radius: 10px;
   margin: 10px;
 }
@@ -85,8 +94,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 7/11;
-  grid-row: 2/5;
+  grid-column: 8/12;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -95,8 +104,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 7/23;
-  grid-row: 5/11;
+  grid-column: 8/24;
+  grid-row: 4/10;
   border-radius: 10px;
   margin: 10px;
   position: relative; // 設置父元素為相對定位
@@ -106,8 +115,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 17/23;
-  grid-row: 5/8;
+  grid-column: 18/24;
+  grid-row: 4/10;
   border-radius: 10px;
   margin: 10px;
 }
@@ -116,8 +125,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 17/23;
-  grid-row: 8/11;
+  grid-column: 18/24;
+  grid-row: 7/10;
   border-radius: 10px;
   margin: 10px;
 }
@@ -126,8 +135,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 11/20;
-  grid-row: 2/5;
+  grid-column: 12/21;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -136,8 +145,8 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 20/23;
-  grid-row: 2/5;
+  grid-column: 21/24;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
