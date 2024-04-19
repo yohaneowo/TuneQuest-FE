@@ -1,108 +1,132 @@
 <template>
-  <div id="app">
-    <div class="loginBox">
-      <div class="inner">
-        <div class="signIn" v-if="signIn">
-          <div class="top">
-            <img class="logo" src="src/assets/TuneQuest.png" />
-            <div class="title">登入</div>
-            <div class="subtitle">
-              還沒有帳號嗎？
-              <span class="subtitle-action" @click="signIn = !signIn">
-                建立一個帳號
-              </span>
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
+      <q-toolbar>
+        <q-toolbar-title align="left">
+          <router-link to="/home">
+            <q-avatar
+              ><img
+                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+            /></q-avatar>
+          </router-link>
+          TuneQuest
+        </q-toolbar-title>
+        <q-tabs align="right">
+          <q-route-tab to="/generate" label="生成" />
+          <q-route-tab to="/search" label="搜尋" />
+          <q-route-tab to="/recognize" label="上傳" />
+          <q-route-tab to="/login" label="登入" />
+        </q-tabs>
+      </q-toolbar>
+    </q-header>
+    <div id="app">
+      <div class="loginBox">
+        <div class="inner">
+          <div class="signIn" v-if="signIn">
+            <div class="top">
+              <img class="logo" src="src/assets/TuneQuest.png" />
+              <div class="title">登入</div>
+              <div class="subtitle">
+                還沒有帳號嗎？
+                <span class="subtitle-action" @click="signIn = !signIn">
+                  建立一個帳號
+                </span>
+              </div>
             </div>
+            <form>
+              <div class="form">
+                <input
+                  required
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-label="E-mail"
+                  type="email"
+                  pattern="^[\w\.-]+@[\w\.-]+\.\w+$"
+                  class="w100"
+                  :class="{ invalid: email.error }"
+                  ref="email"
+                  placeholder="Email"
+                  autofocus
+                  @blur="validateEmail"
+                  @keydown="validateEmail"
+                  v-model="email.value"
+                />
+
+                <input
+                  required
+                  aria-required="true"
+                  type="password"
+                  class="w100"
+                  :class="{ invalid: password.error }"
+                  placeholder="Password"
+                  v-model="password.value"
+                  @blur="validatePassword"
+                  @keydown="validatePassword"
+                />
+              </div>
+
+              <input
+                type="submit"
+                value="Submit"
+                class="action"
+                :class="{ 'action-disabled': !loginValid }"
+              />
+            </form>
           </div>
-          <form>
+
+          <div class="register" v-else>
+            <div class="top">
+              <img class="logo" src="src/assets/TuneQuest.png" />
+              <div class="title">建立一個帳號</div>
+              <div class="subtitle">
+                已經有帳號了？
+                <span class="subtitle-action" @click="signIn = !signIn">
+                  登入
+                </span>
+              </div>
+            </div>
+
             <div class="form">
               <input
-                required
-                aria-required="true"
-                aria-invalid="false"
-                aria-label="E-mail"
-                type="email"
-                pattern="^[\w\.-]+@[\w\.-]+\.\w+$"
-                class="w100"
-                :class="{ invalid: email.error }"
-                ref="email"
-                placeholder="Email"
+                type="text"
+                placeholder="First name"
                 autofocus
-                @blur="validateEmail"
-                @keydown="validateEmail"
-                v-model="email.value"
+                v-model="firstName"
+                class="w100"
               />
 
               <input
-                required
-                aria-required="true"
+                type="text"
+                placeholder="Last name"
+                v-model="lastName"
+                class="w100"
+              />
+
+              <input
+                type="text"
+                class="w100"
+                placeholder="Email"
+                v-model="email.value"
+              />
+              <input
                 type="password"
                 class="w100"
-                :class="{ invalid: password.error }"
                 placeholder="Password"
                 v-model="password.value"
-                @blur="validatePassword"
-                @keydown="validatePassword"
               />
             </div>
 
-            <input
-              type="submit"
-              value="Submit"
+            <button
               class="action"
-              :class="{ 'action-disabled': !loginValid }"
-            />
-          </form>
-        </div>
-
-        <div class="register" v-else>
-          <div class="top">
-            <img class="logo" src="src/assets/TuneQuest.png" />
-            <div class="title">建立一個帳號</div>
-            <div class="subtitle">
-              已經有帳號了？
-              <span class="subtitle-action" @click="signIn = !signIn">
-                登入
-              </span>
-            </div>
+              :class="{ 'action-disabled': !registerValid }"
+            >
+              Create Account
+            </button>
           </div>
-
-          <div class="form">
-            <input
-              type="text"
-              placeholder="First name"
-              autofocus
-              v-model="firstName"
-              class="w100"
-            />
-
-            <input
-              type="text"
-              placeholder="Last name"
-              v-model="lastName"
-              class="w100"
-            />
-
-            <input
-              type="text"
-              class="w100"
-              placeholder="Email"
-              v-model="email.value"
-            />
-            <input
-              type="password"
-              class="w100"
-              placeholder="Password"
-              v-model="password.value"
-            />
-          </div>
-
-          <button class="action" :class="{ 'action-disabled': !registerValid }">
-            Create Account
-          </button>
         </div>
       </div>
     </div>
-  </div>
+  </q-layout>
 </template>
 
 <script setup>
@@ -257,7 +281,7 @@ html {
   background-repeat: no-repeat;
   background: linear-gradient(
     to bottom,
-    rgba(96, 108, 136, 1) 0%,
+    rgba(47, 55, 65, 1) 0%,
     rgba(63, 76, 107, 1) 100%
   );
   background-size: cover;

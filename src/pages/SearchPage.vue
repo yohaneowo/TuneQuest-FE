@@ -320,7 +320,7 @@ const model = ref("one");
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 8vw var(--padding-xl) 4vw;
+  padding: 10vw var(--padding-xl) 4vw;
   box-sizing: border-box;
   gap: var(--gap-mini);
   line-height: normal;
