@@ -1,48 +1,111 @@
 <template>
-  <div :class="$style.desktop21Dark">
-    <section :class="$style.frameParent">
-      <div :class="$style.frameGroup">
-        <div :class="$style.searchBarWrapper">
-          <div :class="$style.searchBar">
-            <div :class="$style.searchBar1" />
-            <q-input
-              v-model="text"
-              :dense="dense"
-              style="color: white; font-size: var(--font-size-26xl)"
-            />
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
+      <q-toolbar>
+        <div class="flex-container">
+          <q-toolbar-title align="left">
+            <router-link to="/home">
+              <q-avatar
+                ><img
+                  src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+              /></q-avatar>
+            </router-link>
+            TuneQuest
+          </q-toolbar-title>
+          <q-tabs align="right">
+            <q-route-tab to="/generate" label="生成" />
+            <q-route-tab to="/search" label="搜尋" />
+            <q-route-tab to="/recognize" label="上傳" />
+            <q-route-tab to="/login" label="登入" />
+          </q-tabs>
+        </div>
+      </q-toolbar>
+    </q-header>
+    <div :class="$style.desktop21Dark">
+      <section :class="$style.frameParent">
+        <div :class="$style.frameGroup">
+          <div :class="$style.searchBarWrapper">
+            <div :class="$style.searchBar">
+              <div :class="$style.searchBar1" />
+              <q-input
+                :class="$style.customInput"
+                v-model="text"
+                :dense="dense"
+              />
+              <q-btn-toggle
+                :class="$style.searchToggle"
+                v-model="model"
+                class="searchtoggle"
+                no-caps
+                rounded
+                unelevated
+                toggle-color="primary"
+                color="white"
+                text-color="primary"
+                size="1.375vw"
+                :options="[
+                  { label: '語意', value: 'one' },
+                  { label: '關鍵字', value: 'two' },
+                ]"
+              />
+            </div>
+          </div>
+          <div :class="$style.resultBlock">
+            <div :class="$style.textSection">Result 1...</div>
+            <div :class="$style.textSection">Result 2...</div>
+            <div :class="$style.textSection">Result 3...</div>
+            <div :class="$style.textSection">Result 4...</div>
+            <div :class="$style.textSection">Result 5...</div>
           </div>
         </div>
-        <div :class="$style.resultBlock">
-          <div :class="$style.textSection">Text 1</div>
-          <div :class="$style.textSection">Text 2</div>
-          <div :class="$style.textSection">Text 3</div>
-          <div :class="$style.textSection">Text 4</div>
-          <div :class="$style.textSection">Text 5</div>
+        <div :class="$style.musicCover" id="musicCover">
+          <q-uploader
+            :class="$style.uploadBotton"
+            align="center"
+            style="max-width: 300px"
+            url="http://localhost:4444/upload"
+            label="Restricted to Audio"
+            dark
+            accept=".wav, audio/*"
+            @rejected="onRejected"
+          />
+          <audioPlayer :class="$style.audioPlayer" />
         </div>
-      </div>
-      <div :class="$style.musicCover" id="musicCover"></div>
-    </section>
-    <section :class="$style.promptBlock">
-      <div :class="$style.promptBlockContainer">
-        <div :class="$style.descriptionText">Text 6</div>
-        <q-btn unelevated rounded color="primary" label="使用" />
-      </div>
-    </section>
-  </div>
+      </section>
+      <section :class="$style.promptBlock">
+        <div :class="$style.promptBlockContainer">
+          <div :class="$style.descriptionText">Description...</div>
+          <q-btn
+            unelevated
+            rounded
+            color="primary"
+            label="使用"
+            :class="$style.promptButton"
+          />
+        </div>
+      </section>
+    </div>
+  </q-layout>
 </template>
-<script>
-import { defineComponent, ref } from "vue";
 
-export default defineComponent({
-  name: "SearchPage",
-  setup() {
-    return {
-      text: ref(""),
-      ph: ref(""),
-      dense: ref(false),
-    };
-  },
-});
+<script setup>
+import { defineAsyncComponent, ref } from "vue";
+import audioPlayer from "src/components/audioPlayer.vue";
+
+// Using defineAsyncComponent to handle the dynamic import
+const MusicPlayer = defineAsyncComponent(() =>
+  import("components/audioPlayer").catch((error) => {
+    console.error("Failed to load MusicPlayer component", error);
+    // Optionally, return a fallback component or perform some error handling here
+  })
+);
+
+const isMusicPlayerLoaded = ref(false);
+
+const text = ref("");
+const ph = ref("");
+const dense = ref(false);
+const model = ref("one");
 </script>
 
 <style module>
@@ -62,6 +125,30 @@ export default defineComponent({
   display: none;
   mix-blend-mode: normal;
   z-index: 0;
+}
+.customInput {
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  bottom: 5%;
+  color: white;
+  font-size: var(--font-size-26xl);
+}
+.searchToggle {
+  padding: 0 2.5% 0 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  max-width: 100%;
+  bottom: 0;
+  color: white;
+  font-size: var(--font-size-26xl);
 }
 .b {
   width: 47.97%;
@@ -86,7 +173,7 @@ export default defineComponent({
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-mini) var(--padding-31xl-6);
+  padding: var(--padding-mini) 0 var(--padding-mini) var(--padding-31xl-6);
   position: relative;
   max-width: 100%;
 }
@@ -103,6 +190,7 @@ export default defineComponent({
 }
 .resultBlock {
   align-self: stretch;
+  padding-top: 1%;
   height: 406px;
   position: relative;
   border-radius: var(--br-21xl);
@@ -113,10 +201,19 @@ export default defineComponent({
 }
 .textSection {
   margin-left: 40px;
-  padding: 7px;
+  padding: 8px;
   color: #6b7c94;
   font-family: "Open Sans";
-  font-size: 48px;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+}
+.textSection:hover {
+  margin-left: 40px;
+  padding: 8px;
+  color: white;
+  font-family: "Open Sans";
+  font-size: 44px;
   font-style: normal;
   font-weight: 700;
 }
@@ -127,7 +224,7 @@ export default defineComponent({
   padding: 7px;
   color: white;
   font-family: "Outfit";
-  font-size: 46px;
+  font-size: 38px;
   font-style: normal;
   font-weight: 700;
   display: flex;
@@ -142,6 +239,12 @@ export default defineComponent({
   flex-direction: row;
   align-items: center;
   max-width: 100%;
+}
+.promptButton {
+  width: 10%;
+  padding: 10px 20px; /* adjust as needed */
+  font-size: 28px; /* adjust as needed */
+  margin-right: 1vw;
 }
 .frameGroup {
   flex: 1;
@@ -166,22 +269,39 @@ export default defineComponent({
   box-sizing: border-box;
   min-width: 500px;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.uploadBotton {
+  width: 100%;
+  height: auto;
+  margin: 20% 20%;
+  gap: var(--gap-mini);
+  max-width: 100%;
+}
+.audioPlayer {
+  width: 98%;
+  height: auto;
 }
 .frameParent {
-  width: 1226px;
+  width: auto;
+  max-height: 60vh;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-start;
   gap: var(--gap-mini);
-  max-width: 100%;
+  max-width: 80%;
   text-align: left;
   font-size: var(--tunequest-fe-ui-1-desktop-headings-heading-3-size);
   color: var(--color-slategray-100);
   font-family: var(--tunequest-fe-ui-1-desktop-headings-heading-3);
 }
 .promptBlock {
-  width: 1233px;
+  width: 80%;
+  max-width: 100%;
   height: 110px;
   position: relative;
   border-radius: var(--spacing-xl);
@@ -200,7 +320,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 8vw var(--padding-xl) 4vw;
+  padding: 10vw var(--padding-xl) 4vw;
   box-sizing: border-box;
   gap: var(--gap-mini);
   line-height: normal;

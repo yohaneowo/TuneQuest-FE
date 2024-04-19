@@ -1,19 +1,22 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title> TuneQuest </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title align="left">
+          <router-link to="/home">
+            <q-avatar
+              ><img
+                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+            /></q-avatar>
+          </router-link>
+          TuneQuest
+        </q-toolbar-title>
+        <q-tabs align="right">
+          <q-route-tab to="/generate" label="生成" />
+          <q-route-tab to="/search" label="搜尋" />
+          <q-route-tab to="/recognize" label="上傳" />
+          <q-route-tab to="/login" label="登入" />
+        </q-tabs>
       </q-toolbar>
     </q-header>
     <!--
@@ -91,3 +94,17 @@ function toggleLeftDrawer() {
       </q-list>
     </q-drawer>
   -->
+
+<style>
+.page-container {
+  padding-top: 20px; /* 調整頂部間隙 */
+  padding-left: 20px; /* 調整左邊欄間隙 */
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 99%;
+}
+</style>

@@ -40,18 +40,17 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "HomePage",
-  methods: {
-    navigateToPage(path) {
-      this.$router.push(path);
-    },
-  },
-});
+<script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const navigateToPage = (path) => {
+  router.push(path);
+};
 </script>
+
 <style module>
 .frameChild {
   width: 464px;
