@@ -20,13 +20,16 @@
 
     <q-page-container>
       <q-page class="generate-page q-pa-md">
-        <q-card class="profile">profile</q-card>
+        <box_Profile></box_Profile>
         <q-card class="history">history</q-card>
         <box_Cover></box_Cover>
-        <q-card class="prompt">prompt</q-card>
+        <box_PromptGen></box_PromptGen>
+        <!--
         <q-card class="upload">upload</q-card>
         <box_Genre></box_Genre>
+        -->
         <box_Output></box_Output>
+        <box_Duration></box_Duration>
         <q-card class="duration">duration</q-card>
       </q-page>
     </q-page-container>
@@ -34,29 +37,21 @@
 </template>
 
 <script setup>
-import box_Genre from "src/components/box_Genre.vue";
+//import box_Genre from "src/components/box_Genre.vue";
+import box_Profile from "src/components/box_Profile.vue";
 import box_Output from "src/components/box_Output.vue";
 import box_Cover from "src/components/box_Cover.vue";
-
+import box_PromptGen from "src/components/box_PromptGen.vue";
+import box_Duration from "src/components/box_Duration.vue";
 defineOptions({
   name: "GeneratePage",
 });
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .generate-page {
   width: 100%;
   height: 100%;
-
-  display: grid;
-  background-color: $primary;
-  grid-template-columns: repeat(23, 1fr);
-  grid-template-rows: repeat(11, 1fr);
-  gap: 5px;
-  grid-auto-rows: minmax(100px, auto);
-}
-/*
-.generate {
   display: grid;
   background-color: $primary;
   grid-template-columns: repeat(23, 1fr);
@@ -68,7 +63,8 @@ defineOptions({
   background-color: $q-color-box;
   display: grid;
   align-items: center;
-  justify-content: center;
+  align-content: flex-start;
+  justify-content: flex-start;
   grid-column: 2/7;
   grid-row: 2/5;
   border-radius: 10px;
@@ -99,10 +95,11 @@ defineOptions({
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 7/17;
+  grid-column: 7/23;
   grid-row: 5/11;
   border-radius: 10px;
   margin: 10px;
+  position: relative; // 設置父元素為相對定位
 }
 .upload {
   background-color: $q-color-box;
@@ -144,5 +141,4 @@ defineOptions({
   border-radius: 10px;
   margin: 10px;
 }
-*/
 </style>
