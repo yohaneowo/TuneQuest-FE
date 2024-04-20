@@ -23,6 +23,10 @@
     <div class="search-helper">
       <div class="search-container">
         <div class="search-block">
+          <div class="text-section">
+            <div class="text-xl">提示詞搜尋</div>
+            <div class="text-sm">輸入＠remix使用RAG功能</div>
+          </div>
           <input
             type="text"
             class="search-input"
@@ -35,6 +39,10 @@
         </div>
 
         <div class="search-block">
+          <div class="text-section">
+            <div class="text-xl">提示詞搜尋結果</div>
+            <div class="text-sm"></div>
+          </div>
           <input
             type="text"
             class="search-input"
@@ -84,6 +92,25 @@
   font-size: 18px;
 }
 
+.text-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.text-xl {
+  font-size: 20px;
+  font-weight: bold;
+  color: #343c48;
+}
+
+.text-sm {
+  font-size: 14px;
+  color: #47566b;
+}
+
 .buttons-container {
   display: flex;
   flex-direction: row;
@@ -93,7 +120,7 @@
 }
 
 .search-button {
-  width: 150px;
+  width: 120px;
   height: 50px;
   border-radius: 32px;
   background-color: #566375;
