@@ -6,13 +6,16 @@
           <div class="text-xl">提示詞搜尋</div>
           <div class="text-sm">輸入＠remix使用RAG功能</div>
         </div>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="輸入你想要的提示詞"
-        />
+        <div class="search-input">
+          <q-input
+            :input-style="{ minHeight: '300px' }"
+            v-model="searchText"
+            type="textarea"
+            placeholder="輸入你想要的提示詞"
+          />
+        </div>
         <div class="buttons-container">
-          <button class="search-button">清除</button>
+          <button class="search-button" @click="clearSearchText">清除</button>
           <button class="search-button">搜尋</button>
         </div>
       </div>
@@ -22,16 +25,29 @@
           <div class="text-xl">提示詞搜尋結果</div>
           <div class="text-sm"></div>
         </div>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="您的提示詞建議將顯示在這裡"
-        />
+        <div class="search-input">
+          <q-input
+            :input-style="{ minHeight: '300px' }"
+            v-model="searchResult"
+            type="textarea"
+            placeholder="您的提示詞建議將顯示在這裡"
+          />
+        </div>
         <button class="search-button">使用</button>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+const searchText = ref("");
+const searchResult = ref("");
+
+function clearSearchText() {
+  searchText.value = "";
+}
+</script>
 
 <style>
 .search-helper {
@@ -68,6 +84,17 @@
   padding: 25px;
   margin-bottom: 15px;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.q-field__control {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  font-size: 18px;
+  width: 33vw;
 }
 
 .text-section {
