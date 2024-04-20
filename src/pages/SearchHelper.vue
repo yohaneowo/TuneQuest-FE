@@ -109,7 +109,7 @@
 }
 
 .search-button:hover {
-  width: 150px;
+  width: 120px;
   height: 50px;
   border-radius: 32px;
   background-color: #667b99;
