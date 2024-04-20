@@ -1,58 +1,36 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-header elevated class="bg-primary text-white" height-hint="98">
-      <q-toolbar>
-        <q-toolbar-title align="left">
-          <router-link to="/">
-            <q-avatar
-              ><img
-                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
-            /></q-avatar>
-          </router-link>
-          TuneQuest
-        </q-toolbar-title>
-        <q-tabs align="right">
-          <q-route-tab to="/generate" label="生成" />
-          <q-route-tab to="/search" label="搜尋" />
-          <q-route-tab to="/recognize" label="上傳" />
-          <q-route-tab to="/searchhelper" label="題詞小幫手" />
-          <q-route-tab to="/login" label="登入" />
-        </q-tabs>
-      </q-toolbar>
-    </q-header>
-    <div class="search-helper">
-      <div class="search-container">
-        <div class="search-block">
-          <div class="text-section">
-            <div class="text-xl">提示詞搜尋</div>
-            <div class="text-sm">輸入＠remix使用RAG功能</div>
-          </div>
-          <input
-            type="text"
-            class="search-input"
-            placeholder="輸入你想要的提示詞"
-          />
-          <div class="buttons-container">
-            <button class="search-button">清除</button>
-            <button class="search-button">搜尋</button>
-          </div>
+  <div class="search-helper">
+    <div class="search-container">
+      <div class="search-block">
+        <div class="text-section">
+          <div class="text-xl">提示詞搜尋</div>
+          <div class="text-sm">輸入＠remix使用RAG功能</div>
         </div>
-
-        <div class="search-block">
-          <div class="text-section">
-            <div class="text-xl">提示詞搜尋結果</div>
-            <div class="text-sm"></div>
-          </div>
-          <input
-            type="text"
-            class="search-input"
-            placeholder="您的提示詞建議將顯示在這裡"
-          />
-          <button class="search-button">使用</button>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="輸入你想要的提示詞"
+        />
+        <div class="buttons-container">
+          <button class="search-button">清除</button>
+          <button class="search-button">搜尋</button>
         </div>
       </div>
+
+      <div class="search-block">
+        <div class="text-section">
+          <div class="text-xl">提示詞搜尋結果</div>
+          <div class="text-sm"></div>
+        </div>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="您的提示詞建議將顯示在這裡"
+        />
+        <button class="search-button">使用</button>
+      </div>
     </div>
-  </q-layout>
+  </div>
 </template>
 
 <style>

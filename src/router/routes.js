@@ -37,7 +37,8 @@ const routes = [
   },
   {
     path: "/searchhelper",
-    component: () => import("pages/SearchHelper.vue"),
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/SearchHelper.vue") }],
   },
 ];
 
