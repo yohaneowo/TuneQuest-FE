@@ -222,7 +222,7 @@ const model = ref("one");
 }
 .descriptionText {
   height: 100%;
-  width: 85%;
+  width: 80%;
   margin: auto 40px;
   padding: 7px;
   color: white;
@@ -290,7 +290,8 @@ const model = ref("one");
 }
 .frameParent {
   width: auto;
-  max-height: 60vh;
+  /*max-height: 60vh;*/
+  margin-top: 8%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -323,7 +324,7 @@ const model = ref("one");
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 10vw var(--padding-xl) 4vw;
+  /*padding: 10vw var(--padding-xl) 4vw;*/
   box-sizing: border-box;
   gap: var(--gap-mini);
   line-height: normal;
