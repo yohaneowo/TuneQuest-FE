@@ -269,7 +269,7 @@ const model = ref("one");
 .frameParent {
   width: auto;
   /*max-height: 60vh;*/
-  margin-top: 8%;
+  margin-top: 3%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -294,7 +294,7 @@ const model = ref("one");
 }
 .desktop21Dark {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 50px);
   position: relative;
   background-color: var(--color-darkslategray-200);
   overflow: hidden;
