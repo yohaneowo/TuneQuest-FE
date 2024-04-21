@@ -8,8 +8,8 @@
               ><img
                 src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
             /></q-avatar>
+            TuneQuest
           </router-link>
-          TuneQuest
         </q-toolbar-title>
         <q-tabs align="right">
           <q-route-tab to="/generate" label="生成" />

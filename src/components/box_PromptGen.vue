@@ -47,6 +47,7 @@
         class="submit"
       />
     </div>
+    <!--<output-component ref="outputComponent" />-->
   </div>
 </template>
 
@@ -101,11 +102,6 @@ const removeTag = (tag) => {
   prompt.value = prompt.value.replace(` ${tag}`, "");
 };
 
-const submitPrompt = () => {
-  // Handle submit logic here
-  console.log("Submitted prompt:", prompt.value);
-};
-
 const handleInput = () => {
   // Update selected tags based on input text
   const inputTags = prompt.value.split(" ").filter((tag) => tag.trim() !== "");
@@ -120,6 +116,14 @@ const shuffleArray = (array) => {
   }
   return array;
 };
+
+const outputComponent = ref(null); // 引用 output 組件的實例
+const submitPrompt = () => {
+  // Handle submit logic here
+  console.log("Submitted prompt:", prompt.value);
+  // 觸發 output 組件的 startGeneration 函數
+  outputComponent.value.startGeneration();
+};
 </script>
 
 <style lang="scss">
@@ -128,6 +132,7 @@ const shuffleArray = (array) => {
   width: 100%; // 讓內容物撐滿容器寬度
   padding: 10px; // 設定內間距
 }
+/*
 .hover-border {
   position: absolute;
   top: 0;
@@ -138,7 +143,7 @@ const shuffleArray = (array) => {
   border-radius: 10px;
   pointer-events: none;
 }
-
+*/
 .textarea {
   width: 100%;
   margin-bottom: 10px;

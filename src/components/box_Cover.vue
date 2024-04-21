@@ -69,6 +69,7 @@ const removeImage = () => {
   max-width: 100%;
   max-height: 100%;
   aspect-ratio: 4/3;
+  border-radius: 10px;
   //margin: 10%;
 }
 .upload_icon {
