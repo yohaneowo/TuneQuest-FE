@@ -1,50 +1,23 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-header elevated class="bg-primary text-white" height-hint="98">
-      <q-toolbar>
-        <div class="flex-container">
-          <q-toolbar-title align="left">
-            <router-link to="/" class="no-underline">
-              <q-avatar
-                ><img
-                  src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
-                />
-              </q-avatar>
-              TuneQuest
-            </router-link>
-          </q-toolbar-title>
-          <q-tabs align="right">
-            <q-route-tab to="/generate" label="生成" />
-            <q-route-tab to="/search" label="搜尋" />
-            <q-route-tab to="/recognize" label="上傳" />
-            <q-route-tab to="/login" label="登入" />
-          </q-tabs>
-        </div>
-      </q-toolbar>
-    </q-header>
+  <q-page class="recognize-page q-pa-md">
+    <box_Profile></box_Profile>
+    <div class="history">
+      <box_History></box_History>
+      <box_History></box_History>
+      <box_History></box_History>
+    </div>
 
-    <q-page-container>
-      <q-page class="recognize-page q-pa-md">
-        <box_Profile></box_Profile>
-        <div class="history">
-          <box_History></box_History>
-          <box_History></box_History>
-          <box_History></box_History>
-        </div>
+    <box_Cover></box_Cover>
+    <DisplayMusic></DisplayMusic>
+    <div class="addToDB">addToDB</div>
+    <Recognize_Title></Recognize_Title>
+    <Recognize_Description></Recognize_Description>
 
-        <box_Cover></box_Cover>
-        <DisplayMusic></DisplayMusic>
-        <div class="addToDB">addToDB</div>
-        <Recognize_Title></Recognize_Title>
-        <Recognize_Description></Recognize_Description>
-
-        <UploadMusic @upload-success="handleUploadSuccess" />
-        <!--<UploadMusic /><Audio_Genre></Audio_Genre>
+    <UploadMusic @upload-success="handleUploadSuccess" />
+    <!--<UploadMusic /><Audio_Genre></Audio_Genre>
         <div class="genre"><Recognize_Genre></Recognize_Genre></div>
         <RecognizeGenre :recognized-genre="recognizedGenre" />-->
-      </q-page>
-    </q-page-container>
-  </q-layout>
+  </q-page>
 </template>
 
 <script setup>

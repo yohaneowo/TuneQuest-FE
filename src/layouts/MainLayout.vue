@@ -3,7 +3,7 @@
     <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-toolbar-title align="left">
-          <router-link to="/">
+          <router-link to="/" class="no-underline">
             <q-avatar
               ><img
                 src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
@@ -97,9 +97,11 @@ function toggleLeftDrawer() {
   -->
 
 <style>
+.no-underline {
+  color: inherit; /* 保留文字顏色 */
+  text-decoration: none; /* 移除下劃線 */
+}
 .page-container {
-  padding-top: 20px; /* 調整頂部間隙 */
-  padding-left: 20px; /* 調整左邊欄間隙 */
 }
 
 .flex-container {

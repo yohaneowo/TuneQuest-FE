@@ -9,36 +9,37 @@ const routes = [
   // but you can also remove it
   {
     path: "/:catchAll(.*)*",
-    component: () => import("pages/ErrorNotFound.vue"),
-  },
-  {
-    path: "/generate",
-    component: () => import("pages/GeneratePage.vue"),
-  },
-  {
-    path: "/recognize",
-    component: () => import("pages/RecognizePage.vue"),
-  },
-  {
-    path: "/home",
-    component: () => import("pages/HomePage.vue"),
-  },
-  {
-    path: "/search",
-    component: () => import("pages/SearchPage.vue"),
-  },
-  {
-    path: "/player",
-    component: () => import("pages/audioPlayer.vue"),
-  },
-  {
-    path: "/login",
-    component: () => import("pages/LoginPage.vue"),
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/ErrorNotFound.vue") },
+    ],
   },
   {
     path: "/searchhelper",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/SearchHelper.vue") }],
+  },
+  {
+    path: "/generate",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/GeneratePage.vue") }],
+  },
+  {
+    path: "/recognize",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/RecognizePage.vue") },
+    ],
+  },
+  {
+    path: "/search",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/SearchPage.vue") }],
+  },
+  {
+    path: "/login",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/LoginPage.vue") }],
   },
 ];
 

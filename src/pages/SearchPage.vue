@@ -1,110 +1,68 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-header elevated class="bg-primary text-white" height-hint="98">
-      <q-toolbar>
-        <q-toolbar-title align="left">
-          <router-link to="/">
-            <q-avatar
-              ><img
-                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
-            /></q-avatar>
-          </router-link>
-          TuneQuest
-        </q-toolbar-title>
-        <q-tabs align="right">
-          <q-route-tab to="/generate" label="生成" />
-          <q-route-tab to="/search" label="搜尋" />
-          <q-route-tab to="/recognize" label="上傳" />
-          <q-route-tab to="/searchhelper" label="題詞小幫手" />
-          <q-route-tab to="/login" label="登入" />
-        </q-tabs>
-      </q-toolbar>
-    </q-header>
   <div :class="$style.desktop21Dark">
     <section :class="$style.frameParent">
       <div :class="$style.frameGroup">
         <div :class="$style.searchBarWrapper">
           <div :class="$style.searchBar">
             <div :class="$style.searchBar1" />
-            <q-input
-              v-model="text"
-              :dense="dense"
-              />
-              <q-btn-toggle
-                :class="$style.searchToggle"
-                v-model="model"
-                class="searchtoggle"
-                no-caps
-                rounded
-                unelevated
-                toggle-color="primary"
-                color="white"
-                text-color="primary"
-                size="1.375vw"
-                :options="[
-                  { label: '語意', value: 'one' },
-                  { label: '關鍵字', value: 'two' },
-                ]"
+            <q-input v-model="text" :dense="dense" />
+            <q-btn-toggle
+              :class="$style.searchToggle"
+              v-model="model"
+              class="searchtoggle"
+              no-caps
+              rounded
+              unelevated
+              toggle-color="primary"
+              color="white"
+              text-color="primary"
+              size="1.375vw"
+              :options="[
+                { label: '語意', value: 'one' },
+                { label: '關鍵字', value: 'two' },
+              ]"
             />
           </div>
         </div>
         <div :class="$style.resultBlock">
-            <div :class="$style.textSection">Result 1...</div>
-            <div :class="$style.textSection">Result 2...</div>
-            <div :class="$style.textSection">Result 3...</div>
-            <div :class="$style.textSection">Result 4...</div>
-            <div :class="$style.textSection">Result 5...</div>
-          </div>
+          <div :class="$style.textSection">Result 1...</div>
+          <div :class="$style.textSection">Result 2...</div>
+          <div :class="$style.textSection">Result 3...</div>
+          <div :class="$style.textSection">Result 4...</div>
+          <div :class="$style.textSection">Result 5...</div>
         </div>
-        <div :class="$style.musicCover" id="musicCover">
-          <q-uploader
-            :class="$style.uploadBotton"
-            align="center"
-            style="max-width: 300px"
-            url="http://localhost:4444/upload"
-            label="Restricted to Audio"
-            dark
-            accept=".wav, audio/*"
-            @rejected="onRejected"
-          />
-          <audioPlayer :class="$style.audioPlayer" />
       </div>
-      <div :class="$style.musicCover" id="musicCover"></div>
+      <div :class="$style.musicCover" id="musicCover">
+        <q-uploader
+          :class="$style.uploadBotton"
+          align="center"
+          style="max-width: 300px"
+          url="http://localhost:4444/upload"
+          label="Restricted to Audio"
+          dark
+          accept=".wav, audio/*"
+          @rejected="onRejected"
+        />
+        <audioPlayer :class="$style.audioPlayer" />
+      </div>
+      <!--<div :class="$style.musicCover" id="musicCover"></div>-->
     </section>
     <section :class="$style.promptBlock">
       <div :class="$style.promptBlockContainer">
-          <div :class="$style.descriptionText">Description...</div>
-          <q-btn
-            unelevated
-            rounded
-            color="primary"
-            label="使用"
-            :class="$style.promptButton"
-          />
+        <div :class="$style.descriptionText">Description...</div>
+        <q-btn
+          unelevated
+          rounded
+          color="primary"
+          label="使用"
+          :class="$style.promptButton"
+        />
       </div>
     </section>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from "vue";
 
-<<<<<<< HEAD
-export default defineComponent({
-  name: "SearchPage",
-  setup() {
-    return {
-      text: ref(""),
-      ph: ref(""),
-      dense: ref(false),
-    };
-  },
-});
-=======
 <script setup>
-defineOptions({
-  name: "SearchPage",
-});
-
 import { defineAsyncComponent, ref } from "vue";
 import audioPlayer from "src/components/audioPlayer.vue";
 
@@ -122,7 +80,6 @@ const text = ref("");
 const ph = ref("");
 const dense = ref(false);
 const model = ref("one");
->>>>>>> origin/main
 </script>
 
 <style module>
@@ -248,13 +205,9 @@ const model = ref("one");
   max-width: 100%;
 }
 .frameParent {
-<<<<<<< HEAD
-  width: 1226px;
-=======
   width: auto;
   /*max-height: 60vh;*/
   margin-top: 8%;
->>>>>>> origin/main
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -286,11 +239,7 @@ const model = ref("one");
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-<<<<<<< HEAD
-  padding: 8vw var(--padding-xl) 4vw;
-=======
   /*padding: 10vw var(--padding-xl) 4vw;*/
->>>>>>> origin/main
   box-sizing: border-box;
   gap: var(--gap-mini);
   line-height: normal;
