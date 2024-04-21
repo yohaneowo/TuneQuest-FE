@@ -280,16 +280,12 @@ input[type="password"] {
 
 html {
   background-repeat: no-repeat;
-  background: linear-gradient(
-    to bottom,
-    rgba(47, 55, 65, 1) 0%,
-    rgba(63, 76, 107, 1) 100%
-  );
+  background: rgba(47, 55, 65);
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 50px);
   font-family: sans-serif;
 }
 

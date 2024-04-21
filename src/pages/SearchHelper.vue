@@ -52,7 +52,7 @@ function clearSearchText() {
 <style>
 .search-helper {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 50px);
   flex-direction: column;
   align-items: center;
   justify-content: center;
