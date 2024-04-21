@@ -4,7 +4,7 @@
       <q-toolbar>
         <div class="flex-container">
           <q-toolbar-title align="left">
-            <router-link to="/home" class="no-underline">
+            <router-link to="/" class="no-underline">
               <q-avatar
                 ><img
                   src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
@@ -17,6 +17,7 @@
             <q-route-tab to="/generate" label="生成" />
             <q-route-tab to="/search" label="搜尋" />
             <q-route-tab to="/recognize" label="上傳" />
+            <q-route-tab to="/searchhelper" label="題詞小幫手" />
             <q-route-tab to="/login" label="登入" />
           </q-tabs>
         </div>
@@ -26,7 +27,9 @@
     <q-page-container>
       <q-page class="generate-page q-pa-md">
         <box_Profile></box_Profile>
-        <q-card class="history">history</q-card>
+        <q-card class="history"
+          ><box_History /><box_History /><box_History
+        /></q-card>
         <box_Cover></box_Cover>
         <box_PromptGen></box_PromptGen>
         <!--
@@ -35,15 +38,14 @@
         -->
         <box_Output></box_Output>
         <box_Duration></box_Duration>
-        <q-card class="duration">duration</q-card>
       </q-page>
     </q-page-container>
   </q-layout>
 </template>
-
 <script setup>
 //import box_Genre from "src/components/box_Genre.vue";
 import box_Profile from "src/components/box_Profile.vue";
+import box_History from "src/components/box_History.vue";
 import box_Output from "src/components/box_Output.vue";
 import box_Cover from "src/components/box_Cover.vue";
 import box_PromptGen from "src/components/box_PromptGen.vue";
@@ -134,7 +136,6 @@ defineOptions({
   background-color: $q-color-box;
   display: grid;
   align-items: center;
-  justify-content: center;
   grid-column: 12/21;
   grid-row: 1/4;
   border-radius: 10px;
