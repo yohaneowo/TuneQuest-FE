@@ -1,5 +1,5 @@
 <template>
-  <div class="output">
+  <div class="display_music">
     <div class="wave-container">
       <div id="waveform" ref="waveform"></div>
     </div>
@@ -28,54 +28,16 @@
         />
       </div>
     </div>
-    <div class="progressline">
-      <q-linear-progress
-        rounded
-        :value="progress"
-        :buffer="buffer"
-        color="warning"
-        class="q-mt-md"
-      />
-    </div>
   </div>
 </template>
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted } from "vue";
 import WaveSurfer from "wavesurfer.js";
-
-const isGenerating = ref(false);
-const progress = ref(0.01);
-const buffer = ref(0.01);
-
-let interval, bufferInterval;
-let wavesurfer;
 
 const waveform = ref(null);
 const playBtn = ref(null);
 const volumeBtn = ref(null);
-
-onMounted(() => {
-  interval = setInterval(() => {
-    if (progress.value >= 1) {
-      progress.value = 0.01;
-      buffer.value = 0.01;
-      return;
-    }
-
-    progress.value = Math.min(1, buffer.value, progress.value + 0.1);
-  }, 700 + Math.random() * 1000);
-
-  bufferInterval = setInterval(() => {
-    if (buffer.value < 1) {
-      buffer.value = Math.min(1, buffer.value + Math.random() * 0.2);
-    }
-  }, 700);
-});
-
-onBeforeUnmount(() => {
-  clearInterval(interval);
-  clearInterval(bufferInterval);
-});
+let wavesurfer;
 
 onMounted(() => {
   wavesurfer = WaveSurfer.create({
@@ -91,26 +53,6 @@ onMounted(() => {
   });
   wavesurfer.load("src/assets/fairy-tale-music.mp3");
 });
-
-const submitPrompt = () => {
-  isGenerating.value = true;
-  progress.value = 0;
-  buffer.value = 0;
-
-  // Handle submit logic here
-  console.log("Submitted prompt:", prompt.value);
-
-  // Simulating song generation progress
-  const generateInterval = setInterval(() => {
-    progress.value += 10;
-    buffer.value = progress.value + 10;
-
-    if (progress.value >= 100) {
-      clearInterval(generateInterval);
-      isGenerating.value = false;
-    }
-  }, 200);
-};
 
 const togglePlayPause = () => {
   wavesurfer.playPause();
@@ -138,35 +80,13 @@ const toggleVolumeIcon = () => {
     ? "src/assets/mute.png"
     : "src/assets/volume.png";
 };
-
-//defineExpose({ startGeneration });
 </script>
 <style lang="scss">
-.q-linear-progress {
-  height: 10px;
-  width: 100%;
-  //padding: 0.25rem; //100px; //頁面縮太窄時會突出去！ 待解決
-}
-.progressline {
-  //grid-row: 3 / 4;
-}
-
 .wave-container {
   width: 100%;
   transform: scale(0.9);
   transform-origin: center;
 }
-/*
-.waveform {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-#waveform {
-  max-width: 100%;
-}
-*/
 .control-container {
   display: flex;
   justify-content: center;

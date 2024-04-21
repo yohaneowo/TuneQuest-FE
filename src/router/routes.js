@@ -35,6 +35,11 @@ const routes = [
     path: "/login",
     component: () => import("pages/LoginPage.vue"),
   },
+  {
+    path: "/searchhelper",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/SearchHelper.vue") }],
+  },
 ];
 
 export default routes;

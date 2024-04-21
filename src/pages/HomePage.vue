@@ -1,44 +1,46 @@
 <template>
-  <div :class="$style.homepage">
-    <div :class="$style.ellipseParent">
-      <div :class="$style.frameChild" />
-      <div :class="$style.frameItem" />
-      <div :class="$style.frameInner" />
+  <q-page>
+    <div :class="$style.homepage">
+      <div :class="$style.ellipseParent">
+        <div :class="$style.frameChild" />
+        <div :class="$style.frameItem" />
+        <div :class="$style.frameInner" />
+      </div>
+      <img
+        :class="$style.homepageChild"
+        alt=""
+        src="/src/assets/MusicGen-BGremove-ColorInvert_ReOrder.png"
+      />
+      <div :class="$style.frameParent">
+        <div :class="$style.aRevolutionaryMusicToolParent">
+          <div :class="$style.aRevolutionaryMusic">
+            A Revolutionary Music Tool.
+          </div>
+          <div :class="$style.tunequest">TuneQuest</div>
+        </div>
+        <div :class="$style.wrapper">
+          <div :class="$style.div">生成屬於您獨一無二的音樂。</div>
+        </div>
+        <div :class="$style.bottoms">
+          <div :class="$style.generateWrapper">
+            <div :class="$style.generate" @click="navigateToPage('/generate')">
+              生成 Generate
+            </div>
+          </div>
+          <div :class="$style.searchWrapper">
+            <div :class="$style.generate" @click="navigateToPage('/search')">
+              查詢 Search
+            </div>
+          </div>
+          <div :class="$style.generateWrapper">
+            <div :class="$style.generate" @click="navigateToPage('/recognize')">
+              上傳 Upload
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <img
-      :class="$style.homepageChild"
-      alt=""
-      src="/src/assets/MusicGen-BGremove-ColorInvert_ReOrder.png"
-    />
-    <div :class="$style.frameParent">
-      <div :class="$style.aRevolutionaryMusicToolParent">
-        <div :class="$style.aRevolutionaryMusic">
-          A Revolutionary Music Tool.
-        </div>
-        <div :class="$style.tunequest">TuneQuest</div>
-      </div>
-      <div :class="$style.wrapper">
-        <div :class="$style.div">生成屬於您獨一無二的音樂。</div>
-      </div>
-      <div :class="$style.bottoms">
-        <div :class="$style.generateWrapper">
-          <div :class="$style.generate" @click="navigateToPage('/generate')">
-            生成 Generate
-          </div>
-        </div>
-        <div :class="$style.searchWrapper">
-          <div :class="$style.generate" @click="navigateToPage('/search')">
-            查詢 Search
-          </div>
-        </div>
-        <div :class="$style.generateWrapper">
-          <div :class="$style.generate" @click="navigateToPage('/recognize')">
-            上傳 Upload
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </q-page>
 </template>
 
 <script setup>
@@ -217,7 +219,7 @@ const navigateToPage = (path) => {
   width: 100%;
   position: relative;
   background-color: var(--color-black);
-  height: 100vh;
+  height: calc(100vh - 50px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
