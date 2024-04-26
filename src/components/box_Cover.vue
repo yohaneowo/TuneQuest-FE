@@ -1,33 +1,31 @@
 <template>
-  <div class="cover">
-    <div class="parent">
-      <label for="file-upload">
-        <img
-          ref="upload"
-          src="/src/assets/upload.png"
-          alt="upload"
-          class="upload_icon"
-          @click="handleFileUpload"
-          v-if="!showImage"
-        />
-      </label>
-      <input
-        id="file-upload"
-        type="file"
-        @change="handleFileUpload"
-        accept="image/*"
-      />
-      <label for="upload" class="uploadStyle" v-if="!showImage">
-        點擊上傳封面
-      </label>
+  <div class="parent">
+    <label for="file-upload">
       <img
-        v-if="showImage && imageUrl"
-        :src="imageUrl"
-        alt="Uploaded Image"
-        class="uploaded-image"
-        @dblclick="removeImage"
+        ref="upload"
+        src="/src/assets/ios-upload.png"
+        alt="upload"
+        class="upload_icon"
+        @click="handleFileUpload"
+        v-if="!showImage"
       />
-    </div>
+    </label>
+    <input
+      id="file-upload"
+      type="file"
+      @change="handleFileUpload"
+      accept="image/*"
+    />
+    <label for="upload" class="uploadStyle" v-if="!showImage">
+      點擊上傳封面
+    </label>
+    <img
+      v-if="showImage && imageUrl"
+      :src="imageUrl"
+      alt="Uploaded Image"
+      class="uploaded-image"
+      @dblclick="removeImage"
+    />
   </div>
 </template>
 
@@ -73,7 +71,7 @@ const removeImage = () => {
   //margin: 10%;
 }
 .upload_icon {
-  transform: scale(0.9);
+  transform: scale(0.6);
   max-width: 100px; /* 最大寬度 */
   max-height: 100px; /* 最大高度 */
   width: auto; /* 自動調整寬度 */

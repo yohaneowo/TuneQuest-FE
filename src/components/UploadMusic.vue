@@ -1,31 +1,30 @@
 <template>
-  <div class="upload">
-    <div class="parent">
-      <label for="music-file-upload">
-        <img
-          ref="music-upload"
-          src="/src/assets/music-upload.png"
-          alt="music-upload"
-          class="music-upload_icon"
-          @click="handleFileUpload"
-          v-if="!showAudio"
-        />
-      </label>
-      <input
-        id="music-file-upload"
-        type="file"
-        @change="handleFileUpload"
-        accept="audio/wav"
+  <div class="parent">
+    <label for="music-file-upload">
+      <img
+        ref="music-upload"
+        src="/src/assets/music-upload.png"
+        alt="music-upload"
+        class="music-upload_icon"
+        @click="handleFileUpload"
+        v-if="!showAudio"
       />
-      <label for="upload" class="uploadStyle" v-if="!showAudio">
-        點擊上傳音樂
-      </label>
-      <div v-if="showAudio && audioUrl" class="file-info">
-        <span class="file-name">{{ fileName }}</span>
-        <div class="file-actions">
-          <span class="material-icons" @click="changeFile">attach_file</span>
-          <span class="material-icons" @click="removeFile">close</span>
-        </div>
+      <!--<span class="material-icons">attach_file</span>-->
+    </label>
+    <input
+      id="music-file-upload"
+      type="file"
+      @change="handleFileUpload"
+      accept="audio/wav"
+    />
+    <label for="upload" class="uploadStyle" v-if="!showAudio">
+      點擊上傳音樂
+    </label>
+    <div v-if="showAudio && audioUrl" class="file-info">
+      <span class="file-name">{{ fileName }}</span>
+      <div class="file-actions">
+        <span class="material-icons" @click="changeFile">attach_file</span>
+        <span class="material-icons" @click="removeFile">close</span>
       </div>
     </div>
   </div>
@@ -81,7 +80,7 @@ const removeFile = () => {
   flex-wrap: wrap;
 }
 .music-upload_icon {
-  transform: scale(0.9);
+  //transform: scale(0.9);
   max-width: 100px; /* 最大寬度 */
   max-height: 100px; /* 最大高度 */
   width: auto; /* 自動調整寬度 */
