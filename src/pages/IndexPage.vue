@@ -261,10 +261,6 @@ const navigateToPage = (path) => {
     padding: var(--padding-3xs); /* adjust padding for small screens */
   }
 
-  .generateWrapper {
-    /* adjust styles for small screens */
-  }
-
   .bottoms {
     padding: var(--padding-13xl) 0px var(--padding-13xl) var(--padding-8xs);
     font-size: 0.75em; /* adjust font size for small screens */
@@ -288,10 +284,6 @@ const navigateToPage = (path) => {
     flex-direction: row; /* align items horizontally on medium screens */
     font-size: 3vw; /* adjust font size for medium screens */
     padding: var(--padding-2xs); /* adjust padding for medium screens */
-  }
-
-  .generateWrapper {
-    /* adjust styles for medium screens */
   }
 
   .bottoms {
