@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header elevated class="bg-primary text-white" height-hint="98">
+    <q-header elevated class="transparent text-white" height-hint="98">
       <q-toolbar>
         <q-toolbar-title align="left">
           <router-link to="/" class="no-underline">
@@ -96,18 +96,19 @@ function toggleLeftDrawer() {
     </q-drawer>
   -->
 
-<style>
+<style scoped>
 .no-underline {
   color: inherit; /* 保留文字顏色 */
   text-decoration: none; /* 移除下劃線 */
 }
-.page-container {
+.q-page-container {
+  padding-top: 0 !important;
 }
 
 .flex-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 99%;
+  width: 95%;
 }
 </style>

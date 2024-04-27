@@ -230,7 +230,7 @@ const navigateToPage = (path) => {
   width: 100%;
   position: relative;
   background-color: var(--color-black);
-  height: calc(100vh - 50px);
+  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
