@@ -1,5 +1,10 @@
 <template>
   <div :class="$style.desktop21Dark">
+    <div :class="$style.ellipseParent">
+      <div :class="$style.frameChild" />
+      <div :class="$style.frameItem" />
+      <div :class="$style.frameInner" />
+    </div>
     <section :class="$style.frameParent">
       <div :class="$style.frameGroup">
         <div :class="$style.searchBarWrapper">
@@ -108,7 +113,7 @@ const model = ref("one");
   z-index: 0;
 }
 .customInput {
-  width: 60%;
+  width: 65%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -175,7 +180,9 @@ const model = ref("one");
   height: 406px;
   position: relative;
   border-radius: var(--br-21xl);
-  background-color: var(--color-gray);
+  background-color: rgb(15, 6, 23, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 3px solid var(--color-lightslategray-100);
   box-sizing: border-box;
   mix-blend-mode: normal;
@@ -269,7 +276,7 @@ const model = ref("one");
 .frameParent {
   width: auto;
   /*max-height: 60vh;*/
-  margin-top: 3%;
+  margin-top: 8%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -291,12 +298,53 @@ const model = ref("one");
   border: 4px solid var(--color-lightslategray-100);
   box-sizing: border-box;
   max-width: 100%;
+  background-color: rgb(15, 6, 23, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.frameChild {
+  width: 464px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #8593e8;
+  filter: blur(300px);
+  height: 562px;
+  opacity: 0.15;
+}
+.frameItem {
+  width: 467px;
+  position: relative;
+  border-radius: 20%;
+  background-color: #5d6ef3;
+  filter: blur(350px);
+  height: 567px;
+  opacity: 0.15;
+}
+.frameInner {
+  width: 446px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #fc4ff6;
+  filter: blur(300px);
+  height: 546px;
+  opacity: 0.15;
+}
+.ellipseParent {
+  margin: 0 !important;
+  position: absolute;
+  top: 252px;
+  left: calc(50% - 688.5px);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 0;
 }
 .desktop21Dark {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: 100vh;
   position: relative;
-  background-color: var(--color-darkslategray-200);
+  background-color: rgb(18, 19, 20);
   overflow: hidden;
   display: flex;
   flex-direction: column;

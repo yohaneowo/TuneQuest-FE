@@ -254,9 +254,9 @@ input[type="password"] {
 }
 
 html {
-  background-repeat: no-repeat;
-  background: rgba(47, 55, 65);
+  background-image: url("src/assets/bg_test_2.jpg");
   background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,7 +265,9 @@ html {
 }
 
 .loginBox {
-  background: #fff;
+  background-color: rgba(178, 199, 230, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 15px;
   max-width: 400px;
   padding: 25px 55px;

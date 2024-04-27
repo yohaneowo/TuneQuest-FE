@@ -216,7 +216,7 @@ const navigateToPage = (path) => {
   width: 100%;
   margin: 0 !important;
   position: relative;
-  top: 5%;
+  top: 8%;
   left: 0px;
   display: flex;
   flex-direction: column;

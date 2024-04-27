@@ -52,11 +52,13 @@ function clearSearchText() {
 <style>
 .search-helper {
   display: flex;
-  height: calc(100vh - 50px);
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #2f3741;
+  background-image: url("src/assets/colorful_bg_test.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .search-container {
@@ -70,7 +72,9 @@ function clearSearchText() {
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
-  background-color: #a9b5c6;
+  background-color: rgb(169, 181, 198, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   padding: 20px 20px 15px 20px;
   margin: 0 10px;
 }
@@ -79,7 +83,9 @@ function clearSearchText() {
   width: 37.5vw;
   height: 40vh;
   border-radius: 10px;
-  background-color: #ebf3ff;
+  background-color: rgba(235, 243, 255, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid #ccc;
   padding: 25px;
   margin-bottom: 15px;
