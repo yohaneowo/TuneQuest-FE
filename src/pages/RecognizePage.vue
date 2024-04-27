@@ -69,7 +69,7 @@ const handleUploadToDB = () => {
   width: 100%;
   height: 100%;
   display: grid;
-  background-color: $primary;
+  background-color: rgba(25, 30, 35);
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
   gap: 5px;
@@ -82,17 +82,17 @@ const handleUploadToDB = () => {
   align-content: flex-start;
   justify-content: flex-start;
   grid-column: 3/8;
-  grid-row: 1/4;
+  grid-row: 2/5;
   border-radius: 10px;
   margin: 10px;
 }
 .history {
-  background-color: $q-color-box;
+  background-color: rgba(245, 188, 142, 0.75);
   display: grid;
   align-items: center;
   justify-content: center;
   grid-column: 3/8;
-  grid-row: 4/11;
+  grid-row: 5/11;
   border-radius: 10px;
   margin: 10px;
 }
@@ -102,7 +102,7 @@ const handleUploadToDB = () => {
   align-items: center;
   justify-content: center;
   grid-column: 8/12;
-  grid-row: 1/4;
+  grid-row: 2/5;
   border-radius: 10px;
   margin: 10px;
 }
@@ -112,7 +112,7 @@ const handleUploadToDB = () => {
   align-items: center;
   //justify-content: center;
   grid-column: 12/20;
-  grid-row: 1/4;
+  grid-row: 2/5;
   border-radius: 10px;
   margin: 10px;
 }
@@ -122,7 +122,7 @@ const handleUploadToDB = () => {
   align-items: center;
   justify-content: center;
   grid-column: 20/23;
-  grid-row: 1/4;
+  grid-row: 2/5;
   border-radius: 10px;
   margin: 10px;
 }
@@ -130,7 +130,7 @@ const handleUploadToDB = () => {
   background-color: $q-color-box;
   display: grid;
   grid-column: 8/15;
-  grid-row: 4/6;
+  grid-row: 5/7;
   border-radius: 10px;
   margin: 10px;
 }
@@ -139,7 +139,7 @@ const handleUploadToDB = () => {
   display: grid;
   align-items: center;
   grid-column: 8/18;
-  grid-row: 6/11;
+  grid-row: 7/11;
   border-radius: 10px;
   margin: 10px;
 }
@@ -148,7 +148,7 @@ const handleUploadToDB = () => {
   display: grid;
   align-items: center;
   grid-column: 18/23;
-  grid-row: 4/11;
+  grid-row: 5/11;
   border-radius: 10px;
   margin: 10px;
 }
@@ -158,7 +158,7 @@ const handleUploadToDB = () => {
   align-items: center;
   justify-content: center;
   grid-column: 15/18;
-  grid-row: 4/6;
+  grid-row: 5/7;
   border-radius: 10px;
   margin: 10px;
 }

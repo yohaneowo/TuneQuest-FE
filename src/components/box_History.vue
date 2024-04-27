@@ -72,6 +72,7 @@ const playItem = (itemId) => {
   min-width: 80px; // 最小寬度
   //max-width: 150px; // 最大寬度
   height: auto; // 高度自適應內容
+  background: transparent;
 
   padding: 8px;
 }

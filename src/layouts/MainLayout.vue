@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header elevated class="transparent text-white" height-hint="98">
+    <q-header>
       <q-toolbar>
         <q-toolbar-title align="left">
           <router-link to="/" class="no-underline">
@@ -96,10 +96,44 @@ function toggleLeftDrawer() {
     </q-drawer>
   -->
 
-<style scoped>
+<style>
 .no-underline {
   color: inherit; /* 保留文字顏色 */
   text-decoration: none; /* 移除下劃線 */
+}
+.q-header {
+  background-color: transparent;
+  box-shadow: none; /* 去除阴影（如果有） */
+}
+
+.q-header__content {
+  color: white; /* 设置文本颜色为白色 */
+  font-family: "Rubik";
+
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+}
+.q-toolbar {
+  position: relative;
+  padding: 20px 24px;
+  min-height: 50px;
+  width: 100%;
+}
+.q-toolbar__title {
+  flex: 1 1 0%;
+  min-width: 1px;
+  max-width: 100%;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  padding: 12 12px;
+  font-family: "Rubik";
+}
+.q-tab__label {
+  font-size: 16px;
+  line-height: 1.715em;
+  font-weight: 500;
 }
 .q-page-container {
   padding-top: 0 !important;
@@ -109,6 +143,12 @@ function toggleLeftDrawer() {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 95%;
+  width: 99%;
+}
+.q-toolbar {
+  position: relative;
+  padding: 12px 20px;
+  min-height: 50px;
+  width: 100%;
 }
 </style>
