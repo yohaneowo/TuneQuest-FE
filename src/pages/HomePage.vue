@@ -37,6 +37,14 @@
               上傳 Upload
             </div>
           </div>
+          <div :class="$style.searchWrapper">
+            <div
+              :class="$style.generate"
+              @click="navigateToPage('/searchhelper')"
+            >
+              題詞小幫手 Search Helper
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@
         <div :class="$style.tunequest">TuneQuest</div>
       </div>
       <div :class="$style.wrapper">
-        <div :class="$style.div">生成屬於您獨一無二的音樂。</div>
+        <div :class="$style.divText">生成屬於您獨一無二的音樂。</div>
       </div>
       <div :class="$style.bottoms">
         <div :class="$style.generateWrapper">
@@ -34,6 +34,14 @@
         <div :class="$style.generateWrapper">
           <div :class="$style.generate" @click="navigateToPage('/recognize')">
             上傳 Upload
+          </div>
+        </div>
+        <div :class="$style.searchWrapper">
+          <div
+            :class="$style.generate"
+            @click="navigateToPage('/searchhelper')"
+          >
+            題詞小幫手 Assistant
           </div>
         </div>
       </div>
@@ -141,7 +149,7 @@ const navigateToPage = (path) => {
   padding: var(--padding-3xs) var(--padding-3xs) var(--padding-3xs)
     var(--padding-51xl);
 }
-.div {
+.divText {
   position: relative;
   letter-spacing: 0.72px;
   line-height: 33px;
@@ -152,7 +160,7 @@ const navigateToPage = (path) => {
   align-items: center;
   justify-content: center;
   padding: var(--padding-8xs) 0px var(--padding-8xs) var(--padding-51xl);
-  text-align: left;
+  text-align: right;
   font-family: var(--font-open-sans);
   font-size: 1.525vw;
 }
@@ -201,6 +209,7 @@ const navigateToPage = (path) => {
   padding: var(--padding-13xl) 0px var(--padding-13xl) var(--padding-51xl);
   gap: 10px;
   font-family: var(--font-space-grotesk);
+  font-size: 1em;
   z-index: 999;
 }
 .frameParent {
@@ -231,6 +240,64 @@ const navigateToPage = (path) => {
   font-size: var(--font-size-xl);
   color: var(--color-white);
   font-family: var(--font-outfit);
+}
+
+@media (max-width: 768px) {
+  .tunequest {
+    font-size: 8vw; /* adjust font size for small screens */
+  }
+
+  .aRevolutionaryMusicToolParent {
+    padding: var(--padding-3xs); /* adjust padding for small screens */
+  }
+
+  .divText {
+    line-height: 1.5em; /* adjust line height for small screens */
+  }
+
+  .wrapper {
+    flex-direction: column; /* stack items vertically on small screens */
+    font-size: 4vw; /* adjust font size for small screens */
+    padding: var(--padding-3xs); /* adjust padding for small screens */
+  }
+
+  .generateWrapper {
+    /* adjust styles for small screens */
+  }
+
+  .bottoms {
+    padding: var(--padding-13xl) 0px var(--padding-13xl) var(--padding-8xs);
+    font-size: 0.75em; /* adjust font size for small screens */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tunequest {
+    font-size: 6vw; /* adjust font size for medium screens */
+  }
+
+  .aRevolutionaryMusicToolParent {
+    padding: var(--padding-2xs); /* adjust padding for medium screens */
+  }
+
+  .divText {
+    line-height: 1.2em; /* adjust line height for medium screens */
+  }
+
+  .wrapper {
+    flex-direction: row; /* align items horizontally on medium screens */
+    font-size: 3vw; /* adjust font size for medium screens */
+    padding: var(--padding-2xs); /* adjust padding for medium screens */
+  }
+
+  .generateWrapper {
+    /* adjust styles for medium screens */
+  }
+
+  .bottoms {
+    padding: var(--padding-13xl) 0px var(--padding-13xl) var(--padding-8xs);
+    font-size: 0.875em; /* adjust font size for small screens */
+  }
 }
 
 :root {
