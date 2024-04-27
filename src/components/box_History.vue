@@ -68,9 +68,12 @@ const playItem = (itemId) => {
 
 <style lang="scss" scoped>
 .history-box {
-  background-color: $q-color-box;
-  border-radius: 10px;
-  height: 100%;
+  display: flex;
+  min-width: 80px; // 最小寬度
+  //max-width: 150px; // 最大寬度
+  height: auto; // 高度自適應內容
+
+  padding: 8px;
 }
 .play-btn {
   position: absolute;

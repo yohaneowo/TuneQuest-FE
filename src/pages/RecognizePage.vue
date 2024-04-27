@@ -6,17 +6,24 @@
       <box_History></box_History>
       <box_History></box_History>
     </div>
-
-    <box_Cover></box_Cover>
+    <div class="cover"><box_Cover></box_Cover></div>
+    <div class="upload">
+      <UploadMusic @upload-success="handleUploadSuccess" />
+    </div>
     <DisplayMusic></DisplayMusic>
-    <div class="addToDB">addToDB</div>
     <Recognize_Title></Recognize_Title>
     <Recognize_Description></Recognize_Description>
-
-    <UploadMusic @upload-success="handleUploadSuccess" />
-    <!--<UploadMusic /><Audio_Genre></Audio_Genre>
-        <div class="genre"><Recognize_Genre></Recognize_Genre></div>
-        <RecognizeGenre :recognized-genre="recognizedGenre" />-->
+    <div class="genre"><Genre_new></Genre_new></div>
+    <div class="addToDB"><Add_ToDB></Add_ToDB></div>
+    <!--
+    <div class="addToDB" v-if="text && prompt && selectedGenre">
+      <Add_ToDB
+        :text="text"
+        :prompt="prompt"
+        :genre="selectedGenre"
+        @upload-success="handleUploadToDB"
+      ></Add_ToDB>
+    </div>-->
   </q-page>
 </template>
 
@@ -28,8 +35,30 @@ import UploadMusic from "src/components/UploadMusic.vue";
 import DisplayMusic from "src/components/DisplayMusic.vue";
 import Recognize_Title from "src/components/Recognize_Title.vue";
 import Recognize_Description from "src/components/Recognize_Description.vue";
+import Genre_new from "src/components/Genre_new.vue";
+import Add_ToDB from "src/components/Add_ToDB.vue";
 //import Recognize_Genre from "src/components/Recognize_Genre.vue";
-//import Audio_Genre from "src/components/Audio_Genre.vue";
+/*
+const handleUploadSuccess = (file) => {
+  console.log("上傳成功:", file);
+};
+
+const text = ref("");
+const prompt = ref("");
+const selectedGenre = ref("");
+
+const isActiveGenre = (genre) => {
+  return genre === selectedGenre.value;
+};
+
+const selectGenre = (genre) => {
+  selectedGenre.value = genre;
+};
+
+const handleUploadToDB = () => {
+  console.log("上傳到資料庫成功");
+};
+*/
 </script>
 <style lang="scss">
 .no-underline {
@@ -53,7 +82,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   align-content: flex-start;
   justify-content: flex-start;
   grid-column: 3/8;
-  grid-row: 2/5;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -63,7 +92,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   align-items: center;
   justify-content: center;
   grid-column: 3/8;
-  grid-row: 5/12;
+  grid-row: 4/11;
   border-radius: 10px;
   margin: 10px;
 }
@@ -73,7 +102,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   align-items: center;
   justify-content: center;
   grid-column: 8/12;
-  grid-row: 2/5;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -82,8 +111,8 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   display: grid;
   align-items: center;
   //justify-content: center;
-  grid-column: 12/19;
-  grid-row: 2/5;
+  grid-column: 12/20;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -92,8 +121,8 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 19/23;
-  grid-row: 2/5;
+  grid-column: 20/23;
+  grid-row: 1/4;
   border-radius: 10px;
   margin: 10px;
 }
@@ -101,7 +130,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   background-color: $q-color-box;
   display: grid;
   grid-column: 8/15;
-  grid-row: 5/7;
+  grid-row: 4/6;
   border-radius: 10px;
   margin: 10px;
 }
@@ -110,7 +139,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   display: grid;
   align-items: center;
   grid-column: 8/18;
-  grid-row: 7/12;
+  grid-row: 6/11;
   border-radius: 10px;
   margin: 10px;
 }
@@ -119,7 +148,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   display: grid;
   align-items: center;
   grid-column: 18/23;
-  grid-row: 5/12;
+  grid-row: 4/11;
   border-radius: 10px;
   margin: 10px;
 }
@@ -129,7 +158,7 @@ import Recognize_Description from "src/components/Recognize_Description.vue";
   align-items: center;
   justify-content: center;
   grid-column: 15/18;
-  grid-row: 5/7;
+  grid-row: 4/6;
   border-radius: 10px;
   margin: 10px;
 }

@@ -20,7 +20,7 @@ const text = ref("");
 </script>
 <style lang="scss">
 .input {
-  width: 90%;
+  width: 80%;
   border-radius: 10%;
 }
 .wrap_input {

@@ -5,7 +5,7 @@
     <q-card class="history"
       ><box_History /><box_History /><box_History
     /></q-card>
-    <box_Cover></box_Cover>
+    <div class="cover"><box_Cover></box_Cover></div>
     <box_PromptGen></box_PromptGen>
     <!--
         <q-card class="upload">upload</q-card>
