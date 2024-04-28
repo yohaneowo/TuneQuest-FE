@@ -72,6 +72,7 @@ function clearSearchText() {
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   background-color: rgb(169, 181, 198, 0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);

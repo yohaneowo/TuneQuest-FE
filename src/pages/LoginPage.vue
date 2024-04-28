@@ -4,7 +4,7 @@
       <div class="inner">
         <div class="signIn" v-if="signIn">
           <div class="top">
-            <img class="logo" src="src/assets/TuneQuest.png" />
+            <img class="logo" src="src/assets/TuneQuest(1).png" />
             <div class="title">登入</div>
             <div class="subtitle">
               還沒有帳號嗎？
@@ -158,7 +158,7 @@ const registerValid = computed(
 <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
 <style lang="scss">
 @mixin box {
-  box-shadow: 1px 1px 2px 1px #ccc;
+  //box-shadow: 1px 1px 2px 1px #ccc;
 }
 
 @mixin field {
@@ -269,6 +269,7 @@ html {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   max-width: 400px;
   padding: 25px 55px;
   animation: slideInTop 1s;
