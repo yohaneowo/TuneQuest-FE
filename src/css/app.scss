@@ -43,3 +43,8 @@
 .index {
   display: flex;
 }
+.q-field--filled .q-field__control {
+  padding: 0 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}

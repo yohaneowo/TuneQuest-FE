@@ -51,7 +51,7 @@ const selectGenre = (genre) => {
 const thumbStyle = {
   right: "4px",
   borderRadius: "5px",
-  backgroundColor: "#027be3",
+  backgroundColor: "rgb(255,255,255,0.7)",
   width: "5px",
   opacity: 0.75,
 };
@@ -59,7 +59,7 @@ const thumbStyle = {
 const barStyle = {
   right: "2px",
   borderRadius: "9px",
-  backgroundColor: "#027be3",
+  backgroundColor: "rgb(255,255,255,0.7)",
   width: "9px",
   opacity: 0.2,
 };
@@ -89,10 +89,13 @@ const contentStyle = {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5% 0;
+  /*
   position: absolute; // 使用絕對定位將子元素置於父元素的中心
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  */
 }
 
 .genre-card {
@@ -107,10 +110,11 @@ const contentStyle = {
   cursor: pointer;
   margin: 2px 0;
   opacity: 0.5; // 初始透明度為 0.5
+  font-size: 16px;
 
   &.genre-card-active {
     transform: scale(1.1);
-    opacity: 1; // 被選中的卡片透明度為 1
+    opacity: 0.8; // 被選中的卡片透明度為 1
   }
 }
 </style>

@@ -35,13 +35,14 @@ defineOptions({
   text-decoration: none; /* 移除下劃線 */
 }
 .generate-page {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   background-color: $primary;
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  gap: 5px;
+  gap: 15px;
+  padding: 0;
   grid-auto-rows: minmax(100px, auto);
 }
 .profile {
@@ -51,9 +52,13 @@ defineOptions({
   align-content: flex-start;
   justify-content: flex-start;
   grid-column: 3/8;
-  grid-row: 1/4;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .history {
   background-color: $q-color-box;
@@ -61,9 +66,13 @@ defineOptions({
   align-items: center;
   justify-content: center;
   grid-column: 3/8;
-  grid-row: 4/10;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 6/12;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .cover {
   background-color: $q-color-box;
@@ -71,58 +80,55 @@ defineOptions({
   align-items: center;
   justify-content: center;
   grid-column: 8/12;
-  grid-row: 1/4;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  overflow: hidden;
 }
 .prompt {
   background-color: $q-color-box;
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 8/24;
-  grid-row: 4/10;
-  border-radius: 10px;
-  margin: 10px;
+  grid-column: 8/23;
+  grid-row: 6/12;
+  border-radius: 15px;
+  margin: 5px;
   position: relative; // 設置父元素為相對定位
-}
-.upload {
-  background-color: $q-color-box;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-column: 18/24;
-  grid-row: 4/10;
-  border-radius: 10px;
-  margin: 10px;
-}
-.genre {
-  background-color: $q-color-box;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-column: 18/24;
-  grid-row: 7/10;
-  border-radius: 10px;
-  margin: 10px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .output {
   background-color: $q-color-box;
   display: grid;
   align-items: center;
-  grid-column: 12/21;
-  grid-row: 1/4;
-  border-radius: 10px;
-  margin: 10px;
+  grid-column: 12/20;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .duration {
   background-color: $q-color-box;
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-column: 21/24;
-  grid-row: 1/4;
-  border-radius: 10px;
-  margin: 10px;
+  grid-column: 20/23;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 </style>

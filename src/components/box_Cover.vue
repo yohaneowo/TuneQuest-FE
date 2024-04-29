@@ -16,7 +16,12 @@
       @change="handleFileUpload"
       accept="image/*"
     />
-    <label for="upload" class="uploadStyle" v-if="!showImage">
+    <label
+      for="upload"
+      class="uploadStyle"
+      v-if="!showImage"
+      style="color: white"
+    >
       點擊上傳封面
     </label>
     <img
@@ -62,13 +67,14 @@ const removeImage = () => {
   justify-content: center;
   align-items: center; /* 水平置中 */
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .uploaded-image {
   max-width: 100%;
   max-height: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 10px;
-  //margin: 10%;
+  //aspect-ratio: 1/1;
+  border-radius: 15px;
+  object-fit: cover;
 }
 .upload_icon {
   transform: scale(0.6);
@@ -76,11 +82,12 @@ const removeImage = () => {
   max-height: 100px; /* 最大高度 */
   width: auto; /* 自動調整寬度 */
   height: auto; /* 自動調整高度 */
+  cursor: pointer;
 }
 input[type="file"] {
   display: none;
 }
 .uploadStyle {
-  /* label的樣式 */
+  cursor: pointer;
 }
 </style>

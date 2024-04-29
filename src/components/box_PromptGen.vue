@@ -12,8 +12,8 @@
         clearable
         type="textarea"
         color="second"
-        label="Enter Prompt to Generate"
-        hint="Enter in your own prompt text or Click the keyword tags "
+        label="請描述欲生成音樂的題詞。 Enter Prompt to Generate "
+        hint="輸入文字或點擊下方推薦關鍵字。（雙擊標籤可取消）Enter in your own prompt text or Click the keyword tags "
         :shadow-text="textareaShadowText"
         @keydown="processTextareaFill"
         @focus="processTextareaFill"
@@ -42,7 +42,7 @@
         :ripple="{ center: true }"
         color="$q-color-box"
         text-color="$primary"
-        label="submit"
+        label="生成音樂"
         @click="submitPrompt"
         class="submit"
       />
@@ -131,6 +131,7 @@ const submitPrompt = () => {
   max-width: 800px; // 設定最大寬度
   width: 100%; // 讓內容物撐滿容器寬度
   padding: 10px; // 設定內間距
+  gap: 1rem;
 }
 /*
 .hover-border {
@@ -155,7 +156,7 @@ const submitPrompt = () => {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  margin-bottom: 10px;
+  padding: 1rem 0;
   max-width: 100%; // 設定最大寬度
   overflow-x: auto; // 出現水平滾動條
   .selected-tag {

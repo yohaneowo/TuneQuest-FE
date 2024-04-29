@@ -7,7 +7,8 @@
         v-model="text"
         filled
         autogrow
-        label="Title"
+        label="標題 Title"
+        hint="請輸入歌曲名稱 Text the title of the song"
         class="input"
       />
     </div>

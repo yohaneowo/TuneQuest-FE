@@ -8,8 +8,8 @@
         clear-icon="close"
         type="textarea"
         color="second"
-        label="Enter the description prompt of the audioto upload"
-        hint="Text some description. "
+        label="歌曲描述 Prompt "
+        hint="請輸入歌曲的描述題詞。 Enter the description prompt of the song to upload. "
         :shadow-text="textareaShadowText"
         class="input"
       />

@@ -1,9 +1,10 @@
 <template>
   <div class="duration">
     <div class="lay">
-      <p>Set the song duration</p>
+      <p>設定生成歌曲長度</p>
       <div class="timer">
         <q-input
+          ref="mm"
           v-model="minutes"
           type="number"
           filled
@@ -59,6 +60,10 @@ const resetTimer = () => {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: 3%;
+  //margin: 3%;
+  gap: 1rem;
+}
+.q-ml-sm {
+  margin-left: 0;
 }
 </style>

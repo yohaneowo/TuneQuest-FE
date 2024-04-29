@@ -121,7 +121,7 @@ credit.value = 10;
 }
 
 .button-login {
-  padding: 0.4rem 0.6rem;
+  padding: 0.4rem;
   border-radius: 50%;
   text-decoration: none;
   color: inherit;

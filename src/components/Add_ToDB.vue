@@ -1,5 +1,5 @@
 <template>
-  <div class="parent">
+  <div class="wrap_add">
     <label for="file-upload" class="file-upload">
       <img
         ref="all-upload-icon"
@@ -8,9 +8,8 @@
         class="all_upload_icon"
         @click="uploadToDB"
         v-if="!showAudio"
-      />
-    </label>
-    <label> 點擊上傳至資料庫 </label>
+      /> </label
+    ><label> 點擊上傳至資料庫 </label>
   </div>
 </template>
 <script setup>
@@ -33,24 +32,29 @@ const uploadToDB = () => {
 */
 </script>
 <style lang="scss">
-.parent {
+.wrap_add {
   display: flex;
   flex-direction: column; /* 垂直排列 */
   justify-content: center;
   align-items: center; /* 水平置中 */
   flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
 }
 .file-upload {
   z-index: 1; /* 确保 file-upload 在顶部 */
   //opacity: 0; /* 隐藏 file-upload 的内容 */
   display: flex;
   justify-content: center;
+  height: 50%;
+  width: 100%;
 }
 .all_upload_icon {
-  transform: scale(0.7);
+  //transform: scale(0.7);
   max-width: 100px; /* 最大寬度 */
   max-height: 100px; /* 最大高度 */
   width: auto; /* 自動調整寬度 */
   height: auto; /* 自動調整高度 */
+  object-fit: contain;
 }
 </style>

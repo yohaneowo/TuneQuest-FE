@@ -7,7 +7,7 @@
       <box_History></box_History>
     </div>
     <div class="cover"><box_Cover></box_Cover></div>
-    <div class="upload">
+    <div class="uploadMusic">
       <UploadMusic @upload-success="handleUploadSuccess" />
     </div>
     <DisplayMusic></DisplayMusic>
@@ -66,13 +66,17 @@ const handleUploadToDB = () => {
   text-decoration: none; /* 移除下劃線 */
 }
 .recognize-page {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  background-color: rgba(25, 30, 35);
+  background-image: url("https://assets-global.website-files.com/64845ff44619a4f77cbc530c/64cb4d375fedd39d5beb487f_Group%2041090.svg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(35, 35, 35);
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  gap: 5px;
+  gap: 15px;
+  padding: 0;
   grid-auto-rows: minmax(100px, auto);
 }
 .profile {
@@ -82,19 +86,27 @@ const handleUploadToDB = () => {
   align-content: flex-start;
   justify-content: flex-start;
   grid-column: 3/8;
-  grid-row: 2/5;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .history {
-  background-color: rgba(245, 188, 142, 0.75);
+  background-color: $q-color-box;
   display: grid;
   align-items: center;
   justify-content: center;
   grid-column: 3/8;
-  grid-row: 5/11;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 6/12;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .cover {
   background-color: $q-color-box;
@@ -102,9 +114,14 @@ const handleUploadToDB = () => {
   align-items: center;
   justify-content: center;
   grid-column: 8/12;
-  grid-row: 2/5;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  overflow: hidden;
 }
 .display_music {
   background-color: $q-color-box;
@@ -112,54 +129,79 @@ const handleUploadToDB = () => {
   align-items: center;
   //justify-content: center;
   grid-column: 12/20;
-  grid-row: 2/5;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
-.upload {
+.uploadMusic {
   background-color: $q-color-box;
   display: grid;
   align-items: center;
   justify-content: center;
   grid-column: 20/23;
-  grid-row: 2/5;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 3/6;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .title {
-  background-color: $q-color-box;
+  background-color: rgb(169, 181, 198, 0.6);
   display: grid;
   grid-column: 8/15;
-  grid-row: 5/7;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 6/8;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(255, 255, 255, 0.2);
 }
 .description {
   background-color: $q-color-box;
   display: grid;
   align-items: center;
   grid-column: 8/18;
-  grid-row: 7/11;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 8/12;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .genre {
   background-color: $q-color-box;
   display: grid;
   align-items: center;
   grid-column: 18/23;
-  grid-row: 5/11;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 6/12;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
 }
 .addToDB {
   background-color: $q-color-box;
   display: grid;
-  align-items: center;
+  //align-items: center;
   justify-content: center;
   grid-column: 15/18;
-  grid-row: 5/7;
-  border-radius: 10px;
-  margin: 10px;
+  grid-row: 6/8;
+  border-radius: 15px;
+  margin: 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(30, 30, 30, 0.2);
+  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  overflow: visible;
 }
 </style>
