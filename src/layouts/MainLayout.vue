@@ -4,9 +4,8 @@
       <q-toolbar>
         <q-toolbar-title align="left">
           <router-link to="/" class="no-underline">
-            <q-avatar
-              ><img
-                src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg"
+            <q-avatar size="40px"
+              ><img src="src/assets/graphic_eq_icon_inverted.svg"
             /></q-avatar>
             TuneQuest
           </router-link>
@@ -109,7 +108,7 @@ function toggleLeftDrawer() {
 .q-header__content {
   color: white; /* 设置文本颜色为白色 */
   font-family: "Rubik";
-
+  vertical-align: middle;
   font-weight: 500;
   font-style: normal;
   font-size: 24px;
@@ -130,6 +129,7 @@ function toggleLeftDrawer() {
   padding: 12 12px;
   font-family: "Rubik";
 }
+
 .q-tab__label {
   font-size: 16px;
   line-height: 1.715em;
@@ -147,7 +147,7 @@ function toggleLeftDrawer() {
 }
 .q-toolbar {
   position: relative;
-  padding: 12px 20px;
+  padding: 12px 20px 12px 32px;
   min-height: 50px;
   width: 100%;
 }

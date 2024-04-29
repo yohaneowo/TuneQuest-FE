@@ -21,27 +21,43 @@
         <div :class="$style.divText">生成屬於您獨一無二的音樂。</div>
       </div>
       <div :class="$style.bottoms">
-        <div :class="$style.generateWrapper">
-          <div :class="$style.generate" @click="navigateToPage('/generate')">
-            生成 Generate
+        <div :class="$style.bottomSection">
+          <div :class="$style.bottomTitle">生成 Generate</div>
+          <div :class="$style.bottomDescription">生成您獨一無二的音樂</div>
+          <div :class="$style.generateWrapper">
+            <div :class="$style.generate" @click="navigateToPage('/generate')">
+              生成
+            </div>
           </div>
         </div>
-        <div :class="$style.searchWrapper">
-          <div :class="$style.generate" @click="navigateToPage('/search')">
-            查詢 Search
+        <div :class="$style.bottomSection">
+          <div :class="$style.bottomTitle">查詢 Search</div>
+          <div :class="$style.bottomDescription">查詢您想要的音樂</div>
+          <div :class="$style.searchWrapper">
+            <div :class="$style.generate" @click="navigateToPage('/search')">
+              查詢
+            </div>
           </div>
         </div>
-        <div :class="$style.generateWrapper">
-          <div :class="$style.generate" @click="navigateToPage('/recognize')">
-            上傳 Upload
+        <div :class="$style.bottomSection">
+          <div :class="$style.bottomTitle">上傳 Upload</div>
+          <div :class="$style.bottomDescription">上傳您獨一無二的音樂</div>
+          <div :class="$style.generateWrapper">
+            <div :class="$style.generate" @click="navigateToPage('/recognize')">
+              上傳
+            </div>
           </div>
         </div>
-        <div :class="$style.searchWrapper">
-          <div
-            :class="$style.generate"
-            @click="navigateToPage('/searchhelper')"
-          >
-            題詞小幫手 Assistant
+        <div :class="$style.bottomSection">
+          <div :class="$style.bottomTitle">題詞小幫手 Assistant</div>
+          <div :class="$style.bottomDescription">讓您的題詞更符合目的</div>
+          <div :class="$style.searchWrapper">
+            <div
+              :class="$style.generate"
+              @click="navigateToPage('/searchhelper')"
+            >
+              題詞小幫手
+            </div>
           </div>
         </div>
       </div>
@@ -170,7 +186,6 @@ const navigateToPage = (path) => {
 .generateWrapper {
   border-radius: var(--br-81xl);
   background-color: var(--color-black);
-  border: 2px solid var(--color-fuchsia-100);
   box-sizing: border-box;
   height: 65px;
   display: flex;
@@ -182,11 +197,11 @@ const navigateToPage = (path) => {
 .generateWrapper:hover {
   background-color: rgba(194, 146, 210); /* Change to the color you want */
   transition: background-color 0.4s ease; /* Smooth transition */
+  border: 1px solid var(--color-fuchsia-100);
 }
 .searchWrapper {
   border-radius: var(--br-81xl);
   background-color: var(--color-black);
-  border: 2px solid var(--color-white);
   box-sizing: border-box;
   height: 65px;
   display: flex;
@@ -196,9 +211,11 @@ const navigateToPage = (path) => {
   padding: 0px 24px;
 }
 .searchWrapper:hover {
-  background-color: rgba(194, 146, 210); /* Change to the color you want */
+  background-color: rgba(238, 201, 202); /* Change to the color you want */
   transition: background-color 0.4s ease; /* Smooth transition */
+  border: 2px solid var(--color-white);
 }
+
 .bottoms {
   width: auto;
   align-self: stretch;
@@ -212,11 +229,57 @@ const navigateToPage = (path) => {
   font-size: 1em;
   z-index: 999;
 }
+.bottomSection {
+  width: 250px;
+  height: 330px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgba(36, 29, 47, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 20px 20px 15px 20px;
+  margin: 0 10px 0 0;
+  z-index: 20;
+}
+.bottomTitle {
+  width: auto;
+  align-self: stretch;
+  position: relative;
+  text-align: left;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  background: linear-gradient(
+    90deg,
+    #ff3bff,
+    #ecbfbf 38.02%,
+    #5c24ff 75.83%,
+    #d94fd5
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2vw;
+}
+.bottomDescription {
+  position: relative;
+  letter-spacing: 0.72px;
+  line-height: 33px;
+  height: 200px;
+  font-size: 16px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
 .frameParent {
   width: 100%;
   margin: 0 !important;
   position: relative;
-  top: 8%;
+  top: 7%;
   left: 0px;
   display: flex;
   flex-direction: column;

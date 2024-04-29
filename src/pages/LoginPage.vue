@@ -56,7 +56,7 @@
 
         <div class="register" v-else>
           <div class="top">
-            <img class="logo" src="src/assets/TuneQuest.png" />
+            <img class="logo" src="src/assets/TuneQuest(1).png" />
             <div class="title">建立一個帳號</div>
             <div class="subtitle">
               已經有帳號了？
@@ -208,7 +208,8 @@ input[type="password"] {
 
 .logo {
   width: 300px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .action {
@@ -219,7 +220,8 @@ input[type="password"] {
   border: none;
   cursor: pointer;
   background: green;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
   color: #fff;
   font-size: 1.2rem;
   @include box;
@@ -227,8 +229,15 @@ input[type="password"] {
 
 .action-disabled {
   color: #eee;
-  background: #aaa;
+  background: #7588a7;
   cursor: auto;
+}
+
+.action-disabled:hover {
+  color: #566375;
+  background: #b6c2d6;
+  cursor: auto;
+  transition: background 0.4s ease; /* Smooth transition */
 }
 
 .top {
@@ -260,12 +269,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 50px);
+  height: 100vh;
   font-family: sans-serif;
 }
 
 .loginBox {
-  background-color: rgba(178, 199, 230, 0.5);
+  background-color: rgba(127, 153, 189, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 15px;
