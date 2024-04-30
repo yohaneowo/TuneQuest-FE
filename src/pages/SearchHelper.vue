@@ -56,7 +56,7 @@ function clearSearchText() {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("src/assets/BG_test.png");
+  background-image: url("src/assets/BG_Test.svg");
   background-size: cover;
   background-position: center;
   background-color: #101111;
