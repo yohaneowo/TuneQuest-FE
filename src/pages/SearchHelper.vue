@@ -74,10 +74,10 @@ function clearSearchText() {
   align-items: center;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: rgba(18, 43, 77, 0.4);
+  background-color: rgba(17, 37, 65, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  padding: 20px 20px 15px 20px;
+  padding: 20px 25px 15px 25px;
   margin: 0 10px;
 }
 

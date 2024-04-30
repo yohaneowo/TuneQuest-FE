@@ -228,14 +228,14 @@ input[type="password"] {
 }
 
 .action-disabled {
-  color: #eee;
-  background: #7588a7;
+  color: #566375;
+  background: #d3dceb;
   cursor: auto;
 }
 
 .action-disabled:hover {
-  color: #566375;
-  background: #b6c2d6;
+  color: #eee;
+  background: #b887d6;
   cursor: auto;
   transition: background 0.4s ease; /* Smooth transition */
 }
@@ -256,7 +256,7 @@ input[type="password"] {
 
 .subtitle {
   .subtitle-action {
-    color: green;
+    color: rgb(181, 202, 241);
     font-weight: bold;
     cursor: pointer;
   }
@@ -275,7 +275,7 @@ html {
 }
 
 .loginBox {
-  background-color: rgba(127, 153, 189, 0.5);
+  background-color: rgba(67, 59, 114, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 15px;
@@ -283,6 +283,7 @@ html {
   max-width: 400px;
   padding: 25px 55px;
   animation: slideInTop 1s;
+  color: #fff;
 }
 
 @keyframes slideInTop {
