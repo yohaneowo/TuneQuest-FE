@@ -154,6 +154,7 @@ const navigateToPage = (path) => {
   right: 20px;
   bottom: 10px;
   z-index: 1;
+  opacity: 0.95;
 }
 .aRevolutionaryMusic {
   width: auto;
@@ -247,7 +248,7 @@ q-icon {
   transition: all 0.5s linear;
 }
 .searchWrapper:hover {
-  background-color: rgba(238, 201, 202); /* Change to the color you want */
+  background-color: rgb(228, 182, 195); /* Change to the color you want */
   transition: background-color 0.4s ease; /* Smooth transition */
   border: 2px solid var(--color-white);
 }
@@ -267,8 +268,8 @@ q-icon {
 }
 
 .pagesSection {
-  width: 250px;
-  height: 250px;
+  width: 17.4vw;
+  height: 30vh;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -300,8 +301,8 @@ q-icon {
   position: relative;
   letter-spacing: 0.72px;
   line-height: 33px;
-  height: 150px;
-  font-size: 16px;
+  height: 16.5vh;
+  font-size: 1.125vw;
   text-align: left;
 }
 .bottomSection {
@@ -317,7 +318,7 @@ q-icon {
   width: 100%;
   margin: 0 !important;
   position: relative;
-  top: 9%;
+  top: 12%;
   left: 0px;
   display: flex;
   flex-direction: column;

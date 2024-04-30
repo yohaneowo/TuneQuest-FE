@@ -1,72 +1,74 @@
 <template>
   <div :class="$style.desktop21Dark">
-    <div :class="$style.ellipseParent">
-      <div :class="$style.frameChild" />
-      <div :class="$style.frameItem" />
-      <div :class="$style.frameInner" />
-    </div>
-    <section :class="$style.frameParent">
-      <div :class="$style.frameGroup">
-        <div :class="$style.searchBarWrapper">
-          <div :class="$style.searchBar">
-            <div :class="$style.searchBar1" />
-            <q-input
-              :class="$style.customInput"
-              v-model="text"
-              :dense="dense"
-            />
-            <q-btn-toggle
-              :class="$style.searchToggle"
-              v-model="model"
-              class="searchtoggle"
-              no-caps
-              rounded
-              unelevated
-              toggle-color="primary"
-              color="white"
-              text-color="primary"
-              size="1.375vw"
-              :options="[
-                { label: '語意', value: 'one' },
-                { label: '關鍵字', value: 'two' },
-              ]"
-            />
+    <div :class="$style.backgroundImg">
+      <div :class="$style.ellipseParent">
+        <div :class="$style.frameChild" />
+        <div :class="$style.frameItem" />
+        <div :class="$style.frameInner" />
+      </div>
+      <section :class="$style.frameParent">
+        <div :class="$style.frameGroup">
+          <div :class="$style.searchBarWrapper">
+            <div :class="$style.searchBar">
+              <div :class="$style.searchBar1" />
+              <q-input
+                :class="$style.customInput"
+                v-model="text"
+                :dense="dense"
+              />
+              <q-btn-toggle
+                :class="$style.searchToggle"
+                v-model="model"
+                class="searchtoggle"
+                no-caps
+                rounded
+                unelevated
+                toggle-color="primary"
+                color="white"
+                text-color="primary"
+                size="1.375vw"
+                :options="[
+                  { label: '語意', value: 'one' },
+                  { label: '關鍵字', value: 'two' },
+                ]"
+              />
+            </div>
+          </div>
+          <div :class="$style.resultBlock">
+            <div :class="$style.textSection">Result 1...</div>
+            <div :class="$style.textSection">Result 2...</div>
+            <div :class="$style.textSection">Result 3...</div>
+            <div :class="$style.textSection">Result 4...</div>
+            <div :class="$style.textSection">Result 5...</div>
           </div>
         </div>
-        <div :class="$style.resultBlock">
-          <div :class="$style.textSection">Result 1...</div>
-          <div :class="$style.textSection">Result 2...</div>
-          <div :class="$style.textSection">Result 3...</div>
-          <div :class="$style.textSection">Result 4...</div>
-          <div :class="$style.textSection">Result 5...</div>
+        <div :class="$style.musicCover" id="musicCover">
+          <q-uploader
+            :class="$style.uploadBotton"
+            align="center"
+            style="max-width: 300px"
+            url="http://localhost:4444/upload"
+            label="Restricted to Audio"
+            dark
+            accept=".wav, audio/*"
+            @rejected="onRejected"
+          />
+          <audioPlayer :class="$style.audioPlayer" />
         </div>
-      </div>
-      <div :class="$style.musicCover" id="musicCover">
-        <q-uploader
-          :class="$style.uploadBotton"
-          align="center"
-          style="max-width: 300px"
-          url="http://localhost:4444/upload"
-          label="Restricted to Audio"
-          dark
-          accept=".wav, audio/*"
-          @rejected="onRejected"
-        />
-        <audioPlayer :class="$style.audioPlayer" />
-      </div>
-    </section>
-    <section :class="$style.promptBlock">
-      <div :class="$style.promptBlockContainer">
-        <div :class="$style.descriptionText">Description...</div>
-        <q-btn
-          unelevated
-          rounded
-          dense
-          label="使用"
-          :class="$style.promptButton"
-        />
-      </div>
-    </section>
+      </section>
+      <section :class="$style.promptBlock">
+        <div :class="$style.promptBlockContainer">
+          <div :class="$style.descriptionText">Description...</div>
+          <q-btn
+            unelevated
+            rounded
+            dense
+            label="使用"
+            :class="$style.promptButton"
+          />
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -151,7 +153,7 @@ const model = ref("one");
   height: 76px;
   flex: 1;
   border-radius: var(--br-21xl);
-  background-color: var(--color-lightslategray-100);
+  background-color: rgba(211, 220, 235, 0.8);
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid var(--color-darkslategray-100);
   box-sizing: border-box;
@@ -180,7 +182,7 @@ const model = ref("one");
   height: 386px;
   position: relative;
   border-radius: var(--br-21xl);
-  background-color: rgb(15, 6, 23, 0.4);
+  background-color: rgb(15, 6, 23, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1.5px solid rgba(132, 146, 166, 0.6);
@@ -190,7 +192,7 @@ const model = ref("one");
 .textSection {
   margin-left: 40px;
   padding: 8px;
-  color: #6b7c94;
+  color: #d3dceb;
   font-family: "Open Sans";
   font-size: 42px;
   font-style: normal;
@@ -249,6 +251,7 @@ const model = ref("one");
   background-image: url("src/assets/defaultCover.jpg");
   background-size: cover;
   background-position: center;
+  opacity: 0.95;
   height: 472px;
   width: 472px;
   position: relative;
@@ -277,7 +280,7 @@ const model = ref("one");
 .frameParent {
   width: auto;
   /*max-height: 60vh;*/
-  margin-top: 8%;
+  margin-top: 2%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -299,7 +302,7 @@ const model = ref("one");
   border: 1.5px solid rgba(132, 146, 166, 0.6);
   box-sizing: border-box;
   max-width: 100%;
-  background-color: rgb(15, 6, 23, 0.4);
+  background-color: rgb(15, 6, 23, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -341,6 +344,26 @@ const model = ref("one");
   justify-content: space-between;
   z-index: 0;
 }
+.backgroundImg {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url("src/assets/BG_test.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*padding: 10vw var(--padding-xl) 4vw;*/
+  box-sizing: border-box;
+  gap: var(--gap-mini);
+  line-height: normal;
+  letter-spacing: normal;
+}
 .desktop21Dark {
   width: 100%;
   height: 100vh;
@@ -350,12 +373,13 @@ const model = ref("one");
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   /*padding: 10vw var(--padding-xl) 4vw;*/
   box-sizing: border-box;
   gap: var(--gap-mini);
   line-height: normal;
   letter-spacing: normal;
+  z-index: 0;
 }
 
 @media screen and (max-width: 1025px) {

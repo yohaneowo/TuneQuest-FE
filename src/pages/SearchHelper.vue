@@ -56,9 +56,10 @@ function clearSearchText() {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("src/assets/colorful_bg_test.jpg");
+  background-image: url("src/assets/BG_test.png");
   background-size: cover;
   background-position: center;
+  background-color: #101111;
 }
 
 .search-container {
@@ -73,7 +74,7 @@ function clearSearchText() {
   align-items: center;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: rgb(169, 181, 198, 0.6);
+  background-color: rgba(18, 43, 77, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   padding: 20px 20px 15px 20px;
@@ -84,7 +85,7 @@ function clearSearchText() {
   width: 37.5vw;
   height: 40vh;
   border-radius: 10px;
-  background-color: rgba(235, 243, 255, 0.5);
+  background-color: rgba(235, 243, 255, 0.75);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid #ccc;
@@ -113,14 +114,14 @@ function clearSearchText() {
 }
 
 .text-xl {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
-  color: #343c48;
+  color: #dde9fa;
 }
 
 .text-sm {
-  font-size: 14px;
-  color: #47566b;
+  font-size: 16px;
+  color: #b0c3e0;
 }
 
 .buttons-container {
@@ -135,7 +136,7 @@ function clearSearchText() {
   width: 120px;
   height: 50px;
   border-radius: 32px;
-  background-color: #96a2b3;
+  background-color: #7486a0;
   color: #fff;
   font-size: 24px;
   border: none;

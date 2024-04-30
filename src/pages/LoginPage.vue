@@ -263,9 +263,10 @@ input[type="password"] {
 }
 
 html {
-  background-image: url("src/assets/bg_test_2.jpg");
+  background-image: url("src/assets/BG_test.png");
   background-size: cover;
   background-position: center;
+  background-color: #151516;
   display: flex;
   align-items: center;
   justify-content: center;
