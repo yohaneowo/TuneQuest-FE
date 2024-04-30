@@ -38,6 +38,9 @@ defineOptions({
   width: 100vw;
   height: 100vh;
   display: grid;
+  background-image: url("src/assets/randombg3.png");
+  background-size: cover;
+  background-position: center;
   background-color: $primary;
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);

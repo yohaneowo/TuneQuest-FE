@@ -88,6 +88,5 @@ input[type="file"] {
   display: none;
 }
 .uploadStyle {
-  cursor: pointer;
 }
 </style>
