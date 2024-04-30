@@ -164,9 +164,9 @@ const registerValid = computed(
 @mixin field {
   border: 1px solid #aaa;
   height: 40px;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -263,7 +263,7 @@ input[type="password"] {
 }
 
 html {
-  background-image: url("src/assets/BG_Test.svg");
+  background-image: url("src/assets/BG_Test.webp");
   background-size: cover;
   background-position: center;
   background-color: #151516;

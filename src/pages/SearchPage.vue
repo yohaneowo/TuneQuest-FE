@@ -348,7 +348,7 @@ const model = ref("one");
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url("src/assets/BG_Test.svg");
+  background-image: url("src/assets/BG_Test.webp");
   background-size: cover;
   background-position: center;
   overflow: hidden;
