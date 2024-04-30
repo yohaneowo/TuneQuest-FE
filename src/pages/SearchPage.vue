@@ -61,7 +61,7 @@
         <q-btn
           unelevated
           rounded
-          color="primary"
+          dense
           label="使用"
           :class="$style.promptButton"
         />
@@ -120,9 +120,9 @@ const model = ref("one");
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  bottom: 5%;
+  bottom: 8%;
   color: white;
-  font-size: var(--font-size-26xl);
+  font-size: var(--font-size-18xl);
 }
 .searchToggle {
   padding: 0 2.5% 0 3%;
@@ -132,7 +132,7 @@ const model = ref("one");
   justify-content: flex-start;
   position: relative;
   max-width: 100%;
-  bottom: 0;
+  bottom: 5%;
   color: white;
   font-size: var(--font-size-26xl);
 }
@@ -148,7 +148,7 @@ const model = ref("one");
   z-index: 1;
 }
 .searchBar {
-  height: 84px;
+  height: 76px;
   flex: 1;
   border-radius: var(--br-21xl);
   background-color: var(--color-lightslategray-100);
@@ -165,7 +165,7 @@ const model = ref("one");
 }
 .searchBarWrapper {
   align-self: stretch;
-  height: 78px;
+  height: 72px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -177,13 +177,13 @@ const model = ref("one");
 .resultBlock {
   align-self: stretch;
   padding-top: 1%;
-  height: 406px;
+  height: 386px;
   position: relative;
   border-radius: var(--br-21xl);
   background-color: rgb(15, 6, 23, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid var(--color-lightslategray-100);
+  border: 1.5px solid rgba(132, 146, 166, 0.6);
   box-sizing: border-box;
   mix-blend-mode: normal;
 }
@@ -192,7 +192,7 @@ const model = ref("one");
   padding: 8px;
   color: #6b7c94;
   font-family: "Open Sans";
-  font-size: 44px;
+  font-size: 42px;
   font-style: normal;
   font-weight: 700;
 }
@@ -201,18 +201,18 @@ const model = ref("one");
   padding: 8px;
   color: white;
   font-family: "Open Sans";
-  font-size: 44px;
+  font-size: 43px;
   font-style: normal;
   font-weight: 700;
 }
 .descriptionText {
   height: 100%;
   width: 80%;
-  margin: auto 40px;
+  margin: auto 20px auto 40px;
   padding: 7px;
   color: white;
   font-family: "Outfit";
-  font-size: 38px;
+  font-size: 36px;
   font-style: normal;
   font-weight: 700;
   display: flex;
@@ -226,13 +226,14 @@ const model = ref("one");
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   max-width: 100%;
 }
 .promptButton {
   width: 10%;
-  padding: 10px 20px; /* adjust as needed */
   font-size: 28px; /* adjust as needed */
-  margin-right: 1vw;
+  margin-right: 20px;
+  background-color: var(--primary-primary400);
 }
 .frameGroup {
   flex: 1;
@@ -248,12 +249,12 @@ const model = ref("one");
   background-image: url("src/assets/defaultCover.jpg");
   background-size: cover;
   background-position: center;
-  height: 500px;
-  width: 500px;
+  height: 472px;
+  width: 472px;
   position: relative;
   border-radius: var(--spacing-xl);
   background-color: var(--color-darkslategray-100);
-  border: 4px solid var(--color-lightslategray-100);
+  border: 1.5px solid rgba(132, 146, 166, 0.6);
   box-sizing: border-box;
   min-width: 500px;
   max-width: 100%;
@@ -276,7 +277,7 @@ const model = ref("one");
 .frameParent {
   width: auto;
   /*max-height: 60vh;*/
-  margin-top: 7%;
+  margin-top: 8%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -291,11 +292,11 @@ const model = ref("one");
 .promptBlock {
   width: 80%;
   max-width: 100%;
-  height: 110px;
+  height: 95px;
   position: relative;
   border-radius: var(--spacing-xl);
   background-color: var(--color-gray);
-  border: 1px solid var(--color-lightslategray-100);
+  border: 1.5px solid rgba(132, 146, 166, 0.6);
   box-sizing: border-box;
   max-width: 100%;
   background-color: rgb(15, 6, 23, 0.4);

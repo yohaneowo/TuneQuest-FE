@@ -8,7 +8,7 @@
     <img
       :class="$style.homepageChild"
       alt=""
-      src="/src/assets/MusicGen-BGremove-ColorInvert_ReOrder.png"
+      src="src/assets/TuneQuest_HomePage_Pic.png"
     />
     <div :class="$style.frameParent">
       <div :class="$style.aRevolutionaryMusicToolParent">
@@ -21,42 +21,68 @@
         <div :class="$style.divText">生成屬於您獨一無二的音樂。</div>
       </div>
       <div :class="$style.bottoms">
-        <div :class="$style.bottomSection">
-          <div :class="$style.bottomTitle">生成 Generate</div>
-          <div :class="$style.bottomDescription">生成您獨一無二的音樂</div>
-          <div :class="$style.generateWrapper">
-            <div :class="$style.generate" @click="navigateToPage('/generate')">
-              生成
+        <div :class="$style.pagesSection">
+          <div :class="$style.pagesTitle">生成 Generate</div>
+          <div :class="$style.pagesDescription">
+            使用劃時代的MusicGen，來生成屬於您的音樂吧！
+          </div>
+          <div :class="$style.bottomSection">
+            <div :class="$style.searchWrapper">
+              <div
+                :class="$style.generate"
+                @click="navigateToPage('/generate')"
+              >
+                生成
+                <q-icon name="open_in_new" />
+              </div>
             </div>
           </div>
         </div>
-        <div :class="$style.bottomSection">
-          <div :class="$style.bottomTitle">查詢 Search</div>
-          <div :class="$style.bottomDescription">查詢您想要的音樂</div>
-          <div :class="$style.searchWrapper">
-            <div :class="$style.generate" @click="navigateToPage('/search')">
-              查詢
+        <div :class="$style.pagesSection">
+          <div :class="$style.pagesTitle">查詢 Search</div>
+          <div :class="$style.pagesDescription">
+            我們提供兩種搜尋方式，讓您查詢想要的音樂
+          </div>
+          <div :class="$style.bottomSection">
+            <div :class="$style.searchWrapper">
+              <div :class="$style.generate" @click="navigateToPage('/search')">
+                查詢
+                <q-icon name="open_in_new" />
+              </div>
             </div>
           </div>
         </div>
-        <div :class="$style.bottomSection">
-          <div :class="$style.bottomTitle">上傳 Upload</div>
-          <div :class="$style.bottomDescription">上傳您獨一無二的音樂</div>
-          <div :class="$style.generateWrapper">
-            <div :class="$style.generate" @click="navigateToPage('/recognize')">
-              上傳
+        <div :class="$style.pagesSection">
+          <div :class="$style.pagesTitle">上傳 Upload</div>
+          <div :class="$style.pagesDescription">
+            上傳您獨一無二的音樂，讓我們為您辨識曲風！
+          </div>
+          <div :class="$style.bottomSection">
+            <div :class="$style.searchWrapper">
+              <div
+                :class="$style.generate"
+                @click="navigateToPage('/recognize')"
+              >
+                上傳
+                <q-icon name="open_in_new" />
+              </div>
             </div>
           </div>
         </div>
-        <div :class="$style.bottomSection">
-          <div :class="$style.bottomTitle">題詞小幫手 Assistant</div>
-          <div :class="$style.bottomDescription">讓您的題詞更符合目的</div>
-          <div :class="$style.searchWrapper">
-            <div
-              :class="$style.generate"
-              @click="navigateToPage('/searchhelper')"
-            >
-              題詞小幫手
+        <div :class="$style.pagesSection">
+          <div :class="$style.pagesTitle">題詞小幫手</div>
+          <div :class="$style.pagesDescription">
+            想不到確切的題詞嗎？我們讓您的題詞更符合目的！
+          </div>
+          <div :class="$style.bottomSection">
+            <div :class="$style.searchWrapper">
+              <div
+                :class="$style.generate"
+                @click="navigateToPage('/searchhelper')"
+              >
+                題詞小幫手
+                <q-icon name="open_in_new" />
+              </div>
             </div>
           </div>
         </div>
@@ -182,12 +208,16 @@ const navigateToPage = (path) => {
 }
 .generate {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .generateWrapper {
   border-radius: var(--br-81xl);
-  background-color: var(--color-black);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: transparent;
   box-sizing: border-box;
-  height: 65px;
+  height: 55px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -199,16 +229,22 @@ const navigateToPage = (path) => {
   transition: background-color 0.4s ease; /* Smooth transition */
   border: 1px solid var(--color-fuchsia-100);
 }
+q-icon {
+  transition: all 0.3s linear;
+}
 .searchWrapper {
   border-radius: var(--br-81xl);
-  background-color: var(--color-black);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: transparent;
   box-sizing: border-box;
-  height: 65px;
+  height: 55px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 0px 24px;
+  text-decoration: none;
+  transition: all 0.5s linear;
 }
 .searchWrapper:hover {
   background-color: rgba(238, 201, 202); /* Change to the color you want */
@@ -229,9 +265,10 @@ const navigateToPage = (path) => {
   font-size: 1em;
   z-index: 999;
 }
-.bottomSection {
+
+.pagesSection {
   width: 250px;
-  height: 330px;
+  height: 250px;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -246,40 +283,41 @@ const navigateToPage = (path) => {
   margin: 0 10px 0 0;
   z-index: 20;
 }
-.bottomTitle {
+.pagesTitle {
   width: auto;
   align-self: stretch;
   position: relative;
   text-align: left;
   letter-spacing: 0.02em;
   font-weight: 500;
-  background: linear-gradient(
-    90deg,
-    #ff3bff,
-    #ecbfbf 38.02%,
-    #5c24ff 75.83%,
-    #d94fd5
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ecbfbf;
   font-size: 2vw;
+  margin-bottom: 10px;
 }
-.bottomDescription {
+.pagesDescription {
+  width: auto;
+  align-self: stretch;
   position: relative;
   letter-spacing: 0.72px;
   line-height: 33px;
-  height: 200px;
+  height: 150px;
   font-size: 16px;
   text-align: left;
+}
+.bottomSection {
+  width: 100%;
+  align-self: stretch;
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  align-items: right;
+  justify-content: end;
+  z-index: 999;
 }
 .frameParent {
   width: 100%;
   margin: 0 !important;
   position: relative;
-  top: 7%;
+  top: 9%;
   left: 0px;
   display: flex;
   flex-direction: column;

@@ -135,7 +135,7 @@ function clearSearchText() {
   width: 120px;
   height: 50px;
   border-radius: 32px;
-  background-color: #566375;
+  background-color: #96a2b3;
   color: #fff;
   font-size: 24px;
   border: none;
