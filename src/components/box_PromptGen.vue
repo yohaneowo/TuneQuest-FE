@@ -1,23 +1,18 @@
 <template>
-  <div
-    class="prompt"
-    @mouseover="isHovered = true"
-    @mouseleave="isHovered = false"
-  >
+  <div class="prompt">
     <div class="prompt-content">
-      <div v-if="isHovered" class="hover-border"></div>
       <q-input
         v-model="prompt"
         filled
         clearable
         type="textarea"
-        color="second"
         label="請描述欲生成音樂的題詞。 Enter Prompt to Generate "
         hint="輸入文字或點擊下方推薦關鍵字。Enter in your own prompt text or Click the keyword tags "
         :shadow-text="textareaShadowText"
         @keydown="processTextareaFill"
         @focus="processTextareaFill"
         @input="handleInput"
+        class="prompt-input"
       />
       <div class="tag-container">
         已選取關鍵字標籤：（點擊標籤可取消）
@@ -40,21 +35,17 @@
       </div>
       <q-btn
         :ripple="{ center: true }"
-        color="$q-color-box"
-        text-color="$primary"
         label="生成音樂"
         @click="submitPrompt"
         class="submit"
       />
     </div>
-    <!--<output-component ref="outputComponent" />-->
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 
-const isHovered = ref(false);
 const prompt = ref("");
 const tags = [
   "Mystical meditation",
@@ -132,24 +123,19 @@ const submitPrompt = () => {
   width: 100%; // 讓內容物撐滿容器寬度
   padding: 10px; // 設定內間距
   gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
-/*
-.hover-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid $primary;
-  border-radius: 10px;
-  pointer-events: none;
+
+.prompt-input {
+  min-width: 100%;
 }
-*/
 .textarea {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
+  color: white;
 }
 
 .tag-container {
@@ -175,7 +161,7 @@ const submitPrompt = () => {
   max-width: 100%; // 設定最大寬度
   overflow-x: auto; // 出現水平滾動條
   .tag {
-    background-color: $q-color-box;
+    background-color: rgba(31, 36, 41, 0.75);
     padding: 5px 10px;
     border-radius: 15px;
     cursor: pointer;
@@ -186,6 +172,40 @@ const submitPrompt = () => {
   border-radius: 10px;
   position: absolute; // 使用絕對定位
   bottom: 20px;
-  right: 105px;
+  right: 60px;
+  margin-top: 1rem;
+  color: $primary;
+  font-weight: 600;
+  background: linear-gradient(45deg, rgb(111, 158, 211), rgb(228, 164, 196));
+  min-height: 40px;
+  min-width: 100px;
+}
+.prompt-input {
+  color: $q-color-box; // 這裡設置的是整個 q-input 的文字顏色
+
+  .q-field--filled {
+    padding: 0 12px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    .q-field__control {
+      color: $q-color-box; // 這裡設置 textarea 輸入文字的顏色
+    }
+
+    .q-field__marginal {
+      color: $q-color-box; // 這裡設置 hint 文字的顏色
+    }
+  }
+
+  .q-field__label {
+    color: $q-color-box; // 這裡設置 label 文字的顏色
+  }
+  .q-field__native {
+    color: white;
+    font-weight: 400;
+  }
+  .q-field__messages > div {
+    color: $q-color-box;
+  }
 }
 </style>

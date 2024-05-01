@@ -33,7 +33,6 @@
         rounded
         :value="progress"
         :buffer="buffer"
-        color="$q-color-box"
         class="q-mt-md"
       />
     </div>
@@ -80,8 +79,8 @@ onBeforeUnmount(() => {
 onMounted(() => {
   wavesurfer = WaveSurfer.create({
     container: waveform.value,
-    waveColor: "rgb(47, 55, 65, 0.5)",
-    progressColor: "rgb(47, 55, 65, 0.5)",
+    waveColor: "rgb(220, 238, 242, 0.7)",
+    progressColor: "rgb(220, 238, 242, 0.7)",
     barWidth: 4,
     barRadius: 5,
     responsive: true,
@@ -146,6 +145,7 @@ const toggleVolumeIcon = () => {
   height: 10px;
   width: 97%;
   margin: 0 0.5rem;
+  color: $q-color-box;
 }
 .progressline {
   //grid-row: 3 / 4;

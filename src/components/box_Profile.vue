@@ -60,6 +60,7 @@ credit.value = 10;
 
   justify-content: center;
   align-items: center;
+  color: rgb(216, 241, 247);
 }
 
 .item {
@@ -98,8 +99,10 @@ credit.value = 10;
 .name {
   padding: 0;
   margin: 0;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 16px;
   font-style: normal;
+  color: rgb(216, 241, 247);
 }
 .coin {
   display: grid;
@@ -139,5 +142,8 @@ credit.value = 10;
 .btn-fixed-width {
   background-color: rgb(229, 240, 250, 0.4);
   border-radius: 10px;
+}
+.q-item__label--caption {
+  color: rgb(255 255 255 / 65%);
 }
 </style>

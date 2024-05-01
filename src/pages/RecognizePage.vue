@@ -69,10 +69,10 @@ const handleUploadToDB = () => {
   width: 100vw;
   height: 100vh;
   display: grid;
-  background-image: url("https://assets-global.website-files.com/64845ff44619a4f77cbc530c/64cb4d375fedd39d5beb487f_Group%2041090.svg");
+  background-image: url("src/assets/randombg11_purple.png");
   background-size: cover;
   background-position: center;
-  background-color: rgb(35, 35, 35);
+  background-color: rgb(23, 23, 30);
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
   gap: 15px;
@@ -80,12 +80,17 @@ const handleUploadToDB = () => {
   grid-auto-rows: minmax(100px, auto);
   font-family: "Rubik";
   vertical-align: middle;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-size: 15px;
+  color: $q-color-box;
 }
 .profile {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   align-content: flex-start;
@@ -96,11 +101,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .history {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -110,11 +119,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .cover {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -124,12 +137,16 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   overflow: hidden;
 }
 .display_music {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   //justify-content: center;
@@ -139,11 +156,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .uploadMusic {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -153,11 +174,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .title {
-  background-color: rgb(169, 181, 198, 0.6);
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   grid-column: 8/15;
   grid-row: 6/8;
@@ -165,11 +190,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(255, 255, 255, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .description {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   grid-column: 8/18;
@@ -178,11 +207,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .genre {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   grid-column: 18/23;
@@ -191,11 +224,15 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
 }
 .addToDB {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   //align-items: center;
   justify-content: center;
@@ -205,8 +242,8 @@ const handleUploadToDB = () => {
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   overflow: visible;
 }
 </style>

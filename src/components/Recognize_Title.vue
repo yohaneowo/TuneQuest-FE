@@ -29,4 +29,22 @@ const text = ref("");
   justify-content: center;
   align-items: center;
 }
+
+.q-field__control {
+  color: $q-color-box; // 這裡設置 textarea 輸入文字的顏色
+}
+
+.q-field__marginal {
+  color: $q-color-box; // 這裡設置 hint 文字的顏色
+}
+.q-field__label {
+  color: $q-color-box; // 這裡設置 label 文字的顏色
+}
+.q-field__native {
+  color: white;
+  font-weight: 400;
+}
+.q-field__messages > div {
+  color: $q-color-box;
+}
 </style>

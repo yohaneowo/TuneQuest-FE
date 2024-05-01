@@ -111,6 +111,7 @@ const contentStyle = {
   margin: 2px 0;
   opacity: 0.5; // 初始透明度為 0.5
   font-size: 16px;
+  color: rgb(30, 30, 30);
 
   &.genre-card-active {
     transform: scale(1.1);

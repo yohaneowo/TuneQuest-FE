@@ -42,8 +42,8 @@ let wavesurfer;
 onMounted(() => {
   wavesurfer = WaveSurfer.create({
     container: waveform.value,
-    waveColor: "rgb(47, 55, 65, 0.5)",
-    progressColor: "rgb(47, 55, 65, 0.5)",
+    waveColor: "rgb(255, 255, 255, 0.7)",
+    progressColor: "rgb(255, 255, 255, 0.7)",
     barWidth: 4,
     barRadius: 5,
     responsive: true,

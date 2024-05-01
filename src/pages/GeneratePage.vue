@@ -2,9 +2,9 @@
   <!--<q-page-container>-->
   <q-page class="generate-page q-pa-md">
     <box_Profile></box_Profile>
-    <q-card class="history"
-      ><box_History /><box_History /><box_History
-    /></q-card>
+    <q-card class="history">
+      <box_History /><box_History /><box_History />
+    </q-card>
     <div class="cover"><box_Cover></box_Cover></div>
     <box_PromptGen></box_PromptGen>
     <!--
@@ -41,7 +41,7 @@ defineOptions({
   background-image: url("src/assets/randombg11_purple.png");
   background-size: cover;
   background-position: center;
-  background-color: $primary;
+  background-color: rgb(23, 23, 30);
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
   gap: 15px;
@@ -49,12 +49,17 @@ defineOptions({
   grid-auto-rows: minmax(100px, auto);
   font-family: "Rubik";
   vertical-align: middle;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-size: 15px;
+  color: $q-color-box;
 }
 .profile {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
   display: grid;
   align-items: center;
   align-content: flex-start;
@@ -65,11 +70,20 @@ defineOptions({
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 0.75px solid rgba(130, 130, 131, 0.6);
-  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
+  //color: rgb(216 214 214);
+  font-weight: 500;
 }
+
 .history {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -79,11 +93,17 @@ defineOptions({
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 0.75px solid rgba(130, 130, 131, 0.6);
-  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
+  color: rgb(216 214 214);
+  font-weight: 500;
 }
 .cover {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -93,12 +113,18 @@ defineOptions({
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 0.75px solid rgba(130, 130, 131, 0.6);
-  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
+
+  color: rgb(216, 214, 214);
   overflow: hidden;
 }
 .prompt {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -109,11 +135,15 @@ defineOptions({
   position: relative; // 設置父元素為相對定位
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 0.75px solid rgba(130, 130, 131, 0.6);
-  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 .output {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   display: grid;
   align-items: center;
   grid-column: 12/20;
@@ -122,11 +152,15 @@ defineOptions({
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 0.75px solid rgba(130, 130, 131, 0.6);
-  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 .duration {
-  background-color: $q-color-box;
+  background: repeating-radial-gradient(
+      rgba(36, 87, 159, 0.25),
+      transparent 0.0001px
+    ),
+    rgba(110, 110, 110, 0.45);
+  border: 0.75px solid rgba(175, 175, 175, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
   display: grid;
   align-items: center;
   justify-content: center;
@@ -136,7 +170,5 @@ defineOptions({
   margin: 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 0.75px solid rgba(130, 130, 131, 0.6);
-  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 </style>

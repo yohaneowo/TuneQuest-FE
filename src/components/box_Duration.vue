@@ -53,6 +53,7 @@ const resetTimer = () => {
 .timer {
   display: flex;
   justify-content: center;
+  max-width: 100%;
 }
 .lay {
   display: flex;
@@ -65,5 +66,27 @@ const resetTimer = () => {
 }
 .q-ml-sm {
   margin-left: 0;
+  color: $q-color-box;
+}
+.q-field--dense.q-field--float .q-field__label {
+  color: $q-color-box;
+}
+.q-field--labeled.q-field--dense .q-field__native,
+.q-field--labeled.q-field--dense .q-field__prefix,
+.q-field--labeled.q-field--dense .q-field__suffix {
+  padding-top: 14px;
+  padding-bottom: 2px;
+  color: $q-color-box;
+}
+
+@media (max-width: 480px) {
+  .timer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .q-input {
+    margin-bottom: 0.5rem;
+  }
 }
 </style>
