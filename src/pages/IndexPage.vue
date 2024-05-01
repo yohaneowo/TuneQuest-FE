@@ -107,37 +107,37 @@ const navigateToPage = (path) => {
 
 <style module>
 .frameChild {
-  width: 464px;
+  width: 484px;
   position: relative;
   border-radius: 50%;
   background-color: #8593e8;
-  filter: blur(200px);
+  filter: blur(300px);
   height: 462px;
   opacity: 0.2;
 }
 .frameItem {
-  width: 467px;
+  width: 607px;
   position: relative;
-  border-radius: 50%;
+  border-radius: 20%;
   background-color: #5d6ef3;
   filter: blur(250px);
   height: 467px;
-  opacity: 0.2;
+  opacity: 0.22;
 }
 .frameInner {
-  width: 446px;
+  width: 486px;
   position: relative;
   border-radius: 50%;
   background-color: #fc4ff6;
-  filter: blur(200px);
+  filter: blur(300px);
   height: 446px;
-  opacity: 0.2;
+  opacity: 0.175;
 }
 .ellipseParent {
   margin: 0 !important;
   position: absolute;
-  top: 652px;
-  left: calc(50% - 688.5px);
+  top: 452px;
+  left: -60px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -195,7 +195,7 @@ const navigateToPage = (path) => {
 .divText {
   position: relative;
   letter-spacing: 0.72px;
-  line-height: 33px;
+  line-height: 40px;
 }
 .wrapper {
   display: flex;
@@ -277,12 +277,19 @@ q-icon {
   justify-content: flex-start;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: rgba(36, 29, 47, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(150, 111, 212, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 20px 20px 15px 20px;
   margin: 0 10px 0 0;
   z-index: 20;
+  transition: background-color 0.4s ease;
+}
+
+.pagesSection:hover {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(160, 123, 219, 0.3);
+  transition: background-color 0.4s ease; /* Smooth transition */
 }
 .pagesTitle {
   width: auto;

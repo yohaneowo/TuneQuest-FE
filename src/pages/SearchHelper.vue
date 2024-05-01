@@ -141,7 +141,7 @@ function clearSearchText() {
 .textBold {
   font-size: 22px;
   color: #d9e3f1;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .text-sm {

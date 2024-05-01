@@ -377,8 +377,8 @@ const model = ref("one");
 
   .resultBlock {
     height: calc(50vh - 91px); /* adjust height for large screens */
-    gap: calc(({height}- (calc(50vh / 10)) * 5) / 5);
-    padding: calc(({height}- (calc(50vh / 10)) * 5) / 5) 48px; /* adjust padding for large screens */
+    gap: calc(({height} - (calc(50vh / 10)) * 5) / 5);
+    padding: calc(({height} - (calc(50vh / 10)) * 5) / 5) 48px; /* adjust padding for large screens */
   }
 
   .textSection {
