@@ -231,6 +231,7 @@ input[type="password"] {
   color: #566375;
   background: #d3dceb;
   cursor: auto;
+  transition: all 0.3s linear;
 }
 
 .action-disabled:hover {

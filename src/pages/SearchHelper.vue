@@ -168,11 +168,12 @@ function clearSearchText() {
   width: stretch;
   height: 50px;
   border-radius: 16px;
-  background-color: #869cc0;
+  background-color: #92a6c7;
   color: #fff;
   font-size: 24px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 
 .search-button:hover {
