@@ -78,6 +78,11 @@ const handleUploadToDB = () => {
   gap: 15px;
   padding: 0;
   grid-auto-rows: minmax(100px, auto);
+  font-family: "Rubik";
+  vertical-align: middle;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
 }
 .profile {
   background-color: $q-color-box;

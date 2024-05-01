@@ -16,12 +16,7 @@
       @change="handleFileUpload"
       accept="image/*"
     />
-    <label
-      for="upload"
-      class="uploadStyle"
-      v-if="!showImage"
-      style="color: white"
-    >
+    <label for="upload" class="uploadStyle" v-if="!showImage" style="color: ">
       點擊上傳封面
     </label>
     <img

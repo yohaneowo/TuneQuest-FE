@@ -9,22 +9,21 @@
         </q-item-section>
         <q-item-section class="none">
           <div>
-            <strong>Guest</strong>
+            <p class="name">Guest</p>
           </div>
           <q-item-label caption>Guest001</q-item-label>
         </q-item-section>
-        <q-item-section class="adjust">
-          <router-link to="#" class="button-login">
-            <span class="material-icons"> tune </span></router-link
-          >
-        </q-item-section>
       </q-item>
+      <q-item-section class="adjust">
+        <router-link to="#" class="button-login">
+          <span class="material-icons"> tune </span></router-link
+        >
+      </q-item-section>
 
       <div class="coin">
         <q-btn
           align="around"
           class="btn-fixed-width"
-          color="primary"
           inline
           @mouseover="isHovered = true"
           @mouseleave="isHovered = false"
@@ -58,15 +57,15 @@ credit.value = 10;
 .wrap {
   display: grid;
   grid-column: 1 / span 6; // 占据整个 .profile 的宽度
-  grid-template-columns: repeat(6, 1fr);
+
   justify-content: center;
   align-items: center;
 }
 
 .item {
   display: grid;
-  grid-column: 1 / span 4;
-  padding: 1.25rem 0 1.25rem 1.25rem;
+  grid-column: 1 / span 3;
+  padding: 1.25rem;
   grid-template-columns: auto 1fr; /* 左侧自适应宽度，右侧占据剩余空间 */
   align-items: center; /* 垂直居中对齐 */
   grid-gap: 0.5rem; /* 设置网格间隔 */
@@ -74,7 +73,7 @@ credit.value = 10;
 .adjust {
   display: grid;
   grid-column: 5 / span 6;
-  padding: 1.25rem 0 1.25rem 1.25rem;
+  padding: 1.25rem;
   grid-template-columns: auto 1fr;
   //transform: scale(1.5);
 }
@@ -95,6 +94,12 @@ credit.value = 10;
 .guest-info {
   display: flex;
   flex-direction: column;
+}
+.name {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-style: normal;
 }
 .coin {
   display: grid;
@@ -130,5 +135,9 @@ credit.value = 10;
 
 .button-login:hover {
   background-color: rgb(47, 55, 65, 0.5);
+}
+.btn-fixed-width {
+  background-color: rgb(229, 240, 250, 0.4);
+  border-radius: 10px;
 }
 </style>

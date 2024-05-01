@@ -38,7 +38,7 @@ defineOptions({
   width: 100vw;
   height: 100vh;
   display: grid;
-  background-image: url("src/assets/randombg3.png");
+  background-image: url("src/assets/randombg11_purple.png");
   background-size: cover;
   background-position: center;
   background-color: $primary;
@@ -47,6 +47,11 @@ defineOptions({
   gap: 15px;
   padding: 0;
   grid-auto-rows: minmax(100px, auto);
+  font-family: "Rubik";
+  vertical-align: middle;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
 }
 .profile {
   background-color: $q-color-box;
@@ -59,9 +64,9 @@ defineOptions({
   border-radius: 15px;
   margin: 5px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.75px solid rgba(130, 130, 131, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 .history {
   background-color: $q-color-box;
@@ -73,9 +78,9 @@ defineOptions({
   border-radius: 15px;
   margin: 5px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.75px solid rgba(130, 130, 131, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 .cover {
   background-color: $q-color-box;
@@ -87,9 +92,9 @@ defineOptions({
   border-radius: 15px;
   margin: 5px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.75px solid rgba(130, 130, 131, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
   overflow: hidden;
 }
 .prompt {
@@ -103,9 +108,9 @@ defineOptions({
   margin: 5px;
   position: relative; // 設置父元素為相對定位
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.75px solid rgba(130, 130, 131, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 .output {
   background-color: $q-color-box;
@@ -116,9 +121,9 @@ defineOptions({
   border-radius: 15px;
   margin: 5px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.75px solid rgba(130, 130, 131, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 .duration {
   background-color: $q-color-box;
@@ -130,8 +135,8 @@ defineOptions({
   border-radius: 15px;
   margin: 5px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 0.5px solid rgba(30, 30, 30, 0.2);
-  box-shadow: inset 0px 0px 50px 0px rgba(30, 30, 30, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.75px solid rgba(130, 130, 131, 0.6);
+  box-shadow: inset 0px 0px 50px 0px rgba(172, 185, 214, 0.7);
 }
 </style>

@@ -13,14 +13,14 @@
         type="textarea"
         color="second"
         label="請描述欲生成音樂的題詞。 Enter Prompt to Generate "
-        hint="輸入文字或點擊下方推薦關鍵字。（雙擊標籤可取消）Enter in your own prompt text or Click the keyword tags "
+        hint="輸入文字或點擊下方推薦關鍵字。Enter in your own prompt text or Click the keyword tags "
         :shadow-text="textareaShadowText"
         @keydown="processTextareaFill"
         @focus="processTextareaFill"
         @input="handleInput"
       />
       <div class="tag-container">
-        Selected keyword tags:
+        已選取關鍵字標籤：（點擊標籤可取消）
         <span
           v-for="tag in selectedTags"
           :key="tag"

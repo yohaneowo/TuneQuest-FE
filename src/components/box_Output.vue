@@ -33,7 +33,7 @@
         rounded
         :value="progress"
         :buffer="buffer"
-        color="warning"
+        color="$q-color-box"
         class="q-mt-md"
       />
     </div>
@@ -144,8 +144,8 @@ const toggleVolumeIcon = () => {
 <style lang="scss">
 .q-linear-progress {
   height: 10px;
-  width: 100%;
-  //padding: 0.25rem; //100px; //頁面縮太窄時會突出去！ 待解決
+  width: 97%;
+  margin: 0 0.5rem;
 }
 .progressline {
   //grid-row: 3 / 4;
