@@ -277,8 +277,8 @@ html {
 
 .loginBox {
   background-color: rgba(67, 59, 114, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   max-width: 400px;
