@@ -284,6 +284,7 @@ q-icon {
   margin: 0 10px 0 0;
   z-index: 20;
   transition: background-color 0.4s ease;
+  animation: slideInTop 1s;
 }
 
 .pagesSection:hover {
@@ -349,6 +350,18 @@ q-icon {
   font-size: var(--font-size-xl);
   color: var(--color-white);
   font-family: var(--font-outfit);
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  to {
+    opacity: 100;
+    transform: translateY(0%);
+  }
 }
 
 @media (max-width: 768px) {

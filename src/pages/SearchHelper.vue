@@ -98,6 +98,7 @@ function clearSearchText() {
   -webkit-backdrop-filter: blur(4px);
   padding: 20px 25px 20px 25px;
   margin: 0 10px;
+  animation: slideInTop 1s;
 }
 
 .search-input {
@@ -114,6 +115,7 @@ function clearSearchText() {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #000;
 }
 
 .q-field__control {
@@ -221,5 +223,16 @@ function clearSearchText() {
   align-items: flex-end;
   justify-content: space-between;
   z-index: 0;
+}
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  to {
+    opacity: 100;
+    transform: translateY(0%);
+  }
 }
 </style>

@@ -160,7 +160,7 @@ const model = ref("one");
   height: 386px;
   position: relative;
   border-radius: var(--br-21xl);
-  background-color: rgb(15, 6, 23, 0.65);
+  background-color: rgb(15, 6, 23, 0.75);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1.5px solid rgba(132, 146, 166, 0.6);
@@ -278,12 +278,13 @@ const model = ref("one");
   position: relative;
   border-radius: var(--spacing-xl);
   background-color: var(--color-gray);
-  border: 1.5px solid rgba(132, 146, 166, 0.65);
+  border: 1.5px solid rgba(132, 146, 166, 0.5);
   box-sizing: border-box;
   max-width: 100%;
-  background-color: rgb(15, 6, 23, 0.5);
+  background-color: rgb(15, 6, 23, 0.75);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  animation: slideInTop 1s;
 }
 .frameChild {
   width: 464px;
@@ -358,6 +359,18 @@ const model = ref("one");
   line-height: normal;
   letter-spacing: normal;
   z-index: 0;
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  to {
+    opacity: 100;
+    transform: translateY(0%);
+  }
 }
 
 @media (min-width: 1441px) {
