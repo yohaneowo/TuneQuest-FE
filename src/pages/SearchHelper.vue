@@ -1,39 +1,58 @@
 <template>
-  <div class="search-helper">
-    <div class="search-container">
-      <div class="search-block">
-        <div class="text-section">
-          <div class="text-xl">提示詞搜尋</div>
-          <div class="text-sm">輸入＠remix使用RAG功能</div>
+  <div :class="$style.searchHelper">
+    <div :class="$style.ellipseParent">
+      <div :class="$style.frameChild" />
+      <div :class="$style.frameItem" />
+      <div :class="$style.frameInner" />
+    </div>
+    <div :class="$style['search-container']">
+      <div :class="$style['search-block']">
+        <div :class="$style['text-section']">
+          <div :class="$style['text-xl']">提示詞搜尋</div>
+          <div :class="$style['text-sm']">
+            輸入
+            <div :class="$style.textBold">＠remix</div>
+            <div :class="$style['text-sm']">使用RAG功能</div>
+          </div>
         </div>
-        <div class="search-input">
+        <div :class="$style['search-input']">
           <q-input
-            :input-style="{ minHeight: '300px' }"
+            :input-style="{
+              minHeight: '300px',
+              minWidth: '32.5vw',
+              fontSize: '18px',
+            }"
             v-model="searchText"
             type="textarea"
             placeholder="輸入你想要的提示詞"
           />
         </div>
-        <div class="buttons-container">
-          <button class="search-button" @click="clearSearchText">清除</button>
-          <button class="search-button">搜尋</button>
+        <div :class="$style['buttons-container']">
+          <button :class="$style['search-button']" @click="clearSearchText">
+            清除
+          </button>
+          <button :class="$style['search-button']">搜尋</button>
         </div>
       </div>
 
-      <div class="search-block">
-        <div class="text-section">
-          <div class="text-xl">提示詞搜尋結果</div>
-          <div class="text-sm"></div>
+      <div :class="$style['search-block']">
+        <div :class="$style['text-section']">
+          <div :class="$style['text-xl']">提示詞搜尋結果</div>
+          <div :class="$style['text-sm']"></div>
         </div>
-        <div class="search-input">
+        <div :class="$style['search-input']">
           <q-input
-            :input-style="{ minHeight: '300px' }"
+            :input-style="{
+              minHeight: '300px',
+              minWidth: '32.5vw',
+              fontSize: '18px',
+            }"
             v-model="searchResult"
             type="textarea"
             placeholder="您的提示詞建議將顯示在這裡"
           />
         </div>
-        <button class="search-button">使用</button>
+        <button :class="$style['search-button']">使用</button>
       </div>
     </div>
   </div>
@@ -49,8 +68,8 @@ function clearSearchText() {
 }
 </script>
 
-<style>
-.search-helper {
+<style module>
+.searchHelper {
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -65,7 +84,7 @@ function clearSearchText() {
 .search-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .search-block {
@@ -74,10 +93,10 @@ function clearSearchText() {
   align-items: center;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: rgba(17, 37, 65, 0.4);
+  background-color: rgb(15, 6, 23, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  padding: 20px 25px 15px 25px;
+  padding: 20px 25px 20px 25px;
   margin: 0 10px;
 }
 
@@ -90,7 +109,7 @@ function clearSearchText() {
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid #ccc;
   padding: 25px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -114,29 +133,40 @@ function clearSearchText() {
 }
 
 .text-xl {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #dde9fa;
 }
 
+.textBold {
+  font-size: 22px;
+  color: #d9e3f1;
+  font-weight: 600;
+}
+
 .text-sm {
   font-size: 16px;
-  color: #b0c3e0;
+  color: #bdcee7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .buttons-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   gap: 10px;
+  margin: 0 25px;
 }
 
 .search-button {
-  width: 120px;
+  width: stretch;
   height: 50px;
-  border-radius: 32px;
-  background-color: #7486a0;
+  border-radius: 16px;
+  background-color: #869cc0;
   color: #fff;
   font-size: 24px;
   border: none;
@@ -144,14 +174,52 @@ function clearSearchText() {
 }
 
 .search-button:hover {
-  width: 120px;
+  width: stretch;
   height: 50px;
-  border-radius: 32px;
-  background-color: #667b99;
+  border-radius: 16px;
+  background-color: #7990af;
   transition: background-color 0.2s ease; /* Smooth transition */
   color: #fff;
   font-size: 24px;
   border: none;
   cursor: pointer;
+}
+.frameChild {
+  width: 464px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #8593e8;
+  filter: blur(300px);
+  height: 562px;
+  opacity: 0.15;
+}
+.frameItem {
+  width: 467px;
+  position: relative;
+  border-radius: 20%;
+  background-color: #5d6ef3;
+  filter: blur(350px);
+  height: 567px;
+  opacity: 0.15;
+}
+.frameInner {
+  width: 446px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #fc4ff6;
+  filter: blur(300px);
+  height: 546px;
+  opacity: 0.15;
+}
+.ellipseParent {
+  margin: 0 !important;
+  position: absolute;
+  top: 252px;
+  left: calc(50% - 688.5px);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 0;
 }
 </style>

@@ -10,7 +10,6 @@
         <div :class="$style.frameGroup">
           <div :class="$style.searchBarWrapper">
             <div :class="$style.searchBar">
-              <div :class="$style.searchBar1" />
               <q-input
                 :class="$style.customInput"
                 v-model="text"
@@ -19,14 +18,13 @@
               <q-btn-toggle
                 :class="$style.searchToggle"
                 v-model="model"
-                class="searchtoggle"
                 no-caps
                 rounded
                 unelevated
                 toggle-color="primary"
                 color="white"
                 text-color="primary"
-                size="1.375vw"
+                size="lg"
                 :options="[
                   { label: '語意', value: 'one' },
                   { label: '關鍵字', value: 'two' },
@@ -97,25 +95,8 @@ const model = ref("one");
 </script>
 
 <style module>
-.searchBar1 {
-  width: 100%;
-  position: absolute;
-  margin: 0 !important;
-  height: 100%;
-  top: 0%;
-  right: -0.85%;
-  bottom: -7.69%;
-  left: 0%;
-  border-radius: var(--br-21xl);
-  background-color: var(--color-gray);
-  border: 1px solid var(--color-darkslategray-100);
-  box-sizing: border-box;
-  display: none;
-  mix-blend-mode: normal;
-  z-index: 0;
-}
 .customInput {
-  width: 65%;
+  width: stretch;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -127,16 +108,13 @@ const model = ref("one");
   font-size: var(--font-size-18xl);
 }
 .searchToggle {
-  padding: 0 2.5% 0 3%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  max-width: 100%;
+  width: auto;
+  min-width: 175px;
+  align-self: stretch;
   bottom: 5%;
+  margin-right: 1%;
+  position: relative;
   color: white;
-  font-size: var(--font-size-26xl);
 }
 .b {
   width: 47.97%;
@@ -160,38 +138,41 @@ const model = ref("one");
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: var(--padding-mini) 0 var(--padding-mini) var(--padding-31xl-6);
   position: relative;
   max-width: 100%;
 }
 .searchBarWrapper {
   align-self: stretch;
-  height: 72px;
+  height: 76px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: stretch;
+  justify-content: space-between;
   padding: 0px 0px 0px var(--padding-10xs);
   box-sizing: border-box;
   max-width: 100%;
 }
 .resultBlock {
   align-self: stretch;
-  padding-top: 1%;
+  padding: 10px 48px 10px 48px;
   height: 386px;
   position: relative;
   border-radius: var(--br-21xl);
-  background-color: rgb(15, 6, 23, 0.5);
+  background-color: rgb(15, 6, 23, 0.65);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1.5px solid rgba(132, 146, 166, 0.6);
   box-sizing: border-box;
   mix-blend-mode: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: calc((386px-20px-42px * 5) / 4);
 }
 .textSection {
-  margin-left: 40px;
-  padding: 8px;
   color: #d3dceb;
   font-family: "Open Sans";
   font-size: 42px;
@@ -199,8 +180,6 @@ const model = ref("one");
   font-weight: 700;
 }
 .textSection:hover {
-  margin-left: 40px;
-  padding: 8px;
   color: white;
   font-family: "Open Sans";
   font-size: 43px;
@@ -299,7 +278,7 @@ const model = ref("one");
   position: relative;
   border-radius: var(--spacing-xl);
   background-color: var(--color-gray);
-  border: 1.5px solid rgba(132, 146, 166, 0.6);
+  border: 1.5px solid rgba(132, 146, 166, 0.65);
   box-sizing: border-box;
   max-width: 100%;
   background-color: rgb(15, 6, 23, 0.5);
@@ -353,7 +332,6 @@ const model = ref("one");
   background-position: center;
   overflow: hidden;
   z-index: 1;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -382,6 +360,39 @@ const model = ref("one");
   z-index: 0;
 }
 
+@media (min-width: 1441px) {
+  .promptBlock {
+    width: 80vw; /* adjust width for large screens */
+    height: 10vh; /* adjust height for large screens */
+  }
+
+  .frameParent {
+    width: 80vw; /* adjust width for large screens */
+  }
+
+  .musicCover {
+    width: 50vh; /* adjust width for large screens */
+    height: 50vh; /* adjust height for large screens */
+  }
+
+  .resultBlock {
+    height: calc(50vh - 91px); /* adjust height for large screens */
+    gap: calc(({height}- (calc(50vh / 10)) * 5) / 5);
+    padding: calc(({height}- (calc(50vh / 10)) * 5) / 5) 48px; /* adjust padding for large screens */
+  }
+
+  .textSection {
+    font-size: calc(50vh / 10); /* adjust font size for large screens */
+  }
+
+  .textSection:hover {
+    font-size: calc(50vh / 10); /* adjust font size for large screens */
+  }
+
+  .descriptionText {
+    font-size: calc(10vh / 3); /* adjust font size for large screens */
+  }
+}
 @media screen and (max-width: 1025px) {
   .musicCover {
     flex: 1;
