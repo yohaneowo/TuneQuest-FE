@@ -36,6 +36,7 @@ const genres = ref([
   "Pop",
   "Reggae",
   "Rock",
+  "Other",
 ]);
 
 const selectedGenre = ref("");
