@@ -51,7 +51,7 @@ onMounted(() => {
     barGap: 3,
     barHeight: 0.75,
   });
-  wavesurfer.load("src/assets/fairy-tale-music.mp3");
+  wavesurfer.load("src/assets/cello.wav");
 });
 
 const togglePlayPause = () => {

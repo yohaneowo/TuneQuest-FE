@@ -85,6 +85,7 @@ const removeFile = () => {
   max-height: 100px; /* 最大高度 */
   width: auto; /* 自動調整寬度 */
   height: auto; /* 自動調整高度 */
+  cursor: pointer;
 }
 
 input[type="file"] {

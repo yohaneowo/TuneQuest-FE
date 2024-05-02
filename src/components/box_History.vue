@@ -36,10 +36,32 @@ const historyItems = ref([
   {
     id: 1,
     coverImage: "https://via.placeholder.com/150",
-    title: "Title title",
+    title: "Rock Revolutioin",
     prompt:
-      "Prompt prompt prompt prompt prompt prompt prompt prompt prompt prompt prompt",
-    duration: 185,
+      "Energetic rock song with strong guitar riffs and enthusiastic choruses",
+    duration: 30,
+  },
+  {
+    id: 2,
+    coverImage: "https://via.placeholder.com/150",
+    title: "A cool music I just created",
+    prompt: "drum and bass",
+    duration: 35,
+  },
+  {
+    id: 3,
+    coverImage: "https://via.placeholder.com/150",
+    title: "Metal Fury",
+    prompt: "Heavy metal music with fast guitar riffs and powerful druming",
+    duration: 30,
+  },
+  {
+    id: 4,
+    coverImage: "https://via.placeholder.com/150",
+    title: "Thunderous Metal Charge",
+    prompt:
+      "An aggressive metal track with thundering drums and shredding guitar",
+    duration: 28,
   },
   // Add more sample data as needed
 ]);
@@ -73,13 +95,19 @@ const playItem = (itemId) => {
   //max-width: 150px; // 最大寬度
   height: auto; // 高度自適應內容
   background: transparent;
-
   padding: 8px;
+  margin-bottom: 0;
+  gap: 0;
 }
+
 .play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.q-mb-sm {
+  margin-bottom: 0px;
 }
 </style>

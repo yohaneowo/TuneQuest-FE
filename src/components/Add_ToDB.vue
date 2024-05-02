@@ -1,6 +1,10 @@
 <template>
   <div class="wrap_add">
-    <label for="file-upload" class="file-upload">
+    <label
+      for="file-upload-DB"
+      class="file-upload-DB"
+      @click="showUploadSuccess"
+    >
       <img
         ref="all-upload-icon"
         src="/src/assets/upload.png"
@@ -9,10 +13,23 @@
         @click="uploadToDB"
         v-if="!showAudio"
       /> </label
-    ><label> 點擊上傳至資料庫 </label>
+    ><label v-if="!showSuccessMessage"> 點擊上傳至資料庫 </label>
+    <div v-if="showSuccessMessage" class="success-message">上傳成功</div>
   </div>
 </template>
 <script setup>
+import { ref } from "vue";
+
+const showSuccessMessage = ref(false);
+
+const showUploadSuccess = () => {
+  console.log("上傳成功");
+  showSuccessMessage.value = true;
+  setTimeout(() => {
+    showSuccessMessage.value = false;
+  }, 3000);
+};
+
 /*
 import { defineProps, defineEmits } from "vue";
 
@@ -40,14 +57,16 @@ const uploadToDB = () => {
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
-.file-upload {
+.file-upload-DB {
   z-index: 1; /* 确保 file-upload 在顶部 */
   //opacity: 0; /* 隐藏 file-upload 的内容 */
   display: flex;
   justify-content: center;
   height: 50%;
   width: 100%;
+  cursor: pointer;
 }
 .all_upload_icon {
   //transform: scale(0.7);

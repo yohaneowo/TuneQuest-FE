@@ -3,8 +3,6 @@
     <box_Profile></box_Profile>
     <div class="history">
       <box_History></box_History>
-      <box_History></box_History>
-      <box_History></box_History>
     </div>
     <div class="cover"><box_Cover></box_Cover></div>
     <div class="uploadMusic">

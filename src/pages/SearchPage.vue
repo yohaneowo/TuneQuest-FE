@@ -44,7 +44,7 @@
           <q-uploader
             :class="$style.uploadBotton"
             align="center"
-            style="max-width: 300px"
+            style="max-width: 300px; border-radius: 15px"
             url="http://localhost:4444/upload"
             label="Restricted to Audio"
             dark
@@ -253,6 +253,10 @@ const model = ref("one");
   margin: 20% 20%;
   gap: var(--gap-mini);
   max-width: 100%;
+  border-radius: 15%;
+}
+.q-uploader__header {
+  border-radius: 15px 15px 0 0;
 }
 .audioPlayer {
   width: 98%;

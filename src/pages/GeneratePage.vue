@@ -3,7 +3,7 @@
   <q-page class="generate-page q-pa-md">
     <box_Profile></box_Profile>
     <q-card class="history">
-      <box_History /><box_History /><box_History />
+      <box_History />
     </q-card>
     <div class="cover"><box_Cover></box_Cover></div>
     <box_PromptGen></box_PromptGen>

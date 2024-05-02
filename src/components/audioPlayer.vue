@@ -31,6 +31,9 @@ onMounted(() => {
     progressColor: "#8492A6",
     height: 70,
     barWidth: 2,
+    barRadius: 5,
+    barGap: 3,
+    responsive: true,
   });
   waveSurfer.load("src/assets/testAudio.mp3"); // Replace with your audio file path
   waveSurfer.on("play", () => {
