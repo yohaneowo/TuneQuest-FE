@@ -15,17 +15,20 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { watch } from "vue";
 import WaveSurfer from "wavesurfer.js";
-import { QBtn } from "quasar";
 
+import { ref, onMounted, onBeforeMount } from "vue";
+import { QBtn } from "quasar";
+import axios from "axios";
+import { useMusicGenStore } from "../store/musicGenStore";
+const store = useMusicGenStore();
 const waveform = ref(null);
 const isPlaying = ref(false);
-
-let waveSurfer = null;
+let wavesurfer;
 
 onMounted(() => {
-  waveSurfer = WaveSurfer.create({
+  wavesurfer = WaveSurfer.create({
     container: waveform.value,
     waveColor: "#A9B3C1",
     progressColor: "#8492A6",
@@ -35,20 +38,38 @@ onMounted(() => {
     barGap: 3,
     responsive: true,
   });
-  waveSurfer.load("src/assets/testAudio.mp3"); // Replace with your audio file path
-  waveSurfer.on("play", () => {
+  wavesurfer.load("src/assets/testAudio.mp3"); // Replace with your audio file path
+  wavesurfer.on("play", () => {
     isPlaying.value = true;
   });
-  waveSurfer.on("pause", () => {
+  wavesurfer.on("pause", () => {
     isPlaying.value = false;
   });
-  waveSurfer.on("finish", () => {
+  wavesurfer.on("finish", () => {
     isPlaying.value = false;
   });
+
+  watch(
+    () => store.latest_audiofile_name,
+    (newVal, oldVal) => {
+      const music_server_url = `http://127.0.0.1:9988/musicgen_generate_music/music_storage/${newVal}`;
+      console.log(music_server_url);
+      console.log("changed");
+      console.log(newVal);
+      console.log(oldVal);
+      if (newVal) {
+        wavesurfer.load(music_server_url);
+      }
+      if (newVal === "classical.00000.wav") {
+        wavesurfer.load("src/assets/classical.00000.wav");
+      }
+    },
+    { deep: true }
+  );
 });
 
 function playPause() {
-  waveSurfer.playPause();
+  wavesurfer.playPause();
 }
 </script>
 

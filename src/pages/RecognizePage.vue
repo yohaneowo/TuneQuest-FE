@@ -35,6 +35,12 @@ import Recognize_Title from "src/components/Recognize_Title.vue";
 import Recognize_Description from "src/components/Recognize_Description.vue";
 import Genre_new from "src/components/Genre_new.vue";
 import Add_ToDB from "src/components/Add_ToDB.vue";
+import axios from "axios";
+import { useMusicGenStore } from "../store/musicGenStore";
+import { watch } from "vue";
+
+const store = useMusicGenStore();
+
 //import Recognize_Genre from "src/components/Recognize_Genre.vue";
 /*
 const handleUploadSuccess = (file) => {
@@ -108,9 +114,9 @@ const handleUploadToDB = () => {
       transparent 0.0001px
     ),
     rgba(110, 110, 110, 0.45);
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  // display: grid;
+  // align-items: center;
+  // justify-content: center;
   grid-column: 3/8;
   grid-row: 6/12;
   border-radius: 15px;

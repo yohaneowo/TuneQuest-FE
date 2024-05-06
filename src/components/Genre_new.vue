@@ -24,7 +24,8 @@
 
 <script setup>
 import { ref } from "vue";
-
+import { useMusicGenStore } from "../store/musicGenStore";
+const store = useMusicGenStore();
 const genres = ref([
   "Blues",
   "Classical",
@@ -36,17 +37,18 @@ const genres = ref([
   "Pop",
   "Reggae",
   "Rock",
-  "Other",
+
 ]);
 
 const selectedGenre = ref("");
 
 const isActiveGenre = (genre) => {
-  return genre === selectedGenre.value;
+  return genre === store.user_selected_genre;
 };
 
 const selectGenre = (genre) => {
-  selectedGenre.value = genre;
+  // selectedGenre.value = genre;
+  store.update_user_selected_genre(genre);
 };
 
 const thumbStyle = {

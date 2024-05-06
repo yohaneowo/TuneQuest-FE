@@ -414,6 +414,9 @@ q-icon {
   }
 }
 
+.searchWrapper:hover {
+  cursor: pointer; /* 悬停时将光标设置为指针 */
+}
 :root {
   /* fonts */
   --font-space-grotesk: "Space Grotesk";

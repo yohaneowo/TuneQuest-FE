@@ -14,6 +14,7 @@
                 :class="$style.customInput"
                 v-model="text"
                 :dense="dense"
+                @keyup.enter="handleEnter"
               />
               <q-btn-toggle
                 :class="$style.searchToggle"
@@ -33,36 +34,74 @@
             </div>
           </div>
           <div :class="$style.resultBlock">
-            <div :class="$style.textSection">Result 1...</div>
-            <div :class="$style.textSection">Result 2...</div>
-            <div :class="$style.textSection">Result 3...</div>
-            <div :class="$style.textSection">Result 4...</div>
-            <div :class="$style.textSection">Result 5...</div>
+            <div
+              v-for="(result, index) in store.searchResults.slice(0, 5)"
+              :key="index"
+              :class="$style.textSection"
+            >
+              <div @click="handleResultClick(result)">
+                {{ result.name }}
+              </div>
+            </div>
+
+            <div :class="$style.textSection" v-if="store.showDummy">
+              Result 1...
+            </div>
+            <div :class="$style.textSection" v-if="store.showDummy">
+              Result 2...
+            </div>
+            <div :class="$style.textSection" v-if="store.showDummy">
+              Result 3...
+            </div>
+            <div :class="$style.textSection" v-if="store.showDummy">
+              Result 4...
+            </div>
+            <div :class="$style.textSection" v-if="store.showDummy">
+              Result 5...
+            </div>
           </div>
         </div>
         <div :class="$style.musicCover" id="musicCover">
-          <q-uploader
+          <div
+            style="
+              background-color: rgba(0, 0, 0, 0.5);
+              height: 100%;
+              width: 100%;
+              justify-content: center;
+              border-radius: 45px;
+            "
+          >
+            <div
+              class="upload-bg"
+              style="background-color: rgba(0, 0, 0, 0.5); border-radius: 45px"
+            >
+              <UploadMusic @upload-success="handleUploadSuccess" />
+            </div>
+            <!-- <q-uploader
             :class="$style.uploadBotton"
             align="center"
             style="max-width: 300px; border-radius: 15px"
-            url="http://localhost:4444/upload"
+            url="http://127.0.0.1:9988/musicgen_generate_music/music_storage/upload/"
             label="Restricted to Audio"
             dark
             accept=".wav, audio/*"
             @rejected="onRejected"
-          />
-          <audioPlayer :class="$style.audioPlayer" />
+            @uploaded="handleAudioSearch"
+          /> -->
+            <audioPlayer :class="$style.audioPlayer" />
+          </div>
         </div>
       </section>
       <section :class="$style.promptBlock">
         <div :class="$style.promptBlockContainer">
-          <div :class="$style.descriptionText">Description...</div>
+          <div :class="$style.descriptionText">{{ desc }}</div>
           <q-btn
             unelevated
             rounded
             dense
             label="使用"
             :class="$style.promptButton"
+            @click="goGenerate(store.prompt)"
           />
         </div>
       </section>
@@ -74,10 +113,19 @@
 defineOptions({
   name: "SearchPage",
 });
+import UploadMusic from "src/components/UploadMusic.vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
+import axios from "axios";
+import { useMusicGenStore } from "../store/musicGenStore";
+const store = useMusicGenStore();
+const desc = ref("Prompt ..........");
+import { watch, onMounted } from "vue";
 import { defineAsyncComponent, ref } from "vue";
 import audioPlayer from "src/components/audioPlayer.vue";
 
+// const searchResults = ref([]);
 // Using defineAsyncComponent to handle the dynamic import
 const MusicPlayer = defineAsyncComponent(() =>
   import("components/audioPlayer").catch((error) => {
@@ -86,12 +134,112 @@ const MusicPlayer = defineAsyncComponent(() =>
   })
 );
 
-const isMusicPlayerLoaded = ref(false);
+onMounted(() => {
+  console.log("mounted");
+  watch(store.latest_audiofile_name == "classical.00000.wav", (newVal) => {
+    if (newVal) {
+      console.log(newVal);
+    }
+    console.log("handleAudioSearch");
+    store.update_showDummy(false);
+    store.searchResults = dummyAudioSearchResult;
+    showReal.value = true;
+    console.log("showReal:", showReal.value);
+  });
+});
 
 const text = ref("");
 const ph = ref("");
 const dense = ref(false);
 const model = ref("one");
+
+// watch(model, (newVal) => {
+//   if (newVal) {
+//     console.log(newVal);
+//   }
+// });
+
+// watch(text, (newVal) => {
+//   if (newVal) {
+//     console.log(newVal);
+//   }
+// });
+
+const handleEnter = () => {
+  console.log("Enter pressed");
+
+  if (model.value === "one") {
+    searchItemsBySemestic();
+
+    store.update_showDummy(false);
+    console.log("showReal:", showReal.value);
+  } else {
+    searchItemsByPrompt();
+
+    store.update_showDummy(false);
+    console.log("showReal:", showReal.value);
+  }
+  searchItemsBySemestic();
+};
+
+const searchItemsBySemestic = async () => {
+  console.log("searchItemsBySemestic");
+  try {
+    // 发起 API 请求
+    const response = await axios.get(
+      `http://127.0.0.1:9988/sematic_search/items/${text.value}`,
+      {
+        params: {
+          limit: 10,
+        },
+      }
+    );
+
+    // 处理成功的响应
+    store.searchResults = response.data;
+    console.log(store.searchResults);
+  } catch (error) {
+    // 处理错误
+    console.error("Error searching items:", error);
+  }
+};
+
+const searchItemsByPrompt = async () => {
+  console.log("searchItemsByPrompt");
+  try {
+    // 发起 API 请求
+    const response = await axios.get(
+      `http://127.0.0.1:9988//sematic_search/items/prompt/semantic/${text.value}`,
+      {
+        params: {
+          limit: 10,
+        },
+      }
+    );
+
+    // 处理成功的响应
+    store.searchResults = response.data;
+    console.log(store.searchResults);
+  } catch (error) {
+    // 处理错误
+    console.error("Error searching items:", error);
+  }
+};
+
+const handleResultClick = (result) => {
+  console.log("Result clicked:", result);
+  desc.value = result.prompt;
+  console.log(result.file_name);
+  store.update_prompt(result.prompt);
+  store.update_latest_audiofile_name(result.file_name);
+};
+
+const goGenerate = (prompt_value) => {
+  store.update_searchHelper_submitPrompt(prompt_value);
+  console.log("goGenerate");
+  console.log(prompt_value);
+  router.push({ path: "/generate", state: { prompt_value: prompt_value } });
+};
 </script>
 
 <style module>
@@ -563,5 +711,14 @@ const model = ref("one");
   --br-7xs: 6px;
   --br-sm: 14px;
   --br-xl: 20px;
+}
+
+.upload-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  max-width: 100%;
+  max-height: 100%;
 }
 </style>

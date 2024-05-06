@@ -28,24 +28,27 @@
         />
       </div>
     </div>
-    <div class="progressline">
+    <!-- <div class="progressline">
       <q-linear-progress
         rounded
         :value="progress"
         :buffer="buffer"
         class="q-mt-md"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import WaveSurfer from "wavesurfer.js";
+import { watch } from "vue";
+import { useMusicGenStore } from "../store/musicGenStore";
+const store = useMusicGenStore();
 
 const isGenerating = ref(false);
 const progress = ref(0.01);
 const buffer = ref(0.01);
-
+const isPlaying = ref(false);
 let interval, bufferInterval;
 let wavesurfer;
 
@@ -89,6 +92,9 @@ onMounted(() => {
     barHeight: 0.75,
   });
   wavesurfer.load("src/assets/fairy-tale-music.mp3");
+  wavesurfer.on("finish", () => {
+    isPlaying.value = false;
+  });
 });
 
 const submitPrompt = () => {
@@ -113,18 +119,29 @@ const submitPrompt = () => {
 
 const togglePlayPause = () => {
   wavesurfer.playPause();
+  isPlaying.value = !isPlaying.value;
   togglePlayPauseIcon();
 };
 
-const togglePlayPauseIcon = () => {
-  playBtn.value.src = playBtn.value.src.includes("play")
-    ? "src/assets/pause.png"
-    : "src/assets/play.png";
-};
+// const togglePlayPauseIcon = () => {
+//   playBtn.value.src = playBtn.value.src.includes("play")
+//     ? "src/assets/pause.png"
+//     : "src/assets/play.png";
+// };
+watch(
+  () => isPlaying.value,
+  (newVal, oldVal) => {
+    console.log(newVal);
 
+    playBtn.value.src = isPlaying.value
+      ? "src/assets/pause.png"
+      : "src/assets/play.png";
+  },
+  { deep: true }
+);
 const stopPlayback = () => {
   wavesurfer.stop();
-  playBtn.value.src = "src/assets/play.png";
+  // playBtn.value.src = "src/assets/play.png";
 };
 
 const toggleMute = () => {
@@ -137,6 +154,36 @@ const toggleVolumeIcon = () => {
     ? "src/assets/mute.png"
     : "src/assets/volume.png";
 };
+watch(
+  () => store.latest_audiofile_name,
+  (newVal, oldVal) => {
+    const music_server_url = `http://127.0.0.1:9988/musicgen_generate_music/music_storage/${newVal}`;
+    console.log(music_server_url);
+    console.log("changed");
+    console.log(newVal);
+    console.log(oldVal);
+    if (newVal) {
+      wavesurfer.load(music_server_url);
+    }
+  },
+  { deep: true }
+);
+
+watch(
+  () => store.play_button_activated,
+  (file_name, oldVal) => {
+    console.log("play_button_activated", file_name, oldVal);
+    if (file_name) {
+      const music_server_url = `http://127.0.0.1:9988/musicgen_generate_music/music_storage/${file_name}`;
+      console.log(music_server_url);
+      wavesurfer.load(music_server_url).then(() => {
+        isPlaying.value = true;
+        wavesurfer.playPause();
+      });
+    }
+  },
+  { deep: true }
+);
 
 //defineExpose({ startGeneration });
 </script>

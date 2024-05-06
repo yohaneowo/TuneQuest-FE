@@ -44,9 +44,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-
+import { ref, computed, onMounted } from "vue";
+const route = useRoute();
+import { useRoute } from "vue-router";
+import axios from "axios";
+import { useMusicGenStore } from "../store/musicGenStore";
+const store = useMusicGenStore();
+import { watch } from "vue";
 const prompt = ref("");
+onMounted(() => {
+  prompt.value = store.searchHelper_submitPrompt;
+  store.update_searchHelper_submitPrompt("");
+});
+watch(prompt, (newVal) => {
+  store.update_prompt(newVal);
+});
 const tags = [
   "Mystical meditation",
   "cartoon ",
@@ -109,11 +121,41 @@ const shuffleArray = (array) => {
 };
 
 const outputComponent = ref(null); // 引用 output 組件的實例
-const submitPrompt = () => {
+const submitPrompt = async () => {
   // Handle submit logic here
   console.log("Submitted prompt:", prompt.value);
   // 觸發 output 組件的 startGeneration 函數
-  outputComponent.value.startGeneration();
+  try {
+    const musicgenApi_url =
+      "http://127.0.0.1:9988/musicgen_generate_music/musicgen";
+
+    const params = {
+      prompt: store.prompt,
+      duration: store.duration,
+    };
+    console.log("param:", params);
+    const response = await axios.post(musicgenApi_url, null, {
+      params: params,
+    });
+    console.log("音乐生成成功:", response.data);
+    store.update_latest_generated_music_path(response.data.audiofile_path);
+    store
+      .update_latest_audiofile_name(response.data.audiofile_name)
+      .then(store.fetchCollectionData());
+    const latest_generated_music_path = store.get_latest_generated_music_path();
+
+    console.log("latest_generated_music_path:", latest_generated_music_path);
+    // 如果你想在成功后做一些界面上的更新，可以在这里处理
+    // 如果有 output 组件需要更新，可以调用相关方法
+
+    if (outputComponent.value) {
+      outputComponent.value.startGeneration(response.data);
+    }
+  } catch (error) {
+    // 请求失败时在控制台打印错误信息
+    console.error("生成音乐请求失败:", error);
+  }
+  // outputComponent.value.startGeneration();
 };
 </script>
 

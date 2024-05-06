@@ -2,6 +2,7 @@
   <!--<q-page-container>-->
   <q-page class="generate-page q-pa-md">
     <box_Profile></box_Profile>
+
     <q-card class="history">
       <box_History />
     </q-card>
@@ -84,9 +85,9 @@ defineOptions({
     rgba(110, 110, 110, 0.45);
   border: 0.75px solid rgba(175, 175, 175, 0.6);
   box-shadow: inset 0px 0px 50px 0px rgba(90, 90, 90, 0.3);
-  display: grid;
-  align-items: center;
-  justify-content: center;
+
+  // align-items: center;
+  // justify-content: center;
   grid-column: 3/8;
   grid-row: 6/12;
   border-radius: 15px;

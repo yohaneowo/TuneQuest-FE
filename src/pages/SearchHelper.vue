@@ -8,11 +8,13 @@
     <div :class="$style['search-container']">
       <div :class="$style['search-block']">
         <div :class="$style['text-section']">
-          <div :class="$style['text-xl']">提示詞搜尋</div>
+          <div :class="$style['text-xl']">提詞建議</div>
           <div :class="$style['text-sm']">
             輸入
             <div :class="$style.textBold">＠remix</div>
-            <div :class="$style['text-sm']">使用RAG功能</div>
+            <div :class="$style['text-sm']">
+              (輸入＠Remix，從生成歷史提供建議)
+            </div>
           </div>
         </div>
         <div :class="$style['search-input']">
@@ -24,20 +26,25 @@
             }"
             v-model="searchText"
             type="textarea"
-            placeholder="輸入你想要的提示詞"
+            placeholder="輸入一些想法，由LLM來為您產生提詞建議"
           />
         </div>
         <div :class="$style['buttons-container']">
           <button :class="$style['search-button']" @click="clearSearchText">
             清除
           </button>
-          <button :class="$style['search-button']">搜尋</button>
+          <button
+            :class="$style['search-button']"
+            @click="getPromptSuggestions"
+          >
+            提交
+          </button>
         </div>
       </div>
 
       <div :class="$style['search-block']">
         <div :class="$style['text-section']">
-          <div :class="$style['text-xl']">提示詞搜尋結果</div>
+          <div :class="$style['text-xl']">回覆結果</div>
           <div :class="$style['text-sm']"></div>
         </div>
         <div :class="$style['search-input']">
@@ -52,7 +59,12 @@
             placeholder="您的提示詞建議將顯示在這裡"
           />
         </div>
-        <button :class="$style['search-button']">使用</button>
+        <button
+          :class="$style['search-button']"
+          @click="goGenerate(searchResult)"
+        >
+          使用提示词去生成
+        </button>
       </div>
     </div>
   </div>
@@ -60,12 +72,50 @@
 
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
+import { useMusicGenStore } from "../store/musicGenStore";
+import { watch } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const store = useMusicGenStore();
 const searchText = ref("");
 const searchResult = ref("");
-
+const getPromptSuggestions = async () => {
+  try {
+    if (searchText.value.includes("@remix")) {
+      const response = await axios.post(
+        "http://127.0.0.1:9988/prompt_assistant/remix/",
+        {
+          question: searchText.value, // 不要去除'@remix'
+        }
+      );
+      console.log("result:", response.data);
+      searchResult.value = response.data.full_response;
+    } else {
+      const response = await axios.post(
+        "http://127.0.0.1:9988/prompt_assistant/suggest/",
+        {
+          question: searchText.value,
+        }
+      );
+      console.log("result:", response.data);
+      searchResult.value = response.data.full_response;
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+};
 function clearSearchText() {
   searchText.value = "";
 }
+
+const goGenerate = (prompt_value) => {
+  store.update_searchHelper_submitPrompt(prompt_value);
+  console.log("goGenerate");
+  console.log(prompt_value);
+  router.push({ path: "/generate", state: { prompt_value: prompt_value } });
+};
 </script>
 
 <style module>

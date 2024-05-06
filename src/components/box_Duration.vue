@@ -3,7 +3,7 @@
     <div class="lay">
       <p>設定生成歌曲長度</p>
       <div class="timer">
-        <q-input
+        <!-- <q-input
           ref="mm"
           v-model="minutes"
           type="number"
@@ -13,15 +13,15 @@
           :max="4"
           :min="0"
           class="q-mr-sm"
-        />
+        /> -->
         <q-input
           v-model="seconds"
           type="number"
           filled
           dense
           label="ss"
-          :max="59"
-          :min="0"
+          :max="30"
+          :min="1"
           class="q-mr-sm"
         />
       </div>
@@ -39,10 +39,15 @@
 
 <script setup>
 import { ref } from "vue";
+import { useMusicGenStore } from "../store/musicGenStore";
+import { watch } from "vue";
+const store = useMusicGenStore();
 
 const minutes = ref(0);
 const seconds = ref(15);
-
+watch(seconds, (newVal) => {
+  store.update_duration(newVal);
+});
 const resetTimer = () => {
   minutes.value = 0;
   seconds.value = 15;

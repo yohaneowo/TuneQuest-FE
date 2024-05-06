@@ -16,8 +16,15 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useMusicGenStore } from "../store/musicGenStore";
+import { watch } from "vue";
 
+const store = useMusicGenStore();
 const text = ref("");
+
+watch(text, (newVal) => {
+  store.update_user_uploaded_music_title(newVal);
+});
 </script>
 <style lang="scss">
 .input {

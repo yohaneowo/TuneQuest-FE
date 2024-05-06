@@ -19,9 +19,16 @@
 
 <script setup>
 import { ref } from "vue";
+import { useMusicGenStore } from "../store/musicGenStore";
+import { watch } from "vue";
 
+const store = useMusicGenStore();
 const prompt = ref("");
 const textareaShadowText = ref("");
+
+watch(prompt, (newVal) => {
+  store.update_user_uploaded_music_prompt(newVal);
+});
 </script>
 <style lang="scss">
 .input {
